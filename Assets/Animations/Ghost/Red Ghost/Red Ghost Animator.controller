@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DownEyeMovement
+  m_Name: Eye-Down
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -59,7 +59,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TransitionDownMovement
+  m_Name: White-Down
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -72,7 +72,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8ca34b3c8cc884821a37a57f8b03cd38, type: 2}
+  m_Motion: {fileID: 7400000, guid: fbf474f970a98420db9aca6e2a2a8469, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -111,7 +111,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TransitionLeftMovement
+  m_Name: White-Left
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -124,7 +124,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: bc9de7675c373425981cbc0d79cace3e, type: 2}
+  m_Motion: {fileID: 7400000, guid: bb33147eb40254d4cbc9addb71b991fc, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -137,7 +137,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TransitionRightMovement
+  m_Name: White-Right
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -150,7 +150,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 16fe7335aeed14cbe8785d6bbb184dc0, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1387960a287384e418b071ad894f101c, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -237,7 +237,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightEyeMovement
+  m_Name: Eye-Right
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -315,7 +315,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftEyeMovement
+  m_Name: Eye-Left
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -426,7 +426,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 70, y: 120, z: 0}
   m_ExitPosition: {x: 70, y: 200, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: -2114562017138367025}
+  m_DefaultState: {fileID: 3227379167306656669}
 --- !u!1102 &5072289777924993908
 AnimatorState:
   serializedVersion: 5
@@ -434,7 +434,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UpEyeMovement
+  m_Name: Eye-Up
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -460,7 +460,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TransitionUpMovement
+  m_Name: White-Up
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -473,7 +473,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5684e80652ec04865a9d79f9b81b824e, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6fb3aef9b23cf4e4da951cf2c526e60b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
