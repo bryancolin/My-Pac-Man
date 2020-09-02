@@ -26,6 +26,7 @@ public class LevelGenerator : MonoBehaviour
 
     private void LeftQuadrant()
     {
+        Line7();
         Line8();
         Line9();
         Line10();
@@ -34,6 +35,29 @@ public class LevelGenerator : MonoBehaviour
         Line13();
         Line14();
         Line15();
+    }
+
+    private void Line7()
+    {
+        levelMap[0, 6] = Instantiate(gameObjects[2], new Vector3(-13.5f, 9.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 90.0f));
+        levelMap[1, 6] = Instantiate(gameObjects[5], new Vector3(-13.0f, 9.0f, 0.0f), Quaternion.identity);
+
+        levelMap[2, 6] = Instantiate(gameObjects[3], new Vector3(-11.5f, 8.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+        levelMap[3, 6] = Instantiate(gameObjects[4], new Vector3(-11f, 8.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+        levelMap[4, 6] = Instantiate(gameObjects[4], new Vector3(-10f, 8.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+        levelMap[5, 6] = Instantiate(gameObjects[3], new Vector3(-9.5f, 8.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 270.0f));
+
+        levelMap[6, 6] = Instantiate(gameObjects[5], new Vector3(-8.0f, 9.0f, 0.0f), Quaternion.identity);
+
+        levelMap[7, 6] = Instantiate(gameObjects[3], new Vector3(-6.5f, 8.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+        levelMap[8, 6] = Instantiate(gameObjects[3], new Vector3(-6.5f, 8.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 270.0f));
+
+        levelMap[9, 6] = Instantiate(gameObjects[5], new Vector3(-5.0f, 9.0f, 0.0f), Quaternion.identity);
+
+        levelMap[10, 6] = Instantiate(gameObjects[3], new Vector3(-3.5f, 8.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+        levelMap[11, 6] = Instantiate(gameObjects[4], new Vector3(-3.0f, 8.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+        levelMap[12, 6] = Instantiate(gameObjects[4], new Vector3(-2.0f, 8.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+        levelMap[13, 6] = Instantiate(gameObjects[4], new Vector3(-1.0f, 8.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 0.0f));
     }
 
     private void Line8()
