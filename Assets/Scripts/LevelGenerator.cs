@@ -8,22 +8,22 @@ public class LevelGenerator : MonoBehaviour
     private GameObject[] gameObjects;
     private GameObject[,] levelMap = new GameObject[14, 15];
     private GameObject[,] flipVertical;
-    public GameObject cube1;
+    private int rows, columns;
 
     private void Awake()
     {
+        rows = levelMap.GetLength(0);
+        columns = levelMap.GetLength(1);
+
         Quadrant2();
         Quadrant1();
+        Quadrant3();
+        Quadrant4();
     }
     // Start is called before the first frame update
     void Start()
     {
-        cube1 = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        cube1.transform.position = new Vector3(0.75f, 0.0f, 0.0f);
-        cube1.transform.Rotate(90.0f, 0.0f, 0.0f, Space.Self);
-        cube1.GetComponent<Renderer>().material.color = Color.red;
-        cube1.name = "Self";
-
+        
     }
 
     // Update is called once per frame
@@ -34,28 +34,41 @@ public class LevelGenerator : MonoBehaviour
 
     private void Quadrant1()
     {
-        int rows = levelMap.GetLength(0);
-        int columns = levelMap.GetLength(1);
+        for(int i=0; i<rows; i++)
+        {
+            for(int j=0; j<columns; j++)
+            {
+                if(levelMap[i, j] != null)
+                {
+                    GameObject.Instantiate(levelMap[i, j], new Vector3(-levelMap[i, j].transform.position.x, levelMap[i, j].transform.position.y, 0), Quaternion.Euler(levelMap[i, j].transform.rotation.x, 180.0f, levelMap[i, j].transform.rotation.eulerAngles.z));
+                }
+            }
+        }
+    }
 
-        //flipVertical = new GameObject[rows, columns];
-
-        //for (int i = 0; i < rows; i++)
-        //{
-        //    for (int j = 0; j < columns - 1; j++)
-        //    {
-        //        flipVertical[i, j] = levelMap[(rows - 1) - i, j];
-        //        Instantiate(flipVertical[i, j], levelMap[i, j].transform.position, Quaternion.Euler(0.0f, 0.0f, 90.0f));
-        //    }
-        //}
-
+    private void Quadrant3()
+    {
         for (int i=0; i<rows; i++)
         {
             for(int j=0; j<columns; j++)
             {
                 if (levelMap[i, j] != null)
                 {
-                    GameObject.Instantiate(levelMap[i, j], levelMap[i, j].transform.position, levelMap[i, j].transform.rotation);
-                    Debug.Log(i + " " + j);
+                    GameObject.Instantiate(levelMap[i, j], new Vector3(levelMap[i, j].transform.position.x, -levelMap[i, j].transform.position.y, 0), Quaternion.Euler(180.0f, levelMap[i, j].transform.rotation.y, levelMap[i, j].transform.rotation.eulerAngles.z));
+                }
+            }
+        }
+    }
+
+    private void Quadrant4()
+    {
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+                if (levelMap[i, j] != null)
+                {
+                    GameObject.Instantiate(levelMap[i, j], new Vector3(-levelMap[i, j].transform.position.x, -levelMap[i, j].transform.position.y, 0), Quaternion.Euler(180.0f, 180.0f, levelMap[i, j].transform.rotation.eulerAngles.z));
                 }
             }
         }
