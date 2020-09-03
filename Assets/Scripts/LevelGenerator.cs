@@ -26,6 +26,12 @@ public class LevelGenerator : MonoBehaviour
 
     private void LeftQuadrant()
     {
+        Line1();
+        Line2();
+        Line3();
+        Line4();
+        Line5();
+        Line6();
         Line7();
         Line8();
         Line9();
@@ -35,6 +41,99 @@ public class LevelGenerator : MonoBehaviour
         Line13();
         Line14();
         Line15();
+    }
+
+    private void Line1()
+    {
+        levelMap[0, 0] = Instantiate(gameObjects[1], new Vector3(-13.5f, 14.5f, 0.0f), Quaternion.identity);
+
+        for(int i=1; i<13; i++)
+        {
+            levelMap[i, 0] = Instantiate(gameObjects[2], new Vector3(i-14.0f, 14.5f, 0.0f), Quaternion.identity);
+        }
+
+        levelMap[13, 0] = Instantiate(gameObjects[7], new Vector3(-1.5f, 14.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+    }
+
+    private void Line2()
+    {
+        levelMap[0, 1] = Instantiate(gameObjects[2], new Vector3(-13.5f, 14.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 90.0f));
+        for(int i=1; i<13; i++)
+        {
+            levelMap[i, 1] = Instantiate(gameObjects[5], new Vector3(i-14.0f, 14.0f, 0.0f), Quaternion.identity);
+        }
+        levelMap[13, 1] = Instantiate(gameObjects[4], new Vector3(-0.5f, 14.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 90.0f));
+    }
+
+    private void Line3()
+    {
+        levelMap[0, 2] = Instantiate(gameObjects[2], new Vector3(-13.5f, 13.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 90.0f));
+        levelMap[1, 2] = Instantiate(gameObjects[5], new Vector3(-13.0f, 13.0f, 0.0f), Quaternion.identity);
+
+        levelMap[2, 2] = Instantiate(gameObjects[3], new Vector3(-11.5f, 12.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+        levelMap[3, 2] = Instantiate(gameObjects[4], new Vector3(-11f, 12.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+        levelMap[4, 2] = Instantiate(gameObjects[4], new Vector3(-10f, 12.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+        levelMap[5, 2] = Instantiate(gameObjects[3], new Vector3(-9.5f, 12.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 270.0f));
+
+        levelMap[6, 2] = Instantiate(gameObjects[5], new Vector3(-8.0f, 13.0f, 0.0f), Quaternion.identity);
+
+        levelMap[7, 2] = Instantiate(gameObjects[3], new Vector3(-6.5f, 12.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+        levelMap[8, 2] = Instantiate(gameObjects[4], new Vector3(-6f, 12.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+        levelMap[9, 2] = Instantiate(gameObjects[4], new Vector3(-5f, 12.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+        levelMap[10, 2] = Instantiate(gameObjects[4], new Vector3(-4f, 12.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+        levelMap[11, 2] = Instantiate(gameObjects[3], new Vector3(-3.5f, 12.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 270.0f));
+
+        levelMap[12, 2] = Instantiate(gameObjects[5], new Vector3(-2.0f, 13.0f, 0.0f), Quaternion.identity);
+        levelMap[13, 2] = Instantiate(gameObjects[4], new Vector3(-0.5f, 13.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 90.0f));
+    }
+
+    private void Line4()
+    {
+        levelMap[0, 3] = Instantiate(gameObjects[2], new Vector3(-13.5f, 12.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 90.0f));
+        levelMap[1, 3] = Instantiate(gameObjects[6], new Vector3(-13.0f, 12.0f, 0.0f), Quaternion.identity);
+
+        levelMap[2, 3] = Instantiate(gameObjects[4], new Vector3(-11.5f, 12.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 90.0f));
+        levelMap[5, 3] = Instantiate(gameObjects[4], new Vector3(-9.5f, 12.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 270.0f));
+
+        levelMap[6, 3] = Instantiate(gameObjects[5], new Vector3(-8.0f, 12.0f, 0.0f), Quaternion.identity);
+
+        levelMap[7, 3] = Instantiate(gameObjects[4], new Vector3(-6.5f, 12.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 90.0f));
+        levelMap[11, 3] = Instantiate(gameObjects[4], new Vector3(-3.5f, 12.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 270.0f));
+
+        levelMap[12, 3] = Instantiate(gameObjects[5], new Vector3(-2.0f, 12.0f, 0.0f), Quaternion.identity);
+        levelMap[13, 3] = Instantiate(gameObjects[4], new Vector3(-0.5f, 12.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 90.0f));
+    }
+
+    private void Line5()
+    {
+        levelMap[0, 4] = Instantiate(gameObjects[2], new Vector3(-13.5f, 11.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 90.0f));
+        levelMap[1, 4] = Instantiate(gameObjects[5], new Vector3(-13.0f, 11.0f, 0.0f), Quaternion.identity);
+
+        levelMap[2, 4] = Instantiate(gameObjects[3], new Vector3(-11.5f, 11.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 90.0f));
+        levelMap[3, 4] = Instantiate(gameObjects[4], new Vector3(-11f, 11.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 180.0f));
+        levelMap[4, 4] = Instantiate(gameObjects[4], new Vector3(-10f, 11.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 180.0f));
+        levelMap[5, 4] = Instantiate(gameObjects[3], new Vector3(-9.5f, 11.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 180.0f));
+
+        levelMap[6, 4] = Instantiate(gameObjects[5], new Vector3(-8.0f, 11.0f, 0.0f), Quaternion.identity);
+
+        levelMap[7, 4] = Instantiate(gameObjects[3], new Vector3(-6.5f, 11.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 90.0f));
+        levelMap[8, 4] = Instantiate(gameObjects[4], new Vector3(-6f, 11.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 180.0f));
+        levelMap[9, 4] = Instantiate(gameObjects[4], new Vector3(-5f, 11.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 180.0f));
+        levelMap[10, 4] = Instantiate(gameObjects[4], new Vector3(-4f, 11.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 180.0f));
+        levelMap[11, 4] = Instantiate(gameObjects[3], new Vector3(-3.5f, 11.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 180.0f));
+
+        levelMap[12, 4] = Instantiate(gameObjects[5], new Vector3(-2.0f, 11.0f, 0.0f), Quaternion.identity);
+
+        levelMap[13, 4] = Instantiate(gameObjects[3], new Vector3(-0.5f, 11.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 90.0f));
+    }
+
+    private void Line6()
+    {
+        levelMap[0, 5] = Instantiate(gameObjects[2], new Vector3(-13.5f, 10.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 90.0f));
+        for(int i=1; i<14; i++)
+        {
+            levelMap[i, 5] = Instantiate(gameObjects[5], new Vector3(i-14.0f, 10.0f, 0.0f), Quaternion.identity);
+        }
     }
 
     private void Line7()
@@ -136,7 +235,7 @@ public class LevelGenerator : MonoBehaviour
 
     private void Line12()
     {
-        levelMap[5, 11] = Instantiate(gameObjects[2], new Vector3(-9.5f, 4.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 270.0f));
+        levelMap[5, 11] = Instantiate(gameObjects[2], new Vector3(-9.5f, 4.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 270.0f));
         levelMap[6, 11] = Instantiate(gameObjects[5], new Vector3(-8.0f, 4.0f, 0.0f), Quaternion.identity);
         levelMap[7, 11] = Instantiate(gameObjects[4], new Vector3(-6.5f, 4.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 90.0f));
         levelMap[8, 11] = Instantiate(gameObjects[4], new Vector3(-6.5f, 4.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 270.0f));
@@ -144,7 +243,7 @@ public class LevelGenerator : MonoBehaviour
 
     private void Line13()
     {
-        levelMap[5, 12] = Instantiate(gameObjects[2], new Vector3(-9.5f, 3.5f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 270.0f));
+        levelMap[5, 12] = Instantiate(gameObjects[2], new Vector3(-9.5f, 3.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 270.0f));
         levelMap[6, 12] = Instantiate(gameObjects[5], new Vector3(-8.0f, 3.0f, 0.0f), Quaternion.identity);
         levelMap[7, 12] = Instantiate(gameObjects[4], new Vector3(-6.5f, 3.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 90.0f));
         levelMap[8, 12] = Instantiate(gameObjects[4], new Vector3(-6.5f, 3.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 270.0f));
