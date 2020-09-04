@@ -4,22 +4,22 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 6111136440378125244
-    second: Pac Man Renew_0
+    second: Pacman0
   - first:
       213: 8828326689719666638
-    second: Pac Man Renew_1
+    second: Pacman1
   - first:
       213: -4425277832436976413
-    second: Pac Man Renew_0
+    second: Pacman0
   - first:
       213: -1244327613194827486
-    second: Pac Man Renew_1
+    second: Pacman1
   - first:
       213: -5792756350089955889
-    second: Pac Man Renew_2
+    second: Pacman2
   - first:
       213: 4479912245873406568
-    second: Pac Man Renew_3
+    second: Pacman3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -128,7 +128,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pac Man Renew_0
+      name: Pacman0
       rect:
         serializedVersion: 2
         x: 36
@@ -136,7 +136,7 @@ TextureImporter:
         width: 60
         height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -149,7 +149,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pac Man Renew_1
+      name: Pacman1
       rect:
         serializedVersion: 2
         x: 165
@@ -157,7 +157,7 @@ TextureImporter:
         width: 54
         height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -170,7 +170,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pac Man Renew_2
+      name: Pacman2
       rect:
         serializedVersion: 2
         x: 32
@@ -178,7 +178,7 @@ TextureImporter:
         width: 64
         height: 68
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -191,15 +191,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pac Man Renew_3
+      name: Pacman3
       rect:
         serializedVersion: 2
         x: 161
         y: 30
-        width: 58
+        width: 64
         height: 68
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
