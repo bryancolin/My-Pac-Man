@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CornerDoubleLine
+  - DoubleLine
+  - CornerSingleLine
+  - SingleLine
+  - NormalPellet
+  - PowerPellet
+  - Junction
   layers:
   - Default
   - TransparentFX
