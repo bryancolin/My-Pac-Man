@@ -1,0 +1,325 @@
+fileFormatVersion: 2
+guid: 0ab1133b04f4b40cdbe94748aecee773
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2872682964127540347
+    second: Vulnerable blue ghost _0
+  - first:
+      213: 3346874574590384800
+    second: Vulnerable blue ghost _1
+  - first:
+      213: -8338444631123937673
+    second: Vulnerable blue ghost _2
+  - first:
+      213: -6294447929682704797
+    second: Vulnerable blue ghost _3
+  - first:
+      213: 6463826923678666967
+    second: Vulnerable blue ghost _4
+  - first:
+      213: 7579296028765388901
+    second: Vulnerable blue ghost _5
+  - first:
+      213: -1889386737942535727
+    second: Vulnerable blue ghost _6
+  - first:
+      213: 844850423500152410
+    second: Vulnerable blue ghost _7
+  - first:
+      213: 1477952380491034262
+    second: Vulnerable blue ghost _8
+  - first:
+      213: -5510922630388410149
+    second: Vulnerable blue ghost _9
+  - first:
+      213: -7367867403038027629
+    second: Vulnerable blue ghost _10
+  - first:
+      213: 2963292088012738122
+    second: Vulnerable blue ghost _11
+  - first:
+      213: -4351650319952166358
+    second: Vulnerable blue ghost _12
+  - first:
+      213: 1111253283112967390
+    second: Vulnerable blue ghost _13
+  - first:
+      213: -7872603760861434182
+    second: Vulnerable blue ghost _14
+  - first:
+      213: 3839450607224300006
+    second: Vulnerable blue ghost _15
+  - first:
+      213: -8324221208293184701
+    second: Vulnerable blue ghost _16
+  - first:
+      213: 5020460627881689497
+    second: Vulnerable blue ghost _17
+  - first:
+      213: 7966382936402147157
+    second: Vulnerable blue ghost _18
+  - first:
+      213: -1643687222925386417
+    second: Vulnerable blue ghost _19
+  - first:
+      213: 345466239165929604
+    second: Vulnerable blue ghost _20
+  - first:
+      213: 4710206771696201177
+    second: Vulnerable blue ghost _21
+  - first:
+      213: 901525564293435909
+    second: Vulnerable blue ghost _22
+  - first:
+      213: 2808019044188612978
+    second: Vulnerable blue ghost _23
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Lumin
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Vulnerable blue ghost _0
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 284
+        width: 72
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b74632d8fe1ddd720800000000000000
+      internalID: 2872682964127540347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulnerable blue ghost _1
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 284
+        width: 68
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aa1f3e61bc727e20800000000000000
+      internalID: 3346874574590384800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulnerable blue ghost _2
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 156
+        width: 72
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 776389679c4e74c80800000000000000
+      internalID: -8338444631123937673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulnerable blue ghost _3
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 156
+        width: 68
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 366c11615f0a5a8a0800000000000000
+      internalID: -6294447929682704797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulnerable blue ghost _4
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 28
+        width: 72
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d0197b175024b950800000000000000
+      internalID: 6463826923678666967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulnerable blue ghost _5
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 28
+        width: 68
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5600712d4911f2960800000000000000
+      internalID: 7579296028765388901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 13dfff29d4ae44140a62ad6c81da576a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
