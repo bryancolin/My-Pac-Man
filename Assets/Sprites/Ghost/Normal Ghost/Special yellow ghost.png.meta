@@ -4,22 +4,22 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 140723497506783410
-    second: Special yellow ghost_0
+    second: Right
   - first:
       213: -5773998209343923878
-    second: Special yellow ghost_1
+    second: Right-1
   - first:
       213: 4330166918888865455
-    second: Special yellow ghost_2
+    second: Down
   - first:
       213: 5364562681680928814
-    second: Special yellow ghost_3
+    second: Down-1
   - first:
       213: 3848857354328410050
-    second: Special yellow ghost_4
+    second: Up
   - first:
       213: 4264346229762647923
-    second: Special yellow ghost_5
+    second: Up-1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -128,7 +128,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Special yellow ghost_0
+      name: Right
       rect:
         serializedVersion: 2
         x: 24
@@ -136,7 +136,7 @@ TextureImporter:
         width: 72
         height: 68
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -149,7 +149,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special yellow ghost_1
+      name: Right-1
       rect:
         serializedVersion: 2
         x: 156
@@ -157,7 +157,7 @@ TextureImporter:
         width: 68
         height: 68
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -170,7 +170,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special yellow ghost_2
+      name: Down
       rect:
         serializedVersion: 2
         x: 24
@@ -178,7 +178,7 @@ TextureImporter:
         width: 72
         height: 68
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -191,7 +191,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special yellow ghost_3
+      name: Down-1
       rect:
         serializedVersion: 2
         x: 156
@@ -199,7 +199,7 @@ TextureImporter:
         width: 68
         height: 68
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -212,7 +212,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special yellow ghost_4
+      name: Up
       rect:
         serializedVersion: 2
         x: 24
@@ -220,7 +220,7 @@ TextureImporter:
         width: 72
         height: 68
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -233,7 +233,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special yellow ghost_5
+      name: Up-1
       rect:
         serializedVersion: 2
         x: 156
@@ -241,7 +241,7 @@ TextureImporter:
         width: 68
         height: 68
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
