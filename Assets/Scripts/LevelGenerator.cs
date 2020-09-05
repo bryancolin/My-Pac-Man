@@ -40,7 +40,7 @@ public class LevelGenerator : MonoBehaviour
             {
                 if(levelMap[i, j] != null)
                 {
-                    GameObject.Instantiate(levelMap[i, j], new Vector3(-levelMap[i, j].transform.position.x - 1, levelMap[i, j].transform.position.y, 0), Quaternion.Euler(levelMap[i, j].transform.rotation.x, 180.0f, levelMap[i, j].transform.rotation.eulerAngles.z));
+                    GameObject.Instantiate(levelMap[i, j], new Vector3(-levelMap[i, j].transform.position.x, levelMap[i, j].transform.position.y, 0), Quaternion.Euler(levelMap[i, j].transform.rotation.x, 180.0f, levelMap[i, j].transform.rotation.eulerAngles.z));
                 }
             }
         }
@@ -54,7 +54,7 @@ public class LevelGenerator : MonoBehaviour
             {
                 if (levelMap[i, j] != null)
                 {
-                    GameObject.Instantiate(levelMap[i, j], new Vector3(levelMap[i, j].transform.position.x, -levelMap[i, j].transform.position.y + 3, 0), Quaternion.Euler(180.0f, levelMap[i, j].transform.rotation.y, levelMap[i, j].transform.rotation.eulerAngles.z));
+                    GameObject.Instantiate(levelMap[i, j], new Vector3(levelMap[i, j].transform.position.x, -levelMap[i, j].transform.position.y, 0), Quaternion.Euler(180.0f, levelMap[i, j].transform.rotation.y, levelMap[i, j].transform.rotation.eulerAngles.z));
                 }
             }
         }
@@ -68,7 +68,7 @@ public class LevelGenerator : MonoBehaviour
             {
                 if (levelMap[i, j] != null)
                 {
-                    GameObject.Instantiate(levelMap[i, j], new Vector3(-levelMap[i, j].transform.position.x - 1, -levelMap[i, j].transform.position.y + 3, 0), Quaternion.Euler(180.0f, 180.0f, levelMap[i, j].transform.rotation.eulerAngles.z));
+                    GameObject.Instantiate(levelMap[i, j], new Vector3(-levelMap[i, j].transform.position.x, -levelMap[i, j].transform.position.y, 0), Quaternion.Euler(180.0f, 180.0f, levelMap[i, j].transform.rotation.eulerAngles.z));
                 }
             }
         }
