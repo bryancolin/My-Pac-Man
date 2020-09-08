@@ -10,7 +10,9 @@ public class LevelGenerator : MonoBehaviour
     private GameObject[,] topLeft = new GameObject[14, 15];
     private GameObject[,] topRight = new GameObject[14, 15];
     private GameObject[,] bottomLeft = new GameObject[14, 15];
-    private GameObject[,] bottomRight = new GameObject[14, 15]; 
+    private GameObject[,] bottomRight = new GameObject[14, 15];
+
+    private GameObject[] q = new GameObject[4];
 
     private int rows, columns;
 
@@ -19,21 +21,38 @@ public class LevelGenerator : MonoBehaviour
         rows = topLeft.GetLength(0);
         columns = topLeft.GetLength(1);
 
+        EmptyGameObject();
+
         Quadrant2();
         Quadrant1();
         Quadrant3();
         Quadrant4();
-
     }
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    private void EmptyGameObject()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            q[i] = new GameObject();
+            q[i].transform.SetParent(this.transform);
+            q[i].name = $"Quandrant {i + 1}";
+        }
+
+        q[0].transform.position = new Vector3(6.75f, 7.5f, 0.0f);
+        q[1].transform.position = new Vector3(-6.75f, 7.5f, 0.0f);
+        q[2].transform.position = new Vector3(-6.75f, -7.5f, 0.0f);
+        q[3].transform.position = new Vector3(6.75f, -7.5f, 0.0f);
     }
 
     private void Quadrant1()
@@ -45,7 +64,7 @@ public class LevelGenerator : MonoBehaviour
                 if (topLeft[i, j] != null)
                 {
                     topRight[i,j] = Instantiate(topLeft[i, j], new Vector3(-topLeft[i, j].transform.position.x, topLeft[i, j].transform.position.y, 0), Quaternion.Euler(topLeft[i, j].transform.rotation.x, 180.0f, topLeft[i, j].transform.rotation.eulerAngles.z));
-                    topRight[i,j].transform.SetParent(this.transform);
+                    topRight[i,j].transform.SetParent(q[0].transform);
                 }
             }
         }
@@ -60,7 +79,7 @@ public class LevelGenerator : MonoBehaviour
                 if (topLeft[i, j] != null)
                 {
                     bottomLeft[i,j] = Instantiate(topLeft[i, j], new Vector3(topLeft[i, j].transform.position.x, -topLeft[i, j].transform.position.y, 0), Quaternion.Euler(180.0f, topLeft[i, j].transform.rotation.y, topLeft[i, j].transform.rotation.eulerAngles.z));
-                    bottomLeft[i,j].transform.SetParent(this.transform);
+                    bottomLeft[i,j].transform.SetParent(q[2].transform);
                 }
             }
         }
@@ -75,7 +94,7 @@ public class LevelGenerator : MonoBehaviour
                 if (topLeft[i, j] != null)
                 {
                     bottomRight[i,j] = Instantiate(topLeft[i, j], new Vector3(-topLeft[i, j].transform.position.x, -topLeft[i, j].transform.position.y, 0), Quaternion.Euler(180.0f, 180.0f, topLeft[i, j].transform.rotation.eulerAngles.z));
-                    bottomRight[i,j].transform.SetParent(this.transform);
+                    bottomRight[i,j].transform.SetParent(q[3].transform);
                 }
             }
         }
@@ -105,7 +124,7 @@ public class LevelGenerator : MonoBehaviour
             {
                 if (topLeft[i, j] != null)
                 {
-                    topLeft[i, j].transform.SetParent(this.transform);
+                    topLeft[i, j].transform.SetParent(q[1].transform);
                 }
             }
         }
