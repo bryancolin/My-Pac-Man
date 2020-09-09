@@ -22,16 +22,12 @@ public class LevelGenerator : MonoBehaviour
         columns = topLeft.GetLength(1);
 
         EmptyGameObject();
-
-        Quadrant2();
-        Quadrant1();
-        Quadrant3();
-        Quadrant4();
+        Quadrants();
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -55,49 +51,40 @@ public class LevelGenerator : MonoBehaviour
         q[3].transform.position = new Vector3(6.75f, -7.5f, 0.0f);
     }
 
-    private void Quadrant1()
+    private void Quadrants()
     {
+        Quadrant2();
+
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < columns; j++)
             {
                 if (topLeft[i, j] != null)
                 {
-                    topRight[i,j] = Instantiate(topLeft[i, j], new Vector3(-topLeft[i, j].transform.position.x, topLeft[i, j].transform.position.y, 0), Quaternion.Euler(topLeft[i, j].transform.rotation.x, 180.0f, topLeft[i, j].transform.rotation.eulerAngles.z));
-                    topRight[i,j].transform.SetParent(q[0].transform);
+                    Quadrant1(i, j);
+                    Quadrant3(i, j);
+                    Quadrant4(i, j);
                 }
             }
         }
     }
 
-    private void Quadrant3()
+    private void Quadrant1(int i, int j)
     {
-        for (int i = 0; i < rows; i++)
-        {
-            for (int j = 0; j < columns; j++)
-            {
-                if (topLeft[i, j] != null)
-                {
-                    bottomLeft[i,j] = Instantiate(topLeft[i, j], new Vector3(topLeft[i, j].transform.position.x, -topLeft[i, j].transform.position.y, 0), Quaternion.Euler(180.0f, topLeft[i, j].transform.rotation.y, topLeft[i, j].transform.rotation.eulerAngles.z));
-                    bottomLeft[i,j].transform.SetParent(q[2].transform);
-                }
-            }
-        }
+        topRight[i, j] = Instantiate(topLeft[i, j], new Vector3(-topLeft[i, j].transform.position.x, topLeft[i, j].transform.position.y, 0), Quaternion.Euler(topLeft[i, j].transform.rotation.x, 180.0f, topLeft[i, j].transform.rotation.eulerAngles.z));
+        topRight[i, j].transform.SetParent(q[0].transform);
     }
 
-    private void Quadrant4()
+    private void Quadrant3(int i, int j)
     {
-        for (int i = 0; i < rows; i++)
-        {
-            for (int j = 0; j < columns; j++)
-            {
-                if (topLeft[i, j] != null)
-                {
-                    bottomRight[i,j] = Instantiate(topLeft[i, j], new Vector3(-topLeft[i, j].transform.position.x, -topLeft[i, j].transform.position.y, 0), Quaternion.Euler(180.0f, 180.0f, topLeft[i, j].transform.rotation.eulerAngles.z));
-                    bottomRight[i,j].transform.SetParent(q[3].transform);
-                }
-            }
-        }
+        bottomLeft[i, j] = Instantiate(topLeft[i, j], new Vector3(topLeft[i, j].transform.position.x, -topLeft[i, j].transform.position.y, 0), Quaternion.Euler(180.0f, topLeft[i, j].transform.rotation.y, topLeft[i, j].transform.rotation.eulerAngles.z));
+        bottomLeft[i, j].transform.SetParent(q[2].transform);
+    }
+
+    private void Quadrant4(int i, int j)
+    {
+        bottomRight[i, j] = Instantiate(topLeft[i, j], new Vector3(-topLeft[i, j].transform.position.x, -topLeft[i, j].transform.position.y, 0), Quaternion.Euler(180.0f, 180.0f, topLeft[i, j].transform.rotation.eulerAngles.z));
+        bottomRight[i, j].transform.SetParent(q[3].transform);
     }
 
     private void Quadrant2()
@@ -117,7 +104,6 @@ public class LevelGenerator : MonoBehaviour
         Line13();
         Line14();
         //Line15();
-
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < columns; j++)
