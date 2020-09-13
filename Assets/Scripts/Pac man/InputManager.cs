@@ -7,28 +7,12 @@ public class InputManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject item;
-<<<<<<< Updated upstream
     [SerializeField]
     private float timeDuration;
     private Tweener tweener;
     //public AudioClip audioClip;
 
     // Start is called before the first frame update
-=======
-    private Tweener tweener;
-    [SerializeField]
-    private float timeDuration;
-    public AudioSource clip;
-
-    private float lastTime = 0, timer = 0;
-
-    private void Awake()
-    {
-        //clip.Play();
-    }
-
-    // Start is called before the first frame update
->>>>>>> Stashed changes
     void Start()
     {
         tweener = GetComponent<Tweener>();
@@ -59,19 +43,7 @@ public class InputManager : MonoBehaviour
                 tweener.AddTween(item.transform, item.transform.position, new Vector3(-1.5f, 0.0f, 0.0f), timeDuration);
                 item.GetComponent<Animator>().SetTrigger("Down");
             }
-<<<<<<< Updated upstream
                 //AudioSource.PlayClipAtPoint(audioClip, item.transform.position);
-=======
-
-            timer += Time.deltaTime;
-
-            if (timer >= lastTime)
-            {
-                clip.PlayScheduled(lastTime);
-                lastTime += 0.675f;
-            }
-
->>>>>>> Stashed changes
         }
     }
 }
