@@ -10,11 +10,14 @@ public class InputManager : MonoBehaviour
     [SerializeField]
     private float timeDuration;
     private Tweener tweener;
-    //public AudioClip audioClip;
+
+    public AudioSource clip;
+    private float lastTime, timer;
 
     // Start is called before the first frame update
     void Start()
     {
+        lastTime = timer = 0;
         tweener = GetComponent<Tweener>();
     }
 
@@ -43,7 +46,14 @@ public class InputManager : MonoBehaviour
                 tweener.AddTween(item.transform, item.transform.position, new Vector3(-1.5f, 0.0f, 0.0f), timeDuration);
                 item.GetComponent<Animator>().SetTrigger("Down");
             }
-                //AudioSource.PlayClipAtPoint(audioClip, item.transform.position);
+
+            timer += Time.deltaTime;
+
+            if (timer >= lastTime)
+            {
+                clip.PlayScheduled(lastTime);
+                lastTime += 0.675f;
+            }
         }
     }
 }
