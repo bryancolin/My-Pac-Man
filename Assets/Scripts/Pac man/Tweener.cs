@@ -26,6 +26,7 @@ public class Tweener : MonoBehaviour
         if (activeTween != null)
         {
             float distance = Vector3.Distance(activeTween.Target.transform.position, activeTween.EndPos);
+<<<<<<< Updated upstream
             Debug.Log("Distance : " + distance);
 
             if (distance > 0.1f)
@@ -33,6 +34,12 @@ public class Tweener : MonoBehaviour
                 float timeFraction = (Time.time - activeTween.StartTime) / activeTween.Duration;
                 Debug.Log("Time : " + timeFraction);
                 activeTween.Target.transform.position = Vector3.Lerp(activeTween.StartPos, activeTween.EndPos, timeFraction);
+=======
+
+            if (distance > 0.1f)
+            {
+                Linear(activeTween);
+>>>>>>> Stashed changes
             }
 
             if (distance <= 0.1f)
