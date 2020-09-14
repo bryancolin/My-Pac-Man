@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Left
+  m_Name: Scared-Down
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,10 +20,10 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -9036145216243982756, guid: b3afe484422894171a05fae4deca3e0a,
+      value: {fileID: 6463826923678666967, guid: d401eb96d5431454084f9831edc41c81,
         type: 3}
     - time: 0.1
-      value: {fileID: 1096039400600421013, guid: b3afe484422894171a05fae4deca3e0a,
+      value: {fileID: 7579296028765388901, guid: d401eb96d5431454084f9831edc41c81,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -44,8 +44,8 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -9036145216243982756, guid: b3afe484422894171a05fae4deca3e0a, type: 3}
-    - {fileID: 1096039400600421013, guid: b3afe484422894171a05fae4deca3e0a, type: 3}
+    - {fileID: 6463826923678666967, guid: d401eb96d5431454084f9831edc41c81, type: 3}
+    - {fileID: 7579296028765388901, guid: d401eb96d5431454084f9831edc41c81, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
