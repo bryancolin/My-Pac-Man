@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2968334368490602947}
   - component: {fileID: 2968334368490602948}
   - component: {fileID: 2968334368490602949}
+  - component: {fileID: 729213557}
+  - component: {fileID: 729213558}
   m_Layer: 0
   m_Name: 'Pac Man '
   m_TagString: Untagged
@@ -71,13 +73,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5792756350089955889, guid: 13d688c7b918544b6b311eeaa7eace1c,
+  m_Sprite: {fileID: 6111136440378125244, guid: dacbcc7faebf64a28958d005c2a88542,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.6, y: 0.6}
+  m_Size: {x: 1.28, y: 1.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -102,3 +104,30 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &729213557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2968334368490602950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a347e28dbd044d4b11df3d646dab55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &729213558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2968334368490602950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36333475507e342b8a7d72042e460f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 2968334368490602950}
+  timeDuration: 4.5
+  clip: {fileID: 0}
