@@ -1,24 +1,33 @@
 fileFormatVersion: 2
-guid: 39e803d777e6c4015b65ff1b46047f56
+guid: 50384cc7ba75349f58112839c13bc3bd
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: 7901606287456080970
-    second: Right
+    second: Idle
   - first:
       213: 4885311962079273983
-    second: Right-1
+    second: Right
   - first:
       213: 2128481203400838792
-    second: Down
+    second: Right-1
   - first:
       213: 2005403819595334736
-    second: Down-1
+    second: Left
   - first:
       213: -1977803746576064357
-    second: Up
+    second: Left-1
   - first:
       213: 7346363469419926593
+    second: Down
+  - first:
+      213: -2201622789423439241
+    second: Down-1
+  - first:
+      213: 1464393018417404883
+    second: Up
+  - first:
+      213: -807885138581816898
     second: Up-1
   externalObjects: {}
   serializedVersion: 10
@@ -50,7 +59,7 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: -1
-    aniso: 1
+    aniso: -1
     mipBias: -100
     wrapU: 1
     wrapV: 1
@@ -128,13 +137,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Right
+      name: Idle
       rect:
         serializedVersion: 2
-        x: 24
-        y: 284
-        width: 72
-        height: 68
+        x: 72
+        y: 568
+        width: 112
+        height: 136
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,13 +158,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Right-1
+      name: Right
       rect:
         serializedVersion: 2
-        x: 156
-        y: 284
-        width: 68
-        height: 68
+        x: 304
+        y: 568
+        width: 144
+        height: 136
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,13 +179,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Down
+      name: Right-1
       rect:
         serializedVersion: 2
-        x: 24
-        y: 156
-        width: 72
-        height: 68
+        x: 568
+        y: 568
+        width: 136
+        height: 136
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,13 +200,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Down-1
+      name: Left
       rect:
         serializedVersion: 2
-        x: 156
-        y: 156
-        width: 68
-        height: 68
+        x: 64
+        y: 312
+        width: 144
+        height: 136
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,13 +221,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Up
+      name: Left-1
       rect:
         serializedVersion: 2
-        x: 24
-        y: 28
-        width: 72
-        height: 68
+        x: 320
+        y: 312
+        width: 136
+        height: 136
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,13 +242,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Up-1
+      name: Down
       rect:
         serializedVersion: 2
-        x: 156
-        y: 28
-        width: 68
-        height: 68
+        x: 560
+        y: 312
+        width: 144
+        height: 136
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,10 +262,73 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Down-1
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 56
+        width: 136
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 772e20bdcb34271e0800000000000000
+      internalID: -2201622789423439241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Up
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 56
+        width: 144
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dbd45a01b1925410800000000000000
+      internalID: 1464393018417404883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Up-1
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 56
+        width: 136
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb9738f2fb0d9c4f0800000000000000
+      internalID: -807885138581816898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 492824199a61d4d348f82b635569fc4c
+    spriteID: dc52a8be42a99420f9566873f8456f97
     internalID: 0
     vertices: []
     indices: 
