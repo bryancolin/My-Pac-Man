@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0ab1133b04f4b40cdbe94748aecee773
+guid: d401eb96d5431454084f9831edc41c81
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -26,54 +26,6 @@ TextureImporter:
   - first:
       213: 844850423500152410
     second: Vulnerable blue ghost _7
-  - first:
-      213: 1477952380491034262
-    second: Vulnerable blue ghost _8
-  - first:
-      213: -5510922630388410149
-    second: Vulnerable blue ghost _9
-  - first:
-      213: -7367867403038027629
-    second: Vulnerable blue ghost _10
-  - first:
-      213: 2963292088012738122
-    second: Vulnerable blue ghost _11
-  - first:
-      213: -4351650319952166358
-    second: Vulnerable blue ghost _12
-  - first:
-      213: 1111253283112967390
-    second: Vulnerable blue ghost _13
-  - first:
-      213: -7872603760861434182
-    second: Vulnerable blue ghost _14
-  - first:
-      213: 3839450607224300006
-    second: Vulnerable blue ghost _15
-  - first:
-      213: -8324221208293184701
-    second: Vulnerable blue ghost _16
-  - first:
-      213: 5020460627881689497
-    second: Vulnerable blue ghost _17
-  - first:
-      213: 7966382936402147157
-    second: Vulnerable blue ghost _18
-  - first:
-      213: -1643687222925386417
-    second: Vulnerable blue ghost _19
-  - first:
-      213: 345466239165929604
-    second: Vulnerable blue ghost _20
-  - first:
-      213: 4710206771696201177
-    second: Vulnerable blue ghost _21
-  - first:
-      213: 901525564293435909
-    second: Vulnerable blue ghost _22
-  - first:
-      213: 2808019044188612978
-    second: Vulnerable blue ghost _23
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -185,10 +137,10 @@ TextureImporter:
       name: Vulnerable blue ghost _0
       rect:
         serializedVersion: 2
-        x: 24
-        y: 284
-        width: 72
-        height: 64
+        x: 48
+        y: 568
+        width: 144
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +158,10 @@ TextureImporter:
       name: Vulnerable blue ghost _1
       rect:
         serializedVersion: 2
-        x: 156
-        y: 284
-        width: 68
-        height: 64
+        x: 312
+        y: 568
+        width: 136
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,10 +179,10 @@ TextureImporter:
       name: Vulnerable blue ghost _2
       rect:
         serializedVersion: 2
-        x: 24
-        y: 156
-        width: 72
-        height: 64
+        x: 576
+        y: 568
+        width: 144
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,10 +200,10 @@ TextureImporter:
       name: Vulnerable blue ghost _3
       rect:
         serializedVersion: 2
-        x: 156
-        y: 156
-        width: 68
-        height: 64
+        x: 64
+        y: 312
+        width: 136
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,10 +221,10 @@ TextureImporter:
       name: Vulnerable blue ghost _4
       rect:
         serializedVersion: 2
-        x: 24
-        y: 28
-        width: 72
-        height: 64
+        x: 304
+        y: 312
+        width: 144
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,10 +242,10 @@ TextureImporter:
       name: Vulnerable blue ghost _5
       rect:
         serializedVersion: 2
-        x: 156
-        y: 28
-        width: 68
-        height: 64
+        x: 568
+        y: 312
+        width: 136
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -307,10 +259,52 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Vulnerable blue ghost _6
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 56
+        width: 144
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d1e991b5cc87c5e0800000000000000
+      internalID: -1889386737942535727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulnerable blue ghost _7
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 56
+        width: 136
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5e9015ebf289bb00800000000000000
+      internalID: 844850423500152410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 13dfff29d4ae44140a62ad6c81da576a
+    spriteID: 18dbfbff8ea3c40b3891ed260b6fbd05
     internalID: 0
     vertices: []
     indices: 
