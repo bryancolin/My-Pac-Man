@@ -20,6 +20,12 @@ TextureImporter:
   - first:
       213: 2927552436569022340
     second: White Ghost_5
+  - first:
+      213: 8627389362460508649
+    second: White Ghost_6
+  - first:
+      213: -3120078070009871531
+    second: White Ghost_7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -50,7 +56,7 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: -1
-    aniso: -1
+    aniso: 1
     mipBias: -100
     wrapU: 1
     wrapV: 1
@@ -131,10 +137,10 @@ TextureImporter:
       name: White Ghost_0
       rect:
         serializedVersion: 2
-        x: 24
-        y: 284
-        width: 72
-        height: 64
+        x: 48
+        y: 568
+        width: 144
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,10 +158,10 @@ TextureImporter:
       name: White Ghost_1
       rect:
         serializedVersion: 2
-        x: 156
-        y: 284
-        width: 68
-        height: 64
+        x: 312
+        y: 568
+        width: 136
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,10 +179,10 @@ TextureImporter:
       name: White Ghost_2
       rect:
         serializedVersion: 2
-        x: 24
-        y: 156
-        width: 72
-        height: 64
+        x: 576
+        y: 568
+        width: 144
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,10 +200,10 @@ TextureImporter:
       name: White Ghost_3
       rect:
         serializedVersion: 2
-        x: 156
-        y: 156
-        width: 68
-        height: 64
+        x: 64
+        y: 312
+        width: 136
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,10 +221,10 @@ TextureImporter:
       name: White Ghost_4
       rect:
         serializedVersion: 2
-        x: 24
-        y: 28
-        width: 72
-        height: 64
+        x: 304
+        y: 312
+        width: 144
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,10 +242,10 @@ TextureImporter:
       name: White Ghost_5
       rect:
         serializedVersion: 2
-        x: 156
-        y: 28
-        width: 68
-        height: 64
+        x: 568
+        y: 312
+        width: 136
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,10 +259,52 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: White Ghost_6
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 56
+        width: 144
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e141705ae4aab770800000000000000
+      internalID: 8627389362460508649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: White Ghost_7
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 56
+        width: 136
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5534395b68143b4d0800000000000000
+      internalID: -3120078070009871531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: cdfbb20dc44184dfda6e1bd76e824b06
+    spriteID: 920827b7aed384a3f82f9b343354591e
     internalID: 0
     vertices: []
     indices: 

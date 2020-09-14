@@ -4,22 +4,31 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 140723497506783410
-    second: Right
+    second: Special yellow ghost_0
   - first:
       213: -5773998209343923878
-    second: Right-1
+    second: Special yellow ghost_1
   - first:
       213: 4330166918888865455
-    second: Down
+    second: Special yellow ghost_2
   - first:
       213: 5364562681680928814
-    second: Down-1
+    second: Special yellow ghost_3
   - first:
       213: 3848857354328410050
-    second: Up
+    second: Special yellow ghost_4
   - first:
       213: 4264346229762647923
-    second: Up-1
+    second: Special yellow ghost_5
+  - first:
+      213: 5384339196919621215
+    second: Special yellow ghost_6
+  - first:
+      213: 2218952923973523856
+    second: Special yellow ghost_7
+  - first:
+      213: -7147784429138016342
+    second: Special yellow ghost_8
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -128,15 +137,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Right
+      name: Special yellow ghost_0
       rect:
         serializedVersion: 2
-        x: 24
-        y: 284
-        width: 72
-        height: 68
+        x: 48
+        y: 568
+        width: 144
+        height: 136
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -149,15 +158,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Right-1
+      name: Special yellow ghost_1
       rect:
         serializedVersion: 2
-        x: 156
-        y: 284
-        width: 68
-        height: 68
+        x: 312
+        y: 568
+        width: 136
+        height: 136
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -170,15 +179,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Down
+      name: Special yellow ghost_2
       rect:
         serializedVersion: 2
-        x: 24
-        y: 156
-        width: 72
-        height: 68
+        x: 576
+        y: 568
+        width: 144
+        height: 136
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -191,15 +200,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Down-1
+      name: Special yellow ghost_3
       rect:
         serializedVersion: 2
-        x: 156
-        y: 156
-        width: 68
-        height: 68
+        x: 64
+        y: 312
+        width: 136
+        height: 136
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -212,15 +221,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Up
+      name: Special yellow ghost_4
       rect:
         serializedVersion: 2
-        x: 24
-        y: 28
-        width: 72
-        height: 68
+        x: 304
+        y: 312
+        width: 144
+        height: 136
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -233,15 +242,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Up-1
+      name: Special yellow ghost_5
       rect:
         serializedVersion: 2
-        x: 156
-        y: 28
-        width: 68
-        height: 68
+        x: 568
+        y: 312
+        width: 136
+        height: 136
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -253,10 +262,73 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Special yellow ghost_6
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 56
+        width: 144
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f562b9ed8f309ba40800000000000000
+      internalID: 5384339196919621215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Special yellow ghost_7
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 56
+        width: 136
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09991c68ded4bce10800000000000000
+      internalID: 2218952923973523856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Special yellow ghost_8
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 56
+        width: 112
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa7092aaee7fdcc90800000000000000
+      internalID: -7147784429138016342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: fbb510e6f5d6841d597f3a7a052b3187
+    spriteID: 6fbe74207a9f3415b97c4e5890a24194
     internalID: 0
     vertices: []
     indices: 
