@@ -26,25 +26,31 @@ public class InputManager : MonoBehaviour
     {
         if (timeDuration != 0)
         {
+            item.GetComponent<Animator>().SetFloat("Speed", timeDuration);
             if (item.transform.position.x == -1.5f && item.transform.position.y == 0.0f)
             {
                 tweener.AddTween(item.transform, item.transform.position, new Vector3(-12.5f, 0.0f, 0.0f), timeDuration);
-                item.GetComponent<Animator>().SetTrigger("Left");
+                item.GetComponent<Animator>().SetFloat("Vertical", 0);
+                item.GetComponent<Animator>().SetFloat("Horizontal", -1);                
             }
             if (item.transform.position.x == -12.5f && item.transform.position.y == 0.0f)
             {
                 tweener.AddTween(item.transform, item.transform.position, new Vector3(-12.5f, 13.0f, 0.0f), timeDuration);
-                item.GetComponent<Animator>().SetTrigger("Up");
+                item.GetComponent<Animator>().SetFloat("Horizontal", 0);
+                item.GetComponent<Animator>().SetFloat("Vertical", 1);
             }
             if (item.transform.position.x == -12.5f && item.transform.position.y == 13.0f)
             {
                 tweener.AddTween(item.transform, item.transform.position, new Vector3(-1.5f, 13.0f, 0.0f), timeDuration);
-                item.GetComponent<Animator>().SetTrigger("Right");
+                item.GetComponent<Animator>().SetFloat("Vertical", 0);
+                item.GetComponent<Animator>().SetFloat("Horizontal", 1);
             }
             if (item.transform.position.x == -1.5f && item.transform.position.y == 13.0f)
             {
                 tweener.AddTween(item.transform, item.transform.position, new Vector3(-1.5f, 0.0f, 0.0f), timeDuration);
-                item.GetComponent<Animator>().SetTrigger("Down");
+                item.GetComponent<Animator>().SetFloat("Horizontal", 0);
+                item.GetComponent<Animator>().SetFloat("Vertical", -1);
+
             }
 
             timer += Time.deltaTime;
