@@ -20,6 +20,12 @@ TextureImporter:
   - first:
       213: 249105133725365810
     second: Vulnerable yellow ghost _5
+  - first:
+      213: -1171865009728540982
+    second: Vulnerable yellow ghost _6
+  - first:
+      213: -9077749740679251181
+    second: Vulnerable yellow ghost _7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -131,10 +137,10 @@ TextureImporter:
       name: Vulnerable yellow ghost _0
       rect:
         serializedVersion: 2
-        x: 24
-        y: 284
-        width: 72
-        height: 64
+        x: 48
+        y: 568
+        width: 144
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,10 +158,10 @@ TextureImporter:
       name: Vulnerable yellow ghost _1
       rect:
         serializedVersion: 2
-        x: 156
-        y: 284
-        width: 68
-        height: 64
+        x: 312
+        y: 568
+        width: 136
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,10 +179,10 @@ TextureImporter:
       name: Vulnerable yellow ghost _2
       rect:
         serializedVersion: 2
-        x: 24
-        y: 156
-        width: 72
-        height: 64
+        x: 576
+        y: 568
+        width: 144
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,10 +200,10 @@ TextureImporter:
       name: Vulnerable yellow ghost _3
       rect:
         serializedVersion: 2
-        x: 156
-        y: 156
-        width: 68
-        height: 64
+        x: 64
+        y: 312
+        width: 136
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,10 +221,10 @@ TextureImporter:
       name: Vulnerable yellow ghost _4
       rect:
         serializedVersion: 2
-        x: 24
-        y: 28
-        width: 72
-        height: 64
+        x: 304
+        y: 312
+        width: 144
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,10 +242,10 @@ TextureImporter:
       name: Vulnerable yellow ghost _5
       rect:
         serializedVersion: 2
-        x: 156
-        y: 28
-        width: 68
-        height: 64
+        x: 568
+        y: 312
+        width: 136
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,10 +259,52 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Vulnerable yellow ghost _6
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 56
+        width: 144
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aceab628bf2bcbfe0800000000000000
+      internalID: -1171865009728540982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulnerable yellow ghost _7
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 56
+        width: 136
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31b3be2f4ba550280800000000000000
+      internalID: -9077749740679251181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 160fac8bef70546e0aefbdcb3d35954a
+    spriteID: e0d18d27474db460fa0508d0ee3a3f5b
     internalID: 0
     vertices: []
     indices: 
