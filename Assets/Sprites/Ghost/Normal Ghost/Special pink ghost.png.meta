@@ -4,22 +4,31 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -521655906926281552
-    second: Right
+    second: Special pink ghost_0
   - first:
       213: 7437298798736589116
-    second: Right-1
+    second: Special pink ghost_1
   - first:
       213: -681357317551845592
-    second: Down
+    second: Special pink ghost_2
   - first:
       213: 248865156459170866
-    second: Down-1
+    second: Special pink ghost_3
   - first:
       213: -8880823848196947907
-    second: Up
+    second: Special pink ghost_4
   - first:
       213: 8201988911813075665
-    second: Up-1
+    second: Special pink ghost_5
+  - first:
+      213: -7821964810241894615
+    second: Special pink ghost_6
+  - first:
+      213: -3564497986996941639
+    second: Special pink ghost_7
+  - first:
+      213: -1116395358363121725
+    second: Special pink ghost_8
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -50,7 +59,7 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: -1
-    aniso: 1
+    aniso: -1
     mipBias: -100
     wrapU: 1
     wrapV: 1
@@ -128,15 +137,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Right
+      name: Special pink ghost_0
       rect:
         serializedVersion: 2
-        x: 24
-        y: 284
-        width: 72
-        height: 68
+        x: 48
+        y: 568
+        width: 144
+        height: 136
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -149,15 +158,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Right-1
+      name: Special pink ghost_1
       rect:
         serializedVersion: 2
-        x: 156
-        y: 284
-        width: 68
-        height: 68
+        x: 312
+        y: 568
+        width: 136
+        height: 136
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -170,15 +179,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Down
+      name: Special pink ghost_2
       rect:
         serializedVersion: 2
-        x: 24
-        y: 156
-        width: 72
-        height: 68
+        x: 576
+        y: 568
+        width: 144
+        height: 136
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -191,15 +200,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Down-1
+      name: Special pink ghost_3
       rect:
         serializedVersion: 2
-        x: 156
-        y: 156
-        width: 68
-        height: 68
+        x: 64
+        y: 312
+        width: 136
+        height: 136
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -212,15 +221,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Up
+      name: Special pink ghost_4
       rect:
         serializedVersion: 2
-        x: 24
-        y: 28
-        width: 72
-        height: 68
+        x: 304
+        y: 312
+        width: 144
+        height: 136
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -233,15 +242,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Up-1
+      name: Special pink ghost_5
       rect:
         serializedVersion: 2
-        x: 156
-        y: 28
-        width: 68
-        height: 68
+        x: 568
+        y: 312
+        width: 136
+        height: 136
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -253,10 +262,73 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Special pink ghost_6
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 56
+        width: 144
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9271de7927cc27390800000000000000
+      internalID: -7821964810241894615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Special pink ghost_7
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 56
+        width: 136
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bcc37267fb588ec0800000000000000
+      internalID: -3564497986996941639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Special pink ghost_8
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 56
+        width: 112
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c70fd32654c180f0800000000000000
+      internalID: -1116395358363121725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e5c05338693ea42d885e89028136a956
+    spriteID: 32465c3e90a65409c81d17802722eef0
     internalID: 0
     vertices: []
     indices: 

@@ -1,25 +1,31 @@
 fileFormatVersion: 2
-guid: d85072721a71242d99a2184261189de7
+guid: c06f8333d699c47a9bc33b4ae5d74507
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4989868243103992209
-    second: Vulnerable red ghost  clone_0
+      213: 8431129305400150196
+    second: Vulnerable pink ghost  _0
   - first:
-      213: 4061386986333627241
-    second: Vulnerable red ghost  clone_1
+      213: 2681710675874915065
+    second: Vulnerable pink ghost  _1
   - first:
-      213: 6041854102963725523
-    second: Vulnerable red ghost  clone_2
+      213: 911611632958353795
+    second: Vulnerable pink ghost  _2
   - first:
-      213: 6239612381721696504
-    second: Vulnerable red ghost  clone_3
+      213: -6141124942242150981
+    second: Vulnerable pink ghost  _3
   - first:
-      213: -1366191708000159836
-    second: Vulnerable red ghost  clone_4
+      213: -4137329073531073826
+    second: Vulnerable pink ghost  _4
   - first:
-      213: -5371897619586129087
-    second: Vulnerable red ghost  clone_5
+      213: -7949683347635729378
+    second: Vulnerable pink ghost  _5
+  - first:
+      213: 4749953273692287378
+    second: Vulnerable pink ghost  _6
+  - first:
+      213: -949383691523181214
+    second: Vulnerable pink ghost  _7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -128,13 +134,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Vulnerable red ghost  clone_0
+      name: Vulnerable pink ghost  _0
       rect:
         serializedVersion: 2
-        x: 24
-        y: 284
-        width: 72
-        height: 64
+        x: 48
+        y: 568
+        width: 144
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,20 +148,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f66b8c5354d60cab0800000000000000
-      internalID: -4989868243103992209
+      spriteID: 4b803c7ee63610570800000000000000
+      internalID: 8431129305400150196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vulnerable red ghost  clone_1
+      name: Vulnerable pink ghost  _1
       rect:
         serializedVersion: 2
-        x: 156
-        y: 284
-        width: 68
-        height: 64
+        x: 312
+        y: 568
+        width: 136
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9636fc722f1fc5830800000000000000
-      internalID: 4061386986333627241
+      spriteID: 9f2a5e1c6a9573520800000000000000
+      internalID: 2681710675874915065
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vulnerable red ghost  clone_2
+      name: Vulnerable pink ghost  _2
       rect:
         serializedVersion: 2
-        x: 24
-        y: 156
-        width: 72
-        height: 64
+        x: 576
+        y: 568
+        width: 144
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,20 +190,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d4a3e7ab4af8d350800000000000000
-      internalID: 6041854102963725523
+      spriteID: 381b89343f1b6ac00800000000000000
+      internalID: 911611632958353795
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vulnerable red ghost  clone_3
+      name: Vulnerable pink ghost  _3
       rect:
         serializedVersion: 2
-        x: 156
-        y: 156
-        width: 68
-        height: 64
+        x: 64
+        y: 312
+        width: 136
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,20 +211,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f896acf66e879650800000000000000
-      internalID: 6239612381721696504
+      spriteID: bb58d50f66756caa0800000000000000
+      internalID: -6141124942242150981
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vulnerable red ghost  clone_4
+      name: Vulnerable pink ghost  _4
       rect:
         serializedVersion: 2
-        x: 24
-        y: 28
-        width: 72
-        height: 64
+        x: 304
+        y: 312
+        width: 144
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,20 +232,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a7f09541ef4a0de0800000000000000
-      internalID: -1366191708000159836
+      spriteID: edac84dc0214596c0800000000000000
+      internalID: -4137329073531073826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vulnerable red ghost  clone_5
+      name: Vulnerable pink ghost  _5
       rect:
         serializedVersion: 2
-        x: 156
-        y: 28
-        width: 68
-        height: 64
+        x: 568
+        y: 312
+        width: 136
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -247,8 +253,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1436dc6939f2375b0800000000000000
-      internalID: -5371897619586129087
+      spriteID: e1c85535d1d0da190800000000000000
+      internalID: -7949683347635729378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulnerable pink ghost  _6
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 56
+        width: 144
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 291f12a06593be140800000000000000
+      internalID: 4749953273692287378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulnerable pink ghost  _7
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 56
+        width: 136
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2653637009c13d2f0800000000000000
+      internalID: -949383691523181214
       vertices: []
       indices: 
       edges: []
@@ -256,7 +304,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7ce75cf7980bc49158a6b5b3ccc274ff
+    spriteID: 0ffde76513e184cdfbed6dc2a66f910d
     internalID: 0
     vertices: []
     indices: 
