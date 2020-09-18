@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class InputManager : MonoBehaviour
+public class Pacman : MonoBehaviour
 {
     [SerializeField]
     private GameObject item;
@@ -13,6 +13,11 @@ public class InputManager : MonoBehaviour
 
     public AudioSource clip;
     private float lastTime, timer;
+
+    private void Awake()
+    {
+        
+    }
 
     // Start is called before the first frame update
     void Start()
