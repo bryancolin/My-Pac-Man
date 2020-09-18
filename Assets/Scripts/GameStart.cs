@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioScript : MonoBehaviour
+public class GameStart : MonoBehaviour
 {
     [SerializeField]
     private AudioSource audioSource;
+    [SerializeField]
+    private GameObject[] gameObjects = new GameObject[5];
 
     private void Awake()
     {
+        SetUpCamera();
+
         audioSource = GetComponent<AudioSource>();
         audioSource.enabled = false;
     }
@@ -24,7 +28,22 @@ public class AudioScript : MonoBehaviour
     {
         if (!audioSource.isPlaying)
         {
+            SetAnimator();
             Time.timeScale = 1;
+        }
+    }
+
+    void SetUpCamera()
+    {
+        Camera.main.orthographic = true;
+        Camera.main.orthographicSize = 15.0f;
+    }
+
+    void SetAnimator()
+    {
+        for(int i=0; i<gameObjects.Length; i++)
+        {
+            gameObjects[i].GetComponent<Animator>().SetFloat("Speed", 1);
         }
     }
 }

@@ -31,7 +31,7 @@ public class Pacman : MonoBehaviour
     {
         if (timeDuration != 0)
         {
-            item.GetComponent<Animator>().SetFloat("Speed", timeDuration);
+            //item.GetComponent<Animator>().SetFloat("Speed", timeDuration);
             if (item.transform.position.x == -1.5f && item.transform.position.y == 0.0f)
             {
                 tweener.AddTween(item.transform, item.transform.position, new Vector3(-12.5f, 0.0f, 0.0f), timeDuration);
