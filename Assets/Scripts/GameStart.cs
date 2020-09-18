@@ -7,7 +7,7 @@ public class GameStart : MonoBehaviour
     [SerializeField]
     private AudioSource audioSource;
     [SerializeField]
-    private GameObject[] gameObjects = new GameObject[5];
+    private GameObject[] gameObjects;
 
     private void Awake()
     {
