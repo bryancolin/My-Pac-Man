@@ -29,7 +29,7 @@ public class Pacman : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timeDuration != 0)
+        if (timeDuration != 0 & Time.timeScale == 1)
         {
             //item.GetComponent<Animator>().SetFloat("Speed", timeDuration);
             if (item.transform.position.x == -1.5f && item.transform.position.y == 0.0f)
@@ -62,6 +62,7 @@ public class Pacman : MonoBehaviour
 
             if (timer >= lastTime)
             {
+                //SoundManager.PlaySound("collide");
                 clip.PlayScheduled(lastTime);
                 lastTime += 0.675f;
             }
