@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dc178686e2c5d43f489ddc81b7b535d6
+guid: ea634a55dc82f4e2ba2ee849fbec228d
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -140,10 +140,10 @@ TextureImporter:
       name: Pac Man Renew_0
       rect:
         serializedVersion: 2
-        x: 64
-        y: 572
-        width: 128
-        height: 136
+        x: 66
+        y: 574
+        width: 124
+        height: 132
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,10 +161,10 @@ TextureImporter:
       name: Pac Man Renew_1
       rect:
         serializedVersion: 2
-        x: 322
-        y: 572
-        width: 120
-        height: 136
+        x: 324
+        y: 574
+        width: 118
+        height: 132
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,10 +182,10 @@ TextureImporter:
       name: Pac Man Renew_2
       rect:
         serializedVersion: 2
-        x: 572
-        y: 576
-        width: 136
-        height: 128
+        x: 574
+        y: 578
+        width: 132
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,10 +203,10 @@ TextureImporter:
       name: Pac Man Renew_3
       rect:
         serializedVersion: 2
-        x: 60
-        y: 322
-        width: 136
-        height: 120
+        x: 62
+        y: 324
+        width: 132
+        height: 118
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,10 +224,10 @@ TextureImporter:
       name: Pac Man Renew_4
       rect:
         serializedVersion: 2
-        x: 320
-        y: 316
-        width: 128
-        height: 136
+        x: 322
+        y: 318
+        width: 124
+        height: 132
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,9 +246,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 582
-        y: 316
-        width: 120
-        height: 136
+        y: 318
+        width: 118
+        height: 132
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,10 +266,10 @@ TextureImporter:
       name: Pac Man Renew_6
       rect:
         serializedVersion: 2
-        x: 60
-        y: 64
-        width: 136
-        height: 128
+        x: 62
+        y: 66
+        width: 132
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,10 +287,10 @@ TextureImporter:
       name: Pac Man Renew_7
       rect:
         serializedVersion: 2
-        x: 316
+        x: 318
         y: 70
-        width: 136
-        height: 120
+        width: 132
+        height: 118
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,10 +308,10 @@ TextureImporter:
       name: Idle
       rect:
         serializedVersion: 2
-        x: 576
-        y: 60
-        width: 136
-        height: 136
+        x: 580
+        y: 64
+        width: 120
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,7 +328,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d828fc70159974675a7fe222b7f98b53
+    spriteID: 045833163d0c34b319ea47b9a8b12b7b
     internalID: 0
     vertices: []
     indices: 
