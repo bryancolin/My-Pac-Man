@@ -1,115 +1,34 @@
 fileFormatVersion: 2
-guid: dacbcc7faebf64a28958d005c2a88542
+guid: dc178686e2c5d43f489ddc81b7b535d6
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: 6111136440378125244
-    second: Pac Man Renew_Right
+    second: Pac Man Renew_0
   - first:
       213: 8828326689719666638
-    second: Pac Man Renew_Right 1
+    second: Pac Man Renew_1
   - first:
       213: -5792756350089955889
-    second: Pac Man Renew_Left
+    second: Pac Man Renew_2
   - first:
       213: 4479912245873406568
-    second: Pac Man Renew_Left 1
+    second: Pac Man Renew_3
   - first:
       213: -4089851861830273473
-    second: Pac Man Renew_Up
+    second: Pac Man Renew_4
   - first:
       213: -7600309123033975618
-    second: Pac Man Renew_Up 1
+    second: Pac Man Renew_5
   - first:
       213: -7087798008310877854
-    second: Pac Man Renew_Down
+    second: Pac Man Renew_6
   - first:
       213: 7619379270836481795
-    second: Pac Man Renew_Down 1
+    second: Pac Man Renew_7
   - first:
       213: -7388796860472461610
     second: Idle
-  - first:
-      213: -8971209990898086505
-    second: Pac Man Renew_9
-  - first:
-      213: -2763173422581101492
-    second: Pac Man Renew_10
-  - first:
-      213: 500377322835197831
-    second: Pac Man Renew_11
-  - first:
-      213: 186228724175111138
-    second: Pac Man Renew_12
-  - first:
-      213: -3691784789138768504
-    second: Pac Man Renew_13
-  - first:
-      213: -8660377905139224685
-    second: Pac Man Renew_14
-  - first:
-      213: -4515013379177134145
-    second: Pac Man Renew_15
-  - first:
-      213: 1324944617911256416
-    second: Pac Man Renew_16
-  - first:
-      213: -5589384797428590387
-    second: Pac Man Renew_17
-  - first:
-      213: -8458088566716544643
-    second: Pac Man Renew_18
-  - first:
-      213: -7787642078703786908
-    second: Pac Man Renew_19
-  - first:
-      213: -3587987246036778469
-    second: Pac Man Renew_20
-  - first:
-      213: 3073915950453268320
-    second: Pac Man Renew_21
-  - first:
-      213: -4518205161691528894
-    second: Pac Man Renew_22
-  - first:
-      213: 2677066969900460007
-    second: Pac Man Renew_23
-  - first:
-      213: 2714216827924844098
-    second: Pac Man Renew_24
-  - first:
-      213: 674164501448336073
-    second: Pac Man Renew_25
-  - first:
-      213: 2398729351257719483
-    second: Pac Man Renew_26
-  - first:
-      213: 2083993682937551872
-    second: Pac Man Renew_27
-  - first:
-      213: 4522341956903809040
-    second: Pac Man Renew_28
-  - first:
-      213: -7708347252205228900
-    second: Pac Man Renew_29
-  - first:
-      213: -4602071146038790610
-    second: Pac Man Renew_30
-  - first:
-      213: 7046672054384764468
-    second: Pac Man Renew_31
-  - first:
-      213: -8538218311248134309
-    second: Pac Man Renew_32
-  - first:
-      213: 7279178600514991993
-    second: Pac Man Renew_33
-  - first:
-      213: 4107198399857983475
-    second: Pac Man Renew_34
-  - first:
-      213: -826484833158774455
-    second: Pac Man Renew_35
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -218,7 +137,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pac Man Renew_Right
+      name: Pac Man Renew_0
       rect:
         serializedVersion: 2
         x: 64
@@ -239,12 +158,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pac Man Renew_Right 1
+      name: Pac Man Renew_1
       rect:
         serializedVersion: 2
         x: 322
         y: 572
-        width: 116
+        width: 120
         height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -260,13 +179,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pac Man Renew_Left
+      name: Pac Man Renew_2
       rect:
         serializedVersion: 2
-        x: 576
-        y: 572
-        width: 128
-        height: 136
+        x: 572
+        y: 576
+        width: 136
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,13 +200,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pac Man Renew_Left 1
+      name: Pac Man Renew_3
       rect:
         serializedVersion: 2
-        x: 74
-        y: 316
-        width: 116
-        height: 136
+        x: 60
+        y: 322
+        width: 136
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -302,13 +221,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pac Man Renew_Up
+      name: Pac Man Renew_4
       rect:
         serializedVersion: 2
-        x: 316
-        y: 320
-        width: 136
-        height: 128
+        x: 320
+        y: 316
+        width: 128
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -323,13 +242,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pac Man Renew_Up 1
+      name: Pac Man Renew_5
       rect:
         serializedVersion: 2
-        x: 572
-        y: 322
-        width: 136
-        height: 116
+        x: 582
+        y: 316
+        width: 120
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -344,7 +263,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pac Man Renew_Down
+      name: Pac Man Renew_6
       rect:
         serializedVersion: 2
         x: 60
@@ -365,13 +284,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pac Man Renew_Down 1
+      name: Pac Man Renew_7
       rect:
         serializedVersion: 2
         x: 316
-        y: 74
+        y: 70
         width: 136
-        height: 116
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -409,7 +328,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3b19b66e252d14ca68c1c37899b52698
+    spriteID: d828fc70159974675a7fe222b7f98b53
     internalID: 0
     vertices: []
     indices: 
