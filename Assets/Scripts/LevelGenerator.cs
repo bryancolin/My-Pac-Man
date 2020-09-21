@@ -61,13 +61,16 @@ public class LevelGenerator : MonoBehaviour
             {
                 if(topLeft[i,j]!= null)
                 {
-                    if(i>=14)
+                    if (i < 14)
+                    {
+                        Quadrant1(i, j);
+                        Quadrant3(i, j);
+                        Quadrant4(i, j);
+                    }
+                    else
                     {
                         Quadrant1(i, j);
                     }
-                    Quadrant1(i, j);
-                    Quadrant3(i, j);
-                    Quadrant4(i, j);
                 }
             }
         }
@@ -270,7 +273,7 @@ public class LevelGenerator : MonoBehaviour
 
         for (int i = 9; i < 13; i++)
         {
-            topLeft[8, i] = Instantiate(gameObjects[5], new Vector3(-i + 6.5f, 6.0f, 0.0f), Quaternion.identity);
+            topLeft[8, i] = Instantiate(gameObjects[5], new Vector3(-i + 7.5f, 6.0f, 0.0f), Quaternion.identity);
         }
 
         topLeft[8, 13] = Instantiate(gameObjects[4], new Vector3(-0f, 6.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 90.0f));
