@@ -7,10 +7,10 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField]
     private GameObject[] gameObjects;
 
-    private GameObject[,] topLeft = new GameObject[14, 15];
-    private GameObject[,] topRight = new GameObject[14, 15];
-    private GameObject[,] bottomLeft = new GameObject[14, 15];
-    private GameObject[,] bottomRight = new GameObject[14, 15];
+    private GameObject[,] topLeft = new GameObject[15, 15];
+    private GameObject[,] topRight = new GameObject[15, 15];
+    private GameObject[,] bottomLeft = new GameObject[15, 15];
+    private GameObject[,] bottomRight = new GameObject[15, 15];
 
     private GameObject[] q = new GameObject[4];
 
@@ -59,8 +59,12 @@ public class LevelGenerator : MonoBehaviour
         {
             for (int j = 0; j < columns; j++)
             {
-                if (topLeft[i, j] != null)
+                if(topLeft[i,j]!= null)
                 {
+                    if(i>=14)
+                    {
+                        Quadrant1(i, j);
+                    }
                     Quadrant1(i, j);
                     Quadrant3(i, j);
                     Quadrant4(i, j);
@@ -103,7 +107,8 @@ public class LevelGenerator : MonoBehaviour
         Line12();
         Line13();
         Line14();
-        //Line15();
+        Line15();
+
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < columns; j++)
@@ -339,7 +344,7 @@ public class LevelGenerator : MonoBehaviour
 
     private void Line15()
     {
-        topLeft[14, 6] = Instantiate(gameObjects[5], new Vector3(-8.0f, 1.0f, 0.0f), Quaternion.identity);
-        topLeft[14, 10] = Instantiate(gameObjects[4], new Vector3(-3.5f, 1.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 90.0f));
+        topLeft[14, 6] = Instantiate(gameObjects[5], new Vector3(-7.5f, 0.0f, 0.0f), Quaternion.identity);
+        topLeft[14, 10] = Instantiate(gameObjects[4], new Vector3(-3f, 0.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 90.0f));
     }
 }
