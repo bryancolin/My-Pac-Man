@@ -36,11 +36,11 @@ public class PacStudentController : MonoBehaviour
 
         movement = Vector3.ClampMagnitude(movement, 1.0f);
 
-        if (Input.anyKeyDown)
-        {
-            lastInput = Event.current.keyCode;
-            Debug.Log(lastInput);
-        }
+        //if (Input.GetKey(Input.GetAxis("Horizontal"))
+        //{
+        //    lastInput = Event.current.keyCode;
+        //    Debug.Log(lastInput);
+        //}
 
     }
 
