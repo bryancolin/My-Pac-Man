@@ -29,6 +29,33 @@ TextureImporter:
   - first:
       213: -7388796860472461610
     second: Idle
+  - first:
+      213: -4425277832436976413
+    second: Pac Man Renew_0
+  - first:
+      213: -1244327613194827486
+    second: Pac Man Renew_1
+  - first:
+      213: -3670458009885381941
+    second: Pac Man Renew_2
+  - first:
+      213: -6070843984318844159
+    second: Pac Man Renew_3
+  - first:
+      213: -5186302707326106643
+    second: Pac Man Renew_4
+  - first:
+      213: -7361607356450385131
+    second: Pac Man Renew_5
+  - first:
+      213: -4734294831169349951
+    second: Pac Man Renew_6
+  - first:
+      213: 5893816546989737250
+    second: Pac Man Renew_7
+  - first:
+      213: -3284101667374062589
+    second: Pac Man Renew_8
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -72,7 +99,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -140,10 +167,10 @@ TextureImporter:
       name: Pac Man Renew_0
       rect:
         serializedVersion: 2
-        x: 66
-        y: 574
-        width: 124
-        height: 132
+        x: 0
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,8 +178,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbbeeaed63e1fc450800000000000000
-      internalID: 6111136440378125244
+      spriteID: 3e4fe2de1414692c0800000000000000
+      internalID: -4425277832436976413
       vertices: []
       indices: 
       edges: []
@@ -161,10 +188,10 @@ TextureImporter:
       name: Pac Man Renew_1
       rect:
         serializedVersion: 2
-        x: 324
-        y: 574
-        width: 118
-        height: 132
+        x: 256
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,8 +199,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec747dd8954848a70800000000000000
-      internalID: 8828326689719666638
+      spriteID: 2290057e0a24bbee0800000000000000
+      internalID: -1244327613194827486
       vertices: []
       indices: 
       edges: []
@@ -182,10 +209,10 @@ TextureImporter:
       name: Pac Man Renew_2
       rect:
         serializedVersion: 2
-        x: 574
-        y: 578
-        width: 132
-        height: 124
+        x: 512
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,8 +220,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc5ff7a7acefb9fa0800000000000000
-      internalID: -5792756350089955889
+      spriteID: bca6bcd03e9ef0dc0800000000000000
+      internalID: -3670458009885381941
       vertices: []
       indices: 
       edges: []
@@ -203,10 +230,10 @@ TextureImporter:
       name: Pac Man Renew_3
       rect:
         serializedVersion: 2
-        x: 62
-        y: 324
-        width: 132
-        height: 118
+        x: 0
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,8 +241,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 862f438b378db2e30800000000000000
-      internalID: 4479912245873406568
+      spriteID: 103bbdb9f8700cba0800000000000000
+      internalID: -6070843984318844159
       vertices: []
       indices: 
       edges: []
@@ -224,10 +251,10 @@ TextureImporter:
       name: Pac Man Renew_4
       rect:
         serializedVersion: 2
-        x: 322
-        y: 318
-        width: 124
-        height: 132
+        x: 256
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,8 +262,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f36f2af866ded37c0800000000000000
-      internalID: -4089851861830273473
+      spriteID: de34e287a2d8608b0800000000000000
+      internalID: -5186302707326106643
       vertices: []
       indices: 
       edges: []
@@ -245,10 +272,10 @@ TextureImporter:
       name: Pac Man Renew_5
       rect:
         serializedVersion: 2
-        x: 582
-        y: 318
-        width: 118
-        height: 132
+        x: 512
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,8 +283,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb4366aee17468690800000000000000
-      internalID: -7600309123033975618
+      spriteID: 5135fdedc1156d990800000000000000
+      internalID: -7361607356450385131
       vertices: []
       indices: 
       edges: []
@@ -266,10 +293,10 @@ TextureImporter:
       name: Pac Man Renew_6
       rect:
         serializedVersion: 2
-        x: 62
-        y: 66
-        width: 132
-        height: 124
+        x: 0
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,8 +304,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 261b8e2a34513ad90800000000000000
-      internalID: -7087798008310877854
+      spriteID: 1c6de263fe76c4eb0800000000000000
+      internalID: -4734294831169349951
       vertices: []
       indices: 
       edges: []
@@ -287,10 +314,10 @@ TextureImporter:
       name: Pac Man Renew_7
       rect:
         serializedVersion: 2
-        x: 318
-        y: 70
-        width: 132
-        height: 118
+        x: 256
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -298,20 +325,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30fee2fd3197db960800000000000000
-      internalID: 7619379270836481795
+      spriteID: 22584a63cea0bc150800000000000000
+      internalID: 5893816546989737250
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle
+      name: Pac Man Renew_8
       rect:
         serializedVersion: 2
-        x: 580
-        y: 64
-        width: 120
-        height: 128
+        x: 512
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -319,8 +346,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d674062768b57990800000000000000
-      internalID: -7388796860472461610
+      spriteID: 304a6e5fee68c62d0800000000000000
+      internalID: -3284101667374062589
       vertices: []
       indices: 
       edges: []
