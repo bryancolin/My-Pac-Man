@@ -29,6 +29,33 @@ TextureImporter:
   - first:
       213: -807885138581816898
     second: Up-1
+  - first:
+      213: 6791697744649566540
+    second: Special red ghost_0
+  - first:
+      213: 4497421787741578339
+    second: Special red ghost_1
+  - first:
+      213: -6207874375788210484
+    second: Special red ghost_2
+  - first:
+      213: -893654369121448144
+    second: Special red ghost_3
+  - first:
+      213: -6414273633262921266
+    second: Special red ghost_4
+  - first:
+      213: -4501092583310416910
+    second: Special red ghost_5
+  - first:
+      213: -3201429138317260815
+    second: Special red ghost_6
+  - first:
+      213: 6427792028473924037
+    second: Special red ghost_7
+  - first:
+      213: -7561071944936605970
+    second: Special red ghost_8
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -72,7 +99,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -137,190 +164,190 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle
+      name: Special red ghost_0
       rect:
         serializedVersion: 2
-        x: 72
-        y: 568
-        width: 112
-        height: 136
+        x: 0
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4410decd0528ad60800000000000000
-      internalID: 7901606287456080970
+      spriteID: c49b8a36d15f04e50800000000000000
+      internalID: 6791697744649566540
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Right
+      name: Special red ghost_1
       rect:
         serializedVersion: 2
-        x: 304
-        y: 568
-        width: 144
-        height: 136
+        x: 256
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff3a3b4985d1cc340800000000000000
-      internalID: 4885311962079273983
+      spriteID: 364607f994d0a6e30800000000000000
+      internalID: 4497421787741578339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Right-1
+      name: Special red ghost_2
       rect:
         serializedVersion: 2
-        x: 568
-        y: 568
-        width: 136
-        height: 136
+        x: 512
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88e8dc79062e98d10800000000000000
-      internalID: 2128481203400838792
+      spriteID: cc6d4ec552339d9a0800000000000000
+      internalID: -6207874375788210484
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Left
+      name: Special red ghost_3
       rect:
         serializedVersion: 2
-        x: 64
-        y: 312
-        width: 144
-        height: 136
+        x: 0
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 054013a1620a4db10800000000000000
-      internalID: 2005403819595334736
+      spriteID: 03f4a88061a1993f0800000000000000
+      internalID: -893654369121448144
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Left-1
+      name: Special red ghost_4
       rect:
         serializedVersion: 2
-        x: 320
-        y: 312
-        width: 136
-        height: 136
+        x: 256
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b90a5e9a8fd6d84e0800000000000000
-      internalID: -1977803746576064357
+      spriteID: ec995356d1cebf6a0800000000000000
+      internalID: -6414273633262921266
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Down
+      name: Special red ghost_5
       rect:
         serializedVersion: 2
-        x: 560
-        y: 312
-        width: 144
-        height: 136
+        x: 512
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1445ea917a683f560800000000000000
-      internalID: 7346363469419926593
+      spriteID: 2f323aea428e881c0800000000000000
+      internalID: -4501092583310416910
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Down-1
+      name: Special red ghost_6
       rect:
         serializedVersion: 2
-        x: 56
-        y: 56
-        width: 136
-        height: 136
+        x: 0
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 772e20bdcb34271e0800000000000000
-      internalID: -2201622789423439241
+      spriteID: 1f7c30d192d3293d0800000000000000
+      internalID: -3201429138317260815
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Up
+      name: Special red ghost_7
       rect:
         serializedVersion: 2
-        x: 304
-        y: 56
-        width: 144
-        height: 136
+        x: 256
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3dbd45a01b1925410800000000000000
-      internalID: 1464393018417404883
+      spriteID: 5c996434bca143950800000000000000
+      internalID: 6427792028473924037
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Up-1
+      name: Special red ghost_8
       rect:
         serializedVersion: 2
-        x: 568
-        y: 56
-        width: 136
-        height: 136
+        x: 512
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb9738f2fb0d9c4f0800000000000000
-      internalID: -807885138581816898
+      spriteID: ee6b1e8502da11790800000000000000
+      internalID: -7561071944936605970
       vertices: []
       indices: 
       edges: []
