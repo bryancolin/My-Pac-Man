@@ -29,6 +29,33 @@ TextureImporter:
   - first:
       213: -9006039282293609979
     second: Special blue ghost _8
+  - first:
+      213: -2277855926890665972
+    second: Special blue ghost _0
+  - first:
+      213: 1535886730857782718
+    second: Special blue ghost _1
+  - first:
+      213: -3785857262553383069
+    second: Special blue ghost _2
+  - first:
+      213: 7200157653195814533
+    second: Special blue ghost _3
+  - first:
+      213: 6746139797970817345
+    second: Special blue ghost _4
+  - first:
+      213: -7419552481985852416
+    second: Special blue ghost _5
+  - first:
+      213: -7243229502609802040
+    second: Special blue ghost _6
+  - first:
+      213: -6866723097111171510
+    second: Special blue ghost _7
+  - first:
+      213: -2240742056668035275
+    second: Special blue ghost _8
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -72,7 +99,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -140,10 +167,10 @@ TextureImporter:
       name: Special blue ghost _0
       rect:
         serializedVersion: 2
-        x: 48
-        y: 568
-        width: 144
-        height: 136
+        x: 0
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,8 +178,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96760329a720c53f0800000000000000
-      internalID: -910850299173771415
+      spriteID: c08e9246a1e6360e0800000000000000
+      internalID: -2277855926890665972
       vertices: []
       indices: 
       edges: []
@@ -161,10 +188,10 @@ TextureImporter:
       name: Special blue ghost _1
       rect:
         serializedVersion: 2
-        x: 312
-        y: 568
-        width: 136
-        height: 136
+        x: 256
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,8 +199,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26c217406639ca110800000000000000
-      internalID: 1273554861009480802
+      spriteID: ebd930028d0905510800000000000000
+      internalID: 1535886730857782718
       vertices: []
       indices: 
       edges: []
@@ -182,10 +209,10 @@ TextureImporter:
       name: Special blue ghost _2
       rect:
         serializedVersion: 2
-        x: 576
-        y: 568
-        width: 144
-        height: 136
+        x: 512
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,8 +220,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5e9ee62dc9299280800000000000000
-      internalID: -9036145216243982756
+      spriteID: 36f3c27c0eee57bc0800000000000000
+      internalID: -3785857262553383069
       vertices: []
       indices: 
       edges: []
@@ -203,10 +230,10 @@ TextureImporter:
       name: Special blue ghost _3
       rect:
         serializedVersion: 2
-        x: 64
-        y: 312
-        width: 136
-        height: 136
+        x: 0
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,8 +241,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 592ce9c170ae53f00800000000000000
-      internalID: 1096039400600421013
+      spriteID: 586fb8dcc391ce360800000000000000
+      internalID: 7200157653195814533
       vertices: []
       indices: 
       edges: []
@@ -224,10 +251,10 @@ TextureImporter:
       name: Special blue ghost _4
       rect:
         serializedVersion: 2
-        x: 304
-        y: 312
-        width: 144
-        height: 136
+        x: 256
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,8 +262,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1a6bde6834332a80800000000000000
-      internalID: -8492887055307937253
+      spriteID: 1411d27576a1f9d50800000000000000
+      internalID: 6746139797970817345
       vertices: []
       indices: 
       edges: []
@@ -245,10 +272,10 @@ TextureImporter:
       name: Special blue ghost _5
       rect:
         serializedVersion: 2
-        x: 568
-        y: 312
-        width: 136
-        height: 136
+        x: 512
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,8 +283,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 568da189081babce0800000000000000
-      internalID: -1388602369224550299
+      spriteID: 00c8ddef354780990800000000000000
+      internalID: -7419552481985852416
       vertices: []
       indices: 
       edges: []
@@ -266,10 +293,10 @@ TextureImporter:
       name: Special blue ghost _6
       rect:
         serializedVersion: 2
-        x: 48
-        y: 56
-        width: 144
-        height: 136
+        x: 0
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,8 +304,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2a0224d684597800800000000000000
-      internalID: 610612162546764333
+      spriteID: 8cc3056c421ea7b90800000000000000
+      internalID: -7243229502609802040
       vertices: []
       indices: 
       edges: []
@@ -287,10 +314,10 @@ TextureImporter:
       name: Special blue ghost _7
       rect:
         serializedVersion: 2
-        x: 312
-        y: 56
-        width: 136
-        height: 136
+        x: 256
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -298,8 +325,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbdfdd4f4436ff1c0800000000000000
-      internalID: -4467743157511127617
+      spriteID: a4ee7b189bf74b0a0800000000000000
+      internalID: -6866723097111171510
       vertices: []
       indices: 
       edges: []
@@ -308,10 +335,10 @@ TextureImporter:
       name: Special blue ghost _8
       rect:
         serializedVersion: 2
-        x: 584
-        y: 56
-        width: 112
-        height: 136
+        x: 512
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -319,8 +346,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50aeca12dfe140380800000000000000
-      internalID: -9006039282293609979
+      spriteID: 537060fa8f847e0e0800000000000000
+      internalID: -2240742056668035275
       vertices: []
       indices: 
       edges: []
