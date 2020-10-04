@@ -26,7 +26,6 @@ public class PacStudentController : MonoBehaviour
         GetMovementInput();
         CharacterPosition();
         WalkingAnimation();
-        Tweening();
     }
 
     void GetMovementInput()
@@ -36,12 +35,14 @@ public class PacStudentController : MonoBehaviour
 
         movement = Vector3.ClampMagnitude(movement, 1.0f);
 
-        //if (Input.GetKey(Input.GetAxis("Horizontal"))
-        //{
-        //    lastInput = Event.current.keyCode;
-        //    Debug.Log(lastInput);
-        //}
-
+        if (Input.GetAxis("Horizontal") > 0)
+            lastInput = KeyCode.D;
+        if (Input.GetAxis("Horizontal") < 0)
+            lastInput = KeyCode.A;
+        if (Input.GetAxis("Vertical") > 0)
+            lastInput = KeyCode.W;
+        if (Input.GetAxis("Vertical") < 0)
+            lastInput = KeyCode.S; 
     }
 
     void CharacterPosition()
