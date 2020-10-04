@@ -19,8 +19,8 @@ public class GameStart : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 0;
-        audioSource.enabled = true;
+        //Time.timeScale = 0;
+        //audioSource.enabled = true;
     }
 
     // Update is called once per frame
@@ -28,9 +28,9 @@ public class GameStart : MonoBehaviour
     {
         if (!audioSource.isPlaying)
         {
-            SetAnimator();
             Time.timeScale = 1;
         }
+        SetAnimator();
     }
 
     void SetUpCamera()

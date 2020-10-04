@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PacStudentController : MonoBehaviour
 {
-    private Vector3 movement;
+    public Animator animator;
     private Tweener tweener;
-
     private KeyCode lastInput;
+
+    private Vector3 movement;
+    private float movementSqrtMagnitude;
 
     public float walkSpeed = 1.5f;
     public float timeDuration = 4.5f;
-
-    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +24,12 @@ public class PacStudentController : MonoBehaviour
     void Update()
     {
         GetMovementInput();
+
+        //if (!RayCastCheck())
+            CharacterPosition();
+        //else
+            //movementSqrtMagnitude = 0.0f;
+ 
         CharacterPosition();
         WalkingAnimation();
     }
@@ -34,6 +40,7 @@ public class PacStudentController : MonoBehaviour
         movement.y = Input.GetAxis("Vertical");
 
         movement = Vector3.ClampMagnitude(movement, 1.0f);
+        movementSqrtMagnitude = movement.sqrMagnitude;
 
         if (Input.GetAxis("Horizontal") > 0)
             lastInput = KeyCode.D;
@@ -57,7 +64,7 @@ public class PacStudentController : MonoBehaviour
             animator.SetFloat("Horizontal", movement.x);
             animator.SetFloat("Vertical", movement.y);
         }
-        animator.SetFloat("Speed", movement.sqrMagnitude);
+        animator.SetFloat("Speed", movementSqrtMagnitude);
     }
 
     void Tweening()
