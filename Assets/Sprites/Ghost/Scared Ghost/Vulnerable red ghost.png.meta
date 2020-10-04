@@ -26,6 +26,30 @@ TextureImporter:
   - first:
       213: 7257307437338687888
     second: Vulnerable red ghost_7
+  - first:
+      213: 9128056385620792575
+    second: Vulnerable red ghost_0
+  - first:
+      213: -5470239036291867211
+    second: Vulnerable red ghost_1
+  - first:
+      213: -7336434524593438363
+    second: Vulnerable red ghost_2
+  - first:
+      213: 9212929193857698528
+    second: Vulnerable red ghost_3
+  - first:
+      213: 7565986403235103005
+    second: Vulnerable red ghost_4
+  - first:
+      213: 5173284164480059909
+    second: Vulnerable red ghost_5
+  - first:
+      213: 3890764880279441263
+    second: Vulnerable red ghost_6
+  - first:
+      213: 4344495097917244995
+    second: Vulnerable red ghost_7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -69,7 +93,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -137,10 +161,10 @@ TextureImporter:
       name: Vulnerable red ghost_0
       rect:
         serializedVersion: 2
-        x: 48
-        y: 568
-        width: 144
-        height: 128
+        x: 0
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,8 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd56b3d5031ca3480800000000000000
-      internalID: -8918603698587081249
+      spriteID: ff4d9a29bee5dae70800000000000000
+      internalID: 9128056385620792575
       vertices: []
       indices: 
       edges: []
@@ -158,10 +182,10 @@ TextureImporter:
       name: Vulnerable red ghost_1
       rect:
         serializedVersion: 2
-        x: 312
-        y: 568
-        width: 136
-        height: 128
+        x: 256
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,8 +193,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e74997e9eb3d47f80800000000000000
-      internalID: -8109624213331405698
+      spriteID: 5bd195d349ec514b0800000000000000
+      internalID: -5470239036291867211
       vertices: []
       indices: 
       edges: []
@@ -179,10 +203,10 @@ TextureImporter:
       name: Vulnerable red ghost_2
       rect:
         serializedVersion: 2
-        x: 576
-        y: 568
-        width: 144
-        height: 128
+        x: 512
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +214,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68f61bb91f163e5d0800000000000000
-      internalID: -3034474033590472826
+      spriteID: 56142b38bafbf2a90800000000000000
+      internalID: -7336434524593438363
       vertices: []
       indices: 
       edges: []
@@ -200,10 +224,10 @@ TextureImporter:
       name: Vulnerable red ghost_3
       rect:
         serializedVersion: 2
-        x: 64
-        y: 312
-        width: 136
-        height: 128
+        x: 0
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -211,8 +235,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 942aefdb628355770800000000000000
-      internalID: 8598840802581324361
+      spriteID: 0eac6b42a46eadf70800000000000000
+      internalID: 9212929193857698528
       vertices: []
       indices: 
       edges: []
@@ -221,10 +245,10 @@ TextureImporter:
       name: Vulnerable red ghost_4
       rect:
         serializedVersion: 2
-        x: 304
-        y: 312
-        width: 144
-        height: 128
+        x: 256
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,8 +256,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 237c2358a14de5be0800000000000000
-      internalID: -1486517616616749262
+      spriteID: d1183442c88cff860800000000000000
+      internalID: 7565986403235103005
       vertices: []
       indices: 
       edges: []
@@ -242,10 +266,10 @@ TextureImporter:
       name: Vulnerable red ghost_5
       rect:
         serializedVersion: 2
-        x: 568
-        y: 312
-        width: 136
-        height: 128
+        x: 512
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,8 +277,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac1a54e392d2248b0800000000000000
-      internalID: -5169519767106248246
+      spriteID: 50accf1d9823bc740800000000000000
+      internalID: 5173284164480059909
       vertices: []
       indices: 
       edges: []
@@ -263,10 +287,10 @@ TextureImporter:
       name: Vulnerable red ghost_6
       rect:
         serializedVersion: 2
-        x: 48
-        y: 56
-        width: 144
-        height: 128
+        x: 0
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -274,8 +298,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f57421e8d84889f0800000000000000
-      internalID: -466042465105447439
+      spriteID: f6f0f916b06cef530800000000000000
+      internalID: 3890764880279441263
       vertices: []
       indices: 
       edges: []
@@ -284,10 +308,10 @@ TextureImporter:
       name: Vulnerable red ghost_7
       rect:
         serializedVersion: 2
-        x: 312
-        y: 56
-        width: 136
-        height: 128
+        x: 256
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -295,8 +319,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0997f54d9a227b460800000000000000
-      internalID: 7257307437338687888
+      spriteID: 34688cff54fba4c30800000000000000
+      internalID: 4344495097917244995
       vertices: []
       indices: 
       edges: []
