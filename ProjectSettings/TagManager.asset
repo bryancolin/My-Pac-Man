@@ -4,13 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - NormalPellet
+  - PowerPellet
   - CornerDoubleLine
   - DoubleLine
   - CornerSingleLine
   - SingleLine
-  - NormalPellet
-  - PowerPellet
   - Junction
+  - Cherry
   layers:
   - Default
   - TransparentFX
