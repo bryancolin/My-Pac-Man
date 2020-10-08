@@ -909,7 +909,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &882554138 stripped
 GameObject:
@@ -947,12 +947,6 @@ MonoBehaviour:
 --- !u!95 &882554141 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2968334368490602949, guid: 59629593948e24a949e347d276e9d2f9,
-    type: 3}
-  m_PrefabInstance: {fileID: 2968334369423601631}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &882554143 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2968334368490602947, guid: 59629593948e24a949e347d276e9d2f9,
     type: 3}
   m_PrefabInstance: {fileID: 2968334369423601631}
   m_PrefabAsset: {fileID: 0}
@@ -1689,7 +1683,7 @@ Transform:
   - {fileID: 66992938}
   - {fileID: 6812579757759209762}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1805145173 stripped
 GameObject:
@@ -1935,6 +1929,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 'Pac Man '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8794743012755005615, guid: 59629593948e24a949e347d276e9d2f9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8794743012755005615, guid: 59629593948e24a949e347d276e9d2f9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8794743012755005615, guid: 59629593948e24a949e347d276e9d2f9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 729213557, guid: 59629593948e24a949e347d276e9d2f9, type: 3}
