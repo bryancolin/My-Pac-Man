@@ -12,6 +12,9 @@ TagManager:
   - SingleLine
   - Junction
   - Cherry
+  - PlayButton
+  - DesignButton
+  - ExitButton
   layers:
   - Default
   - TransparentFX
