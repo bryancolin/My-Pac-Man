@@ -6,16 +6,22 @@ public class CherryController : MonoBehaviour
 {
     [SerializeField]
     private GameObject cherry;
-    private Tweener tweenerRef;
+    private Tweener tweenRef;
 
-    private float timer=0, lastTime=0;
+    private int lastTime, lastMoveTime;
+    private float timer;
+    private const float spawnTime = 30.0f;
+
+    private GameObject cherryRef;
+    private Vector3 startPosition, finalPosition;
+
     private List<Vector3> listOfZones = new List<Vector3>();
 
-    private GameObject gameObject1;
+    private Coroutine coroutine;
     // Start is called before the first frame update
     void Start()
     {
-        tweenerRef = GetComponent<Tweener>();
+        tweenRef = GetComponent<Tweener>();
     }
 
     // Update is called once per frame
@@ -24,29 +30,17 @@ public class CherryController : MonoBehaviour
         SetZones();
 
         timer += Time.deltaTime;
-        if (timer >= lastTime && timer % 2 == 0)
+        if ((int)timer > lastTime)
         {
-            //gameObject1 = Instantiate(cherry, listOfZones[Random.Range(0, listOfZones.Count)], Quaternion.identity);
-            //if (cherry.transform.position != new Vector3(0.0f, 0.0f, 0.0f))
-            //{
-            //    tweenerRef.AddTween(gameObject1.transform, gameObject1.transform.position, Vector3.zero, 10.0f);
-            //}
-            Instantiate(cherry, Vector3.zero, Quaternion.identity);
+            lastTime = (int)timer;
             Debug.Log(lastTime);
-            lastTime += 1;
-        }
-        else if (timer >= lastTime)
-        {
-            Debug.Log(lastTime);
-            lastTime += 1;
         }
 
-        //bool spawned = false;
-        //if (spawned == false)
-        //{
-        //    spawned = true;
-        //    GameObject gameObject = Instantiate(cherry, randPos, Quaternion.identity);
-        //}
+        if (timer > lastMoveTime + 30)
+        {
+            SpawnCherry();
+            lastMoveTime = (int)timer;
+        }
     }
 
     // Set Random Range (Left, Right, Up, Down)
@@ -56,5 +50,35 @@ public class CherryController : MonoBehaviour
         listOfZones.Add(Camera.main.ViewportToWorldPoint(new Vector3(1.0f, Random.Range(-1.0f, 1.0f), 0.0f)));
         listOfZones.Add(Camera.main.ViewportToWorldPoint(new Vector3(Random.Range(-1.0f, 1.0f), 1.0f, 0.0f)));
         listOfZones.Add(Camera.main.ViewportToWorldPoint(new Vector3(Random.Range(-1.0f, 1.0f), 0.0f, 0.0f)));
+    }
+
+    // Spawning Cherry 
+    private void SpawnCherry()
+    {
+        startPosition = listOfZones[Random.Range(0, listOfZones.Count)];
+        finalPosition = -startPosition;
+
+        cherryRef = Instantiate(cherry, startPosition, Quaternion.identity);
+        if (!tweenRef.TweenExists(cherryRef.transform))
+        {
+            tweenRef.AddTween(cherryRef.transform, cherryRef.transform.position, -cherryRef.transform.position, 10.0f);
+            //Debug.Log("Spawned");
+            coroutine = StartCoroutine(DestroyCherry());
+        }
+    }
+
+    // Destroy Cherry every 15 seconds when it is spawned
+    IEnumerator DestroyCherry()
+    {
+        yield return new WaitForSeconds(15.0f);
+        if (cherryRef != null)
+        {
+            if (cherryRef.transform.position == finalPosition)
+            {
+                Destroy(cherryRef);
+                //Debug.Log("Destroy");
+            }
+        }
+        coroutine = null;
     }
 }
