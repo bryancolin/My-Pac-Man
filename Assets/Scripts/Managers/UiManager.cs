@@ -57,9 +57,9 @@ public class UiManager : MonoBehaviour
 
     public void LoadFirstLevel()
     {
-        //DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this);
         SceneManager.LoadScene(1);
-        //SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     public void LoadDesignLevel()
@@ -67,17 +67,17 @@ public class UiManager : MonoBehaviour
 
     }
 
-    public void QuitGame()
+    public void ExitGame()
     {
-        //UnityEditor.EditorApplication.isPlaying = false;
+        SceneManager.LoadScene(0);
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.buildIndex == 1)
         {
-            //Button quitButton = GameObject.FindWithTag("QuitButton").GetComponent<Button>();
-            //quitButton.onClick.AddListener(QuitGame);
+            Button exitButton = GameObject.FindWithTag("ExitButton").GetComponent<Button>();
+            exitButton.onClick.AddListener(ExitGame);
 
             //innerBar = GameObject.FindWithTag("PlayerHealthBar").GetComponent<Image>();
 
@@ -85,7 +85,10 @@ public class UiManager : MonoBehaviour
 
             //camera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
         }
+
+        if(scene.buildIndex == 2)
+        {
+
+        }
     }
-
-
 }
