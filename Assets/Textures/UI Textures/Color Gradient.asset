@@ -16,4 +16,4 @@ MonoBehaviour:
   topLeft: {r: 1, g: 0.9725139, b: 0.3915094, a: 1}
   topRight: {r: 1, g: 0.9725139, b: 0.3915094, a: 1}
   bottomLeft: {r: 1, g: 0.6136042, b: 0, a: 1}
-  bottomRight: {r: 1, g: 0.5647059, b: 0.15294118, a: 1}
+  bottomRight: {r: 1, g: 0.6136042, b: 0, a: 1}
