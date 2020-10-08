@@ -76,8 +76,7 @@ public class UiManager : MonoBehaviour
     {
         if (scene.buildIndex == 1)
         {
-            Button exitButton = GameObject.FindWithTag("ExitButton").GetComponent<Button>();
-            exitButton.onClick.AddListener(ExitGame);
+            GetExitButton();
 
             //innerBar = GameObject.FindWithTag("PlayerHealthBar").GetComponent<Image>();
 
@@ -88,7 +87,13 @@ public class UiManager : MonoBehaviour
 
         if(scene.buildIndex == 2)
         {
-
+            
         }
+    }
+
+    public void GetExitButton()
+    {
+        Button exitButton = GameObject.FindWithTag("ExitButton").GetComponent<Button>();
+        exitButton.onClick.AddListener(ExitGame);
     }
 }
