@@ -5,14 +5,20 @@ using UnityEngine;
 public class PacStudentController : MonoBehaviour
 {
     public Animator animator;
-    private Tweener tweener;
-    private KeyCode lastInput;
 
+    public AudioSource movementSource;
+    public AudioClip[] movementClips;
+    private bool isEating = false;
+
+    private Tweener tweener;
     private Vector3 movement;
     private float movementSqrtMagnitude;
 
-    public float walkSpeed = 1.5f;
-    public float timeDuration = 4.5f;
+    private Vector3 lastInput = Vector3.zero;
+    private Vector3 currentInput = Vector3.zero;
+
+    private Vector3 dest = Vector3.zero;
+    private Vector3 dir = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -26,12 +32,13 @@ public class PacStudentController : MonoBehaviour
         GetMovementInput();
 
         //if (!RayCastCheck())
-            CharacterPosition();
+        //    CharacterPosition();
         //else
-            //movementSqrtMagnitude = 0.0f;
- 
+        //    movementSqrtMagnitude = 0.0f;
+
         CharacterPosition();
         WalkingAnimation();
+        MovementAudio();
     }
 
     void GetMovementInput()
@@ -40,48 +47,107 @@ public class PacStudentController : MonoBehaviour
         movement.y = Input.GetAxis("Vertical");
 
         movement = Vector3.ClampMagnitude(movement, 1.0f);
-        movementSqrtMagnitude = movement.sqrMagnitude;
+        //movementSqrtMagnitude = movement.sqrMagnitude;
 
-        if (Input.GetAxis("Horizontal") > 0)
-            lastInput = KeyCode.D;
-        if (Input.GetAxis("Horizontal") < 0)
-            lastInput = KeyCode.A;
-        if (Input.GetAxis("Vertical") > 0)
-            lastInput = KeyCode.W;
-        if (Input.GetAxis("Vertical") < 0)
-            lastInput = KeyCode.S; 
+        if (movement.x > 0)
+            lastInput = Vector3.right;
+        else if (movement.x < 0)
+            lastInput = Vector3.left;
+        else if (movement.y > 0)        
+            lastInput = Vector3.up;
+        else if (movement.y < 0)
+            lastInput = Vector3.down;
     }
 
     void CharacterPosition()
     {
-        transform.Translate(movement * walkSpeed * Time.deltaTime, Space.World); 
+        if (RayCastCheckPellet(lastInput))
+        {
+            dest = lastInput + transform.position;
+            currentInput = lastInput;
+            Tweening(lastInput);
+        }
+        else
+        {
+            if (RayCastCheckPellet(currentInput))
+            {
+                dest = currentInput + transform.position;
+                Tweening(currentInput);
+            }
+        }
+    }
+
+    // Using RayCast to check if Grid is Walkable
+    bool RayCastCheckPellet(Vector3 inputDirection)
+    {
+        Vector3 pos = transform.position;
+        inputDirection += new Vector3(inputDirection.x * 0.45f, inputDirection.y * 0.45f);
+        RaycastHit2D hit = Physics2D.Linecast(pos + inputDirection, pos);
+
+        if (hit)
+        {
+            if (hit.collider.CompareTag("NormalPellet") || hit.collider.CompareTag("PowerPellet") || (hit.collider == GetComponent<Collider2D>()))
+                return true;
+        }
+        return false;
+    }
+
+    void Tweening(Vector3 inputDirection)
+    {
+        Vector3 destination = transform.position + inputDirection;
+        tweener.AddTween(transform, transform.position, destination, 0.3f);
     }
 
     void WalkingAnimation()
     {
-        if (movement != Vector3.zero)
-        {
-            animator.SetFloat("Horizontal", movement.x);
-            animator.SetFloat("Vertical", movement.y);
-        }
-        animator.SetFloat("Speed", movementSqrtMagnitude);
+        Vector3 direction = dest - transform.position;
+        movementSqrtMagnitude = direction.sqrMagnitude;
+
+        animator.SetFloat("Speed", direction.sqrMagnitude);
+        animator.SetFloat("Horizontal", direction.x);
+        animator.SetFloat("Vertical", direction.y);
     }
 
-    void Tweening()
+    void MovementAudio()
     {
-        tweener.AddTween(transform, transform.position, transform.position + movement, timeDuration);
+        if (movementSqrtMagnitude >= 0.3f && !movementSource.isPlaying)
+        {
+            if (isEating)
+            {
+                Debug.Log("Playing");
+                movementSource.clip = movementClips[0];
+                movementSource.Play();
+            }
+            else
+            {
+                Debug.Log("Playing other");
+                movementSource.clip = movementClips[1];
+                movementSource.Play();
+            }
+        }
+        else if (movementSqrtMagnitude <= 0.3f && movementSource.isPlaying)
+        {
+            movementSource.Stop();
+        }
     }
 
-    bool RayCastCheck()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        RaycastHit hitInfo;
-        bool hit = Physics.Raycast(transform.position + new Vector3(0, 1, 0), transform.forward, out hitInfo, 0.5f);
-        if (hit)
+        Debug.Log("hit");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("NormalPellet") || collision.CompareTag("PowerPellet"))
         {
-            Debug.Log("Raycast Hit: " + hitInfo.collider.name);
-            if (hitInfo.collider.CompareTag("Freeze"))
-                return true;
+            Destroy(collision.gameObject);
+            isEating = true;
+            Debug.Log("eat pellet");
         }
-        return false;
+        else
+        {
+            isEating = false;
+            Debug.Log("moving");
+        }
     }
 }
