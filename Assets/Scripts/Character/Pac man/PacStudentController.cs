@@ -139,7 +139,7 @@ public class PacStudentController : MonoBehaviour
     {
         Vector3 direction = destination - transform.position;        
 
-        if (direction.sqrMagnitude < 0.3f)
+        if (direction.sqrMagnitude <= 0.3f)
         {
             particleSystem.Stop();
         }
@@ -182,6 +182,7 @@ public class PacStudentController : MonoBehaviour
         if (collision.CompareTag("NormalPellet") || collision.CompareTag("PowerPellet") || collision.CompareTag("Cherry"))
         {
             Debug.Log("Playing eating");
+            movementSource.clip = movementClips[0];
             movementSource.volume = 0.1f;
             movementSource.PlayOneShot(movementClips[0]);
 
