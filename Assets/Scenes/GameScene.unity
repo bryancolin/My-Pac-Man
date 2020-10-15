@@ -5732,8 +5732,8 @@ MonoBehaviour:
   levelGenerator: {fileID: 924057089}
   movementSource: {fileID: 882554143}
   movementClips:
-  - {fileID: 8300000, guid: a8b9cd424916b40f3947ec503c67c96b, type: 3}
   - {fileID: 8300000, guid: 500855a5aeabc4cc59a9e86fc10e6e50, type: 3}
+  - {fileID: 8300000, guid: a8b9cd424916b40f3947ec503c67c96b, type: 3}
   - {fileID: 8300000, guid: 14dd607577f7e4fda8224fd875a0067f, type: 3}
 --- !u!95 &882554141 stripped
 Animator:

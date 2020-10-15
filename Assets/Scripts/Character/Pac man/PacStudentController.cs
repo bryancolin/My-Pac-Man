@@ -11,7 +11,6 @@ public class PacStudentController : MonoBehaviour
 
     public AudioSource movementSource;
     public AudioClip[] movementClips;
-    private bool isEating = false;
 
     private Tweener tweener;
     private Vector3 movement;
@@ -96,12 +95,10 @@ public class PacStudentController : MonoBehaviour
 
             if (levelGenerator.levelMap[yPosition, xPosition] == 0)
             {
-                movementSource.clip = movementClips[1];
                 return true;
             }
             else if (levelGenerator.levelMap[yPosition, xPosition] == 5 || levelGenerator.levelMap[yPosition, xPosition] == 6)
             {
-                movementSource.clip = movementClips[0];
                 levelGenerator.levelMap[yPosition, xPosition] = 0;
                 return true;
             }
@@ -117,12 +114,10 @@ public class PacStudentController : MonoBehaviour
 
             if (levelGenerator.levelMapTopRight[yPosition, xPosition] == 0)
             {
-                movementSource.clip = movementClips[1];
                 return true;
             }
             else if (levelGenerator.levelMapTopRight[yPosition, xPosition] == 5 || levelGenerator.levelMapTopRight[yPosition, xPosition] == 6)
             {
-                movementSource.clip = movementClips[0];
                 levelGenerator.levelMapTopRight[yPosition, xPosition] = 0;
                 return true;
             }
@@ -139,12 +134,10 @@ public class PacStudentController : MonoBehaviour
 
             if (levelGenerator.levelMapBottomLeft[yPosition, xPosition] == 0)
             {
-                movementSource.clip = movementClips[1];
                 return true;
             }
             else if (levelGenerator.levelMapBottomLeft[yPosition, xPosition] == 5 || levelGenerator.levelMapBottomLeft[yPosition, xPosition] == 6)
             {
-                movementSource.clip = movementClips[0];
                 levelGenerator.levelMapBottomLeft[yPosition, xPosition] = 0;
                 return true;
             }
@@ -161,12 +154,10 @@ public class PacStudentController : MonoBehaviour
 
             if (levelGenerator.levelMapBottomRight[yPosition, xPosition] == 0)
             {
-                movementSource.clip = movementClips[1];
                 return true;
             }
             else if (levelGenerator.levelMapBottomRight[yPosition, xPosition] == 5 || levelGenerator.levelMapBottomRight[yPosition, xPosition] == 6)
             {
-                movementSource.clip = movementClips[0];
                 levelGenerator.levelMapBottomRight[yPosition, xPosition] = 0;
                 return true;
             }
@@ -255,14 +246,25 @@ public class PacStudentController : MonoBehaviour
 
     void MovementAudio()
     {
-        Debug.Log(movementSqrtMagnitude);
+        //Debug.Log(movementSqrtMagnitude);
         if (movementSqrtMagnitude == 1.0f)
         {
             if (!movementSource.isPlaying)
             {
-                Debug.Log("Playing movement");
-                movementSource.volume = 0.5f;
-                movementSource.Play();
+                if(levelGenerator.levelMap[yPosition,xPosition] == 0)
+                {
+                    Debug.Log("Move");
+                    movementSource.clip = movementClips[0];
+                    movementSource.volume = 0.5f;
+                    movementSource.Play();
+                }
+                else
+                {
+                    Debug.Log("Eat");
+                    movementSource.clip = movementClips[1];
+                    movementSource.volume = 0.3f;
+                    movementSource.Play();
+                }
             }
         }
         else if (movementSqrtMagnitude < 1.0f)
@@ -294,12 +296,12 @@ public class PacStudentController : MonoBehaviour
             //if (movementSource.isPlaying)
             //{
             //    Debug.Log("Playing eating");
-            //    //movementSource.clip = movementClips[0];
+            //    //movementSource.clip = movementClips[1];
             //    movementSource.volume = 0.1f;
             //    movementSource.Play();
             //}
             Destroy(collision.gameObject);
-            Debug.Log("eat pellet");
+            //Debug.Log("eat pellet");
         }
 
         //if (collision.CompareTag("Portal"))
