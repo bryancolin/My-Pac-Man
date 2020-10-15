@@ -4,19 +4,18 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - NormalPellet
-  - PowerPellet
   - CornerDoubleLine
   - DoubleLine
   - CornerSingleLine
   - SingleLine
+  - NormalPellet
+  - PowerPellet
   - Junction
-  - Cherry
-  - PlayButton
-  - DesignButton
   - ExitButton
-  - Wall
   - BoxParticle
+  - Cherry
+  - Wall
+  - Portal
   layers:
   - Default
   - TransparentFX
