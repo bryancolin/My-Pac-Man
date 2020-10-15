@@ -11,11 +11,7 @@ TagManager:
   - NormalPellet
   - PowerPellet
   - Junction
-  - ExitButton
-  - BoxParticle
-  - Cherry
-  - Wall
-  - Portal
+  - ScoreTime
   layers:
   - Default
   - TransparentFX
