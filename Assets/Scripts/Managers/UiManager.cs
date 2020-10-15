@@ -57,9 +57,13 @@ public class UiManager : MonoBehaviour
 
     public void LoadFirstLevel()
     {
-        DontDestroyOnLoad(this);
-        SceneManager.LoadScene(1);
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        if (GameManager.currentGameState == GameManager.GameState.StartScene)
+        {
+            GameManager.currentGameState = GameManager.GameState.GameScene;
+            DontDestroyOnLoad(this);
+            SceneManager.LoadScene(1);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
     }
 
     public void LoadDesignLevel()
@@ -69,7 +73,11 @@ public class UiManager : MonoBehaviour
 
     public void ExitGame()
     {
-        SceneManager.LoadScene(0);
+        if (GameManager.currentGameState == GameManager.GameState.GameScene)
+        {
+            GameManager.currentGameState = GameManager.GameState.StartScene;
+            SceneManager.LoadScene(0);
+        }
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
