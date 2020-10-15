@@ -67,7 +67,7 @@ public class PacStudentController : MonoBehaviour
 
     void CharacterPosition()
     {
-        if (RayCastCheckPellet(lastInput))
+        if (GridCheck(lastInput))
         {
             destination = lastInput + transform.position;
             currentInput = lastInput;
@@ -75,7 +75,7 @@ public class PacStudentController : MonoBehaviour
         }
         else
         {
-            if (RayCastCheckPellet(currentInput))
+            if (GridCheck(currentInput))
             {
                 destination = currentInput + transform.position;
                 Tweening(currentInput);
@@ -84,7 +84,7 @@ public class PacStudentController : MonoBehaviour
     }
 
     // Using LevelMapGenerator to check if Grid is Walkable
-    bool RayCastCheckPellet(Vector3 inputDirection)
+    bool GridCheck(Vector3 inputDirection)
     {
         // Top Left
         if (transform.position.x + inputDirection.x <= 0 && transform.position.y + inputDirection.y >= 0) 
@@ -176,7 +176,7 @@ public class PacStudentController : MonoBehaviour
     }
 
     // Using RayCast to check if Grid is Walkable
-    bool RayCastCheckWall(Vector3 inputDirection)
+    bool RayCastCheck(Vector3 inputDirection)
     {
         Vector3 pos = transform.position;
         inputDirection += new Vector3(inputDirection.x * 0.45f, inputDirection.y * 0.45f);
