@@ -52,7 +52,6 @@ public class LevelGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(rows + " " + columns);
     }
 
     // Update is called once per frame
