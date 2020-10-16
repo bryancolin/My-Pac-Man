@@ -33,14 +33,16 @@ public class CherryController : MonoBehaviour
         if ((int)timer > lastTime)
         {
             lastTime = (int)timer;
-            //Debug.Log(lastTime);
+            Debug.Log(lastTime);
         }
 
-        if (timer > lastMoveTime + 30)
+        if (timer > lastMoveTime + spawnTime)
         {
             SpawnCherry();
             lastMoveTime = (int)timer;
         }
+
+        DestroyCherry();
     }
 
     // Set Random Range (Left, Right, Up, Down)
@@ -59,26 +61,38 @@ public class CherryController : MonoBehaviour
         finalPosition = -startPosition;
 
         cherryRef = Instantiate(cherry, startPosition, Quaternion.identity);
-        if (!tweenRef.TweenExists(cherryRef.transform))
-        {
+
+        //if (!tweenRef.TweenExists(cherryRef.transform))
+        //{
             tweenRef.AddTween(cherryRef.transform, cherryRef.transform.position, -cherryRef.transform.position, 10.0f);
             //Debug.Log("Spawned");
-            coroutine = StartCoroutine(DestroyCherry());
-        }
+            //coroutine = StartCoroutine(DestroyCherry());
+        //}
     }
 
-    // Destroy Cherry every 15 seconds when it is spawned
-    IEnumerator DestroyCherry()
+    //// Destroy Cherry every 15 seconds when it is spawned
+    //IEnumerator DestroyCherry()
+    //{
+    //    yield return new WaitForSeconds(15.0f);
+    //    if (cherryRef != null)
+    //    {
+    //        if (cherryRef.transform.position == finalPosition)
+    //        {
+    //            Destroy(cherryRef);
+    //            //Debug.Log("Destroy");
+    //        }
+    //    }
+    //    coroutine = null;
+    //}
+
+    private void DestroyCherry()
     {
-        yield return new WaitForSeconds(15.0f);
-        if (cherryRef != null)
+        if(cherryRef!= null)
         {
-            if (cherryRef.transform.position == finalPosition)
+            if(cherryRef.transform.position == finalPosition)
             {
                 Destroy(cherryRef);
-                //Debug.Log("Destroy");
             }
         }
-        coroutine = null;
     }
 }
