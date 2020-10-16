@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PacStudentController : MonoBehaviour
 {
@@ -23,10 +24,14 @@ public class PacStudentController : MonoBehaviour
 
     private int xPosition, yPosition;
 
+    public int playerScore;
+    private GhostMovement ghostMovement;
+
     // Start is called before the first frame update
     void Start()
     {
         tweener = GetComponent<Tweener>();
+        ghostMovement = GameObject.FindWithTag("Ghost").GetComponent<GhostMovement>();
     }
 
     // Update is called once per frame
@@ -291,7 +296,7 @@ public class PacStudentController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("NormalPellet") || collision.CompareTag("PowerPellet") || collision.CompareTag("Cherry"))
+        if (collision.CompareTag("NormalPellet"))
         {
             //if (movementSource.isPlaying)
             //{
@@ -300,9 +305,23 @@ public class PacStudentController : MonoBehaviour
             //    movementSource.volume = 0.1f;
             //    movementSource.Play();
             //}
+            playerScore += 10;
             Destroy(collision.gameObject);
-            //Debug.Log("eat pellet");
         }
+
+        if(collision.CompareTag("Cherry"))
+        {
+            playerScore += 100;
+            Destroy(collision.gameObject);
+        }
+
+        if(collision.CompareTag("PowerPellet"))
+        {
+            ghostMovement.SetScared();
+            Destroy(collision.gameObject);
+        }
+
+        Debug.Log(playerScore);
 
         //if (collision.CompareTag("Portal"))
         //{
