@@ -221,15 +221,13 @@ public class PacStudentController : MonoBehaviour
 
     void WalkingAnimation()
     {
-        Vector3 direction = destination - transform.position;
-
-        if (direction.sqrMagnitude < 1.0f)
+        if (movementSqrtMagnitude != 1.0f)
         {
             animator.SetFloat("Speed", 0);
         }
         else
         {
-            animator.SetFloat("Speed", direction.sqrMagnitude);
+            animator.SetFloat("Speed", movementSqrtMagnitude);
         }
         //animator.SetFloat("Horizontal", direction.x);
         //animator.SetFloat("Vertical", direction.y);
@@ -237,9 +235,7 @@ public class PacStudentController : MonoBehaviour
 
     void ParticlePlay()
     {
-        Vector3 direction = destination - transform.position;
-
-        if (direction.sqrMagnitude <= 0.3f)
+        if (movementSqrtMagnitude != 1.0f)
         {
             particleSystem.Stop();
         }
