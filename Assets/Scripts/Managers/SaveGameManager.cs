@@ -13,21 +13,20 @@ public class SaveGameManager : MonoBehaviour
 
     void Awake()
     {
-        SaveFile(1, -1);
-        LoadFile();
+        LoadGame();
     }  
 
-    public void LoadFile()
+    public void LoadGame()
     {
         // If highScoreKey & timeKey exists, Load into a HighScore and Time Text from UI
         if(PlayerPrefs.HasKey(highScoreKey) && PlayerPrefs.HasKey(timeKey))
         {
             scoreLabel = GameObject.FindWithTag("ScoreTime").GetComponent<TextMeshProUGUI>();
-            scoreLabel.SetText(PlayerPrefs.GetInt(highScoreKey) + " " + PlayerPrefs.GetInt(timeKey));
+            scoreLabel.SetText("High Score: " + PlayerPrefs.GetInt(highScoreKey) + " & Time: " + PlayerPrefs.GetInt(timeKey));
         }
     }
 
-    public void SaveFile(int highScore, int time)
+    public static void SaveGame(int highScore, int time)
     {
         // Save High Score and Time
         if (PlayerPrefs.GetInt(highScoreKey) < highScore)
