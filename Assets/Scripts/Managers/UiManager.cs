@@ -3,15 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class UiManager : MonoBehaviour
 {
+    public AudioManager backgroundMusic;
+    private PacStudentController pacStudent;
+    private TextMeshProUGUI playerScore, gameDurationTime, ghostScaredTime;
     //private Image innerBar;
     //private Transform playerTransform;
     //private Camera camera;
 
     //private float yRotation;
     // Start is called before the first frame update
+    private void Awake()
+    {
+
+    }
+
     void Start()
     {
 
@@ -20,39 +29,15 @@ public class UiManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (playerTransform != null)
-        //{
-        //    float xPosition = playerTransform.position.x;
-
-        //    if (xPosition >= 0 || xPosition <= 0)
-        //    {
-        //        innerBar.fillAmount = Mathf.Clamp(innerBar.fillAmount, Mathf.Abs(1 / xPosition), -Mathf.Abs(1 / xPosition));
-        //    }
-
-        //    if (xPosition <= 5 || xPosition >= -5)
-        //    {
-        //        innerBar.fillAmount = Mathf.Clamp(innerBar.fillAmount, -Mathf.Abs(innerBar.fillAmount / xPosition), Mathf.Abs(innerBar.fillAmount / xPosition));
-        //    }
-
-        //    if (innerBar.fillAmount < 0.5f)
-        //    {
-        //        innerBar.color = Color.red;
-        //    }
-
-        //    if (innerBar.fillAmount > 0.5f)
-        //    {
-        //        innerBar.color = Color.green;
-        //    }
-        //}
+        if (pacStudent != null)
+        {
+            playerScore.SetText(pacStudent.playerScore.ToString());
+        }
     }
 
     private void LateUpdate()
     {
-        //yRotation += 1.0f * Input.GetAxis("Camera");
-        //if (camera != null)
-        //{
-        //    camera.transform.eulerAngles = new Vector3(45.0f, yRotation, 0.0f);
-        //}
+
     }
 
     public void LoadFirstLevel()
@@ -60,7 +45,6 @@ public class UiManager : MonoBehaviour
         if (GameManager.currentGameState == GameManager.GameState.StartScene)
         {
             GameManager.currentGameState = GameManager.GameState.GameScene;
-            DontDestroyOnLoad(this);
             SceneManager.LoadScene(1);
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
@@ -75,28 +59,43 @@ public class UiManager : MonoBehaviour
     {
         if (GameManager.currentGameState == GameManager.GameState.GameScene)
         {
+            SaveGameManager.SaveGame(pacStudent.playerScore, 0);
+            backgroundMusic.ChangeBackgroundMusic(0);
+
             GameManager.currentGameState = GameManager.GameState.StartScene;
             SceneManager.LoadScene(0);
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if(scene.buildIndex == 0)
+        {
+            GetStartSceneButton();
+        }
+
         if (scene.buildIndex == 1)
         {
             GetExitButton();
 
-            //innerBar = GameObject.FindWithTag("PlayerHealthBar").GetComponent<Image>();
-
-            //playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
-
-            //camera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+            pacStudent = GameObject.FindWithTag("Player").GetComponent<PacStudentController>();
+            playerScore = GameObject.FindWithTag("PlayerScore").GetComponent<TextMeshProUGUI>();
         }
 
         if(scene.buildIndex == 2)
         {
             
         }
+    }
+
+    public void GetStartSceneButton()
+    {
+        Button playButtom = GameObject.FindWithTag("PlayButton").GetComponent<Button>();
+        playButtom.onClick.AddListener(LoadFirstLevel);
+
+        Button designButton = GameObject.FindWithTag("DesignButton").GetComponent<Button>();
+        designButton.onClick.AddListener(LoadDesignLevel);
     }
 
     public void GetExitButton()

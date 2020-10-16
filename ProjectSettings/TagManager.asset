@@ -12,6 +12,20 @@ TagManager:
   - PowerPellet
   - Junction
   - ScoreTime
+  - BoxParticle
+  - Cherry
+  - Portal
+  - Wall
+  - PlayerScore
+  - RedGhost
+  - BlueGhost
+  - PinkGhost
+  - YellowGhost
+  - Ghost
+  - Managers
+  - PlayButton
+  - DesignButton
+  - ExitButton
   layers:
   - Default
   - TransparentFX
