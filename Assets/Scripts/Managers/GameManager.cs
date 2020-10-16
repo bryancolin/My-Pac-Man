@@ -15,6 +15,16 @@ public class GameManager : MonoBehaviour
         SetSingleton();
     }
 
+    private void Start()
+    {
+
+    }
+
+    private void Update()
+    {
+        
+    }
+
     private void LateUpdate()
     {
         if (currentGameState == GameState.GameScene)

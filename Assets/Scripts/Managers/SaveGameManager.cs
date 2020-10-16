@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ public class SaveGameManager : MonoBehaviour
 {
     private const string highScoreKey = "HighScore";
     private const string timeKey = "Time";
+
     private TextMeshProUGUI scoreLabel;
 
     void Awake()
@@ -22,20 +24,17 @@ public class SaveGameManager : MonoBehaviour
         if(PlayerPrefs.HasKey(highScoreKey) && PlayerPrefs.HasKey(timeKey))
         {
             scoreLabel = GameObject.FindWithTag("ScoreTime").GetComponent<TextMeshProUGUI>();
-            scoreLabel.SetText("High Score: " + PlayerPrefs.GetInt(highScoreKey) + " & Time: " + PlayerPrefs.GetInt(timeKey));
+            scoreLabel.SetText("High Score: " + PlayerPrefs.GetInt(highScoreKey) + " - Time: " + PlayerPrefs.GetString(timeKey));
         }
     }
 
-    public static void SaveGame(int highScore, int time)
+    public static void SaveGame(int highScore, string time)
     {
         // Save High Score and Time
         if (PlayerPrefs.GetInt(highScoreKey) < highScore)
         {
             PlayerPrefs.SetInt(highScoreKey, highScore);
-        }
-        if (PlayerPrefs.GetInt(timeKey) > time)
-        {
-            PlayerPrefs.SetInt(timeKey, PlayerPrefs.GetInt(timeKey));
+            PlayerPrefs.SetString(timeKey, time);
         }
         PlayerPrefs.Save();
     }

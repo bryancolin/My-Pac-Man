@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,6 +11,9 @@ public class UiManager : MonoBehaviour
     public AudioManager backgroundMusic;
     private PacStudentController pacStudent;
     private TextMeshProUGUI playerScore, gameDurationTime, ghostScaredTime;
+
+    private float playTime;
+    private TimeSpan timePlaying;
     //private Image innerBar;
     //private Transform playerTransform;
     //private Camera camera;
@@ -29,10 +33,22 @@ public class UiManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (pacStudent != null)
+        if (GameManager.currentGameState == GameManager.GameState.GameScene)
         {
-            playerScore.SetText(pacStudent.playerScore.ToString());
+            if (pacStudent != null)
+            {
+                playerScore.SetText(pacStudent.playerScore.ToString());
+                BeginTimer();
+            }
         }
+    }
+
+    public void BeginTimer()
+    {
+        playTime += Time.deltaTime;
+        timePlaying = TimeSpan.FromSeconds(playTime);
+
+        gameDurationTime.SetText(timePlaying.ToString("mm':'ss':'ff"));
     }
 
     private void LateUpdate()
@@ -59,8 +75,9 @@ public class UiManager : MonoBehaviour
     {
         if (GameManager.currentGameState == GameManager.GameState.GameScene)
         {
-            SaveGameManager.SaveGame(pacStudent.playerScore, 0);
+            SaveGameManager.SaveGame(pacStudent.playerScore, timePlaying.ToString("mm':'ss':'ff"));
             backgroundMusic.ChangeBackgroundMusic(0);
+            playTime = 0;
 
             GameManager.currentGameState = GameManager.GameState.StartScene;
             SceneManager.LoadScene(0);
@@ -81,6 +98,8 @@ public class UiManager : MonoBehaviour
 
             pacStudent = GameObject.FindWithTag("Player").GetComponent<PacStudentController>();
             playerScore = GameObject.FindWithTag("PlayerScore").GetComponent<TextMeshProUGUI>();
+            gameDurationTime = GameObject.FindWithTag("GameDuration").GetComponent<TextMeshProUGUI>();
+            ghostScaredTime = GameObject.FindWithTag("GhostTimer").GetComponent<TextMeshProUGUI>();
         }
 
         if(scene.buildIndex == 2)

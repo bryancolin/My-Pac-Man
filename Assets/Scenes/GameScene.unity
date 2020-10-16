@@ -6281,7 +6281,7 @@ GameObject:
   - component: {fileID: 1430609910}
   m_Layer: 5
   m_Name: Game Timer
-  m_TagString: Untagged
+  m_TagString: GameDuration
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6725,7 +6725,7 @@ GameObject:
   - component: {fileID: 2133412007}
   m_Layer: 5
   m_Name: Ghost Scared Timer
-  m_TagString: Untagged
+  m_TagString: GhostTimer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

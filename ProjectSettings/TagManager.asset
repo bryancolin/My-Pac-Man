@@ -16,7 +16,6 @@ TagManager:
   - Cherry
   - Portal
   - Wall
-  - PlayerScore
   - RedGhost
   - BlueGhost
   - PinkGhost
@@ -26,6 +25,9 @@ TagManager:
   - PlayButton
   - DesignButton
   - ExitButton
+  - PlayerScore
+  - GameDuration
+  - GhostTimer
   layers:
   - Default
   - TransparentFX
