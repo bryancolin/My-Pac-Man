@@ -12,6 +12,7 @@ public class PacStudentController : MonoBehaviour
 
     public AudioSource movementSource;
     public AudioClip[] movementClips;
+    private bool isEating = true;
 
     private Tweener tweener;
     private Vector3 movement;
@@ -91,45 +92,76 @@ public class PacStudentController : MonoBehaviour
     bool GridCheck(Vector3 inputDirection)
     {
         // Top Left
-        if (transform.position.x + inputDirection.x <= 0 && transform.position.y + inputDirection.y >= 0) 
+        if (transform.position.x + inputDirection.x <= 0 && transform.position.y + inputDirection.y >= 0)
         {
             xPosition = (int)((transform.position.x + 13.5f) + inputDirection.x);
             yPosition = (int)(Mathf.Abs(transform.position.y - 14) + -inputDirection.y);
 
             //Debug.Log("X : " + xPosition + " Y : " + yPosition);
+            Debug.Log(levelGenerator.levelMap[yPosition, xPosition]);
 
+            //if (yPosition == 14 & xPosition == 0)
+            //{
+            //    transform.position = new Vector3(13.0f, 0.0f, 0.0f);
+            //    return true;
+            //}
+
+            //if (levelGenerator.levelMap[yPosition, xPosition] == 9)
+            //{
+            //    transform.position = new Vector3(14.5f, 0.0f, 0.0f);
+            //    return true;
+            //}
             if (levelGenerator.levelMap[yPosition, xPosition] == 0)
             {
+                //Debug.Log(levelGenerator.levelMap[yPosition, xPosition]);
+                isEating = false;
                 return true;
             }
-            else if (levelGenerator.levelMap[yPosition, xPosition] == 5 || levelGenerator.levelMap[yPosition, xPosition] == 6)
+            if (levelGenerator.levelMap[yPosition, xPosition] == 5 || levelGenerator.levelMap[yPosition, xPosition] == 6)
             {
+                
+                isEating = true;
                 levelGenerator.levelMap[yPosition, xPosition] = 0;
                 return true;
             }
+            //Debug.Log(levelGenerator.levelMap[yPosition, xPosition]);
         }
 
         // Top Right
-        if (transform.position.x + inputDirection.x >= 0 && transform.position.y + inputDirection.y >= 0)
+        else if (transform.position.x + inputDirection.x >= 0 && transform.position.y + inputDirection.y >= 0)
         {
             xPosition = (int)((transform.position.x - 0.5f) + inputDirection.x);
             yPosition = (int)(Mathf.Abs(transform.position.y - 14) + -inputDirection.y);
 
             //Debug.Log("X : " + xPosition + " Y : " + yPosition);
 
+            //if (yPosition == 14 & xPosition == 13)
+            //{
+            //    transform.position = new Vector3(-13.0f, 0.0f, 0.0f);
+            //    return true;
+            //}
+
+            //if (levelGenerator.levelMap[yPosition, xPosition] == 9)
+            //{
+            //    transform.position = new Vector3(-14.5f, 0.0f, 0.0f);
+            //    return true;
+            //}
+
             if (levelGenerator.levelMapTopRight[yPosition, xPosition] == 0)
             {
+                isEating = false;
                 return true;
             }
-            else if (levelGenerator.levelMapTopRight[yPosition, xPosition] == 5 || levelGenerator.levelMapTopRight[yPosition, xPosition] == 6)
+            if (levelGenerator.levelMapTopRight[yPosition, xPosition] == 5 || levelGenerator.levelMapTopRight[yPosition, xPosition] == 6)
             {
+                isEating = true;
                 levelGenerator.levelMapTopRight[yPosition, xPosition] = 0;
                 return true;
             }
         }
 
         // Bottom Left
-        if (transform.position.x + inputDirection.x < 0 && transform.position.y + inputDirection.y < 0)
+        else if (transform.position.x + inputDirection.x < 0 && transform.position.y + inputDirection.y < 0)
         {
             xPosition = (int)((transform.position.x + 13.5f) + inputDirection.x);
             yPosition = (int)Mathf.Abs((transform.position.y + 1) + inputDirection.y);
@@ -139,17 +171,19 @@ public class PacStudentController : MonoBehaviour
 
             if (levelGenerator.levelMapBottomLeft[yPosition, xPosition] == 0)
             {
+                isEating = false;
                 return true;
             }
             else if (levelGenerator.levelMapBottomLeft[yPosition, xPosition] == 5 || levelGenerator.levelMapBottomLeft[yPosition, xPosition] == 6)
             {
+                isEating = true;
                 levelGenerator.levelMapBottomLeft[yPosition, xPosition] = 0;
                 return true;
             }
         }
 
         // Bottom Right
-        if (transform.position.x + inputDirection.x > 0 && transform.position.y + inputDirection.y < 0)
+        else if (transform.position.x + inputDirection.x > 0 && transform.position.y + inputDirection.y < 0)
         {
             xPosition = (int)((transform.position.x - 0.5f) + inputDirection.x);
             yPosition = (int)Mathf.Abs((transform.position.y + 1) + inputDirection.y);
@@ -159,10 +193,12 @@ public class PacStudentController : MonoBehaviour
 
             if (levelGenerator.levelMapBottomRight[yPosition, xPosition] == 0)
             {
+                isEating = false;
                 return true;
             }
             else if (levelGenerator.levelMapBottomRight[yPosition, xPosition] == 5 || levelGenerator.levelMapBottomRight[yPosition, xPosition] == 6)
             {
+                isEating = true;
                 levelGenerator.levelMapBottomRight[yPosition, xPosition] = 0;
                 return true;
             }
@@ -247,28 +283,29 @@ public class PacStudentController : MonoBehaviour
 
     void MovementAudio()
     {
-        //Debug.Log(movementSqrtMagnitude);
-        if (movementSqrtMagnitude == 1.0f)
+        Vector3 direction = destination - transform.position;
+
+        if (direction.sqrMagnitude == 1.0f)
         {
             if (!movementSource.isPlaying)
             {
-                if(levelGenerator.levelMap[yPosition,xPosition] == 0)
+                if (isEating)
+                {
+                    Debug.Log("Eat");
+                    movementSource.clip = movementClips[1];
+                    movementSource.volume = 0.2f;
+                    movementSource.Play();
+                }
+                else
                 {
                     Debug.Log("Move");
                     movementSource.clip = movementClips[0];
                     movementSource.volume = 0.5f;
                     movementSource.Play();
                 }
-                else
-                {
-                    Debug.Log("Eat");
-                    movementSource.clip = movementClips[1];
-                    movementSource.volume = 0.3f;
-                    movementSource.Play();
-                }
             }
         }
-        else if (movementSqrtMagnitude < 1.0f)
+        else if (direction.sqrMagnitude < 1.0f)
         {
             if (movementSource.isPlaying)
             {
@@ -296,41 +333,32 @@ public class PacStudentController : MonoBehaviour
         {
             //if (movementSource.isPlaying)
             //{
-            //    Debug.Log("Playing eating");
-            //    //movementSource.clip = movementClips[1];
-            //    movementSource.volume = 0.1f;
+            //if (isEating)
+            //{
+            //    Debug.Log("Eat");
+            //    movementSource.clip = movementClips[1];
+            //    movementSource.volume = 0.2f;
             //    movementSource.Play();
             //}
+            //}
+            
+
             playerScore += 10;
             Destroy(collision.gameObject);
         }
 
-        if(collision.CompareTag("Cherry"))
+        if (collision.CompareTag("Cherry"))
         {
             playerScore += 100;
             Destroy(collision.gameObject);
         }
 
-        if(collision.CompareTag("PowerPellet"))
+        if (collision.CompareTag("PowerPellet"))
         {
             ghostMovement.SetScared();
             Destroy(collision.gameObject);
         }
 
-        Debug.Log(playerScore);
-
-        //if (collision.CompareTag("Portal"))
-        //{
-        //    if (this.transform.position.x < 0)
-        //    {
-        //        Debug.Log("Left");
-        //        this.transform.position = new Vector3(13.0f, 0.0f, 0.0f);
-        //    }
-        //    else if (this.transform.position.x > 0)
-        //    {
-        //        Debug.Log("Right");
-        //        this.transform.position = new Vector3(-13.0f, 0.0f, 0.0f);
-        //    }
-        //}
+        //Debug.Log(playerScore);
     }
 }

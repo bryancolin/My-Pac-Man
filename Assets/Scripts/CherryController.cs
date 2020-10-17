@@ -33,7 +33,7 @@ public class CherryController : MonoBehaviour
         if ((int)timer > lastTime)
         {
             lastTime = (int)timer;
-            Debug.Log(lastTime);
+            //Debug.Log(lastTime);
         }
 
         if (timer > lastMoveTime + spawnTime)
