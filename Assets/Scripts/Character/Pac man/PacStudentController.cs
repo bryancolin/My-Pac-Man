@@ -14,42 +14,46 @@ public class PacStudentController : MonoBehaviour
     public AudioClip[] movementClips;
     private bool isEating = true;
 
-    private Tweener tweener;
-    private Vector3 movement;
+    private Tweener tweener; 
     private float movementSqrtMagnitude;
 
-    private Vector3 lastInput = Vector3.zero;
-    private Vector3 currentInput = Vector3.zero;
-
-    private Vector3 destination = Vector3.zero;
+    private Vector3 movement, lastInput, currentInput, destination;
 
     private int xPosition, yPosition;
 
     public int playerScore;
-    private GhostMovement ghostMovement;
+
+    private GameManager gameManager;
+
+    private void Awake()
+    {
+        gameManager = GameObject.FindWithTag("Managers").GetComponent<GameManager>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         tweener = GetComponent<Tweener>();
-        ghostMovement = GameObject.FindWithTag("Ghost").GetComponent<GhostMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        GetMovementInput();
+        if (!tweener.TweenExists(transform))
+        {
+            GetMovementInput();
 
-        //if (!RayCastCheck())
-        //    CharacterPosition();
-        //else
-        //    movementSqrtMagnitude = 0.0f;
+            //if (!RayCastCheck())
+            //    CharacterPosition();
+            //else
+            //    movementSqrtMagnitude = 0.0f;
 
-        CharacterPosition();
-        CharacterRotation();
-        WalkingAnimation();
-        ParticlePlay();
-        MovementAudio();
+            CharacterPosition();
+            CharacterRotation();
+            WalkingAnimation();
+            ParticlePlay();
+            MovementAudio();
+        }
     }
 
     void GetMovementInput()
@@ -100,31 +104,27 @@ public class PacStudentController : MonoBehaviour
             //Debug.Log("X : " + xPosition + " Y : " + yPosition);
             Debug.Log(levelGenerator.levelMap[yPosition, xPosition]);
 
-            //if (yPosition == 14 & xPosition == 0)
-            //{
-            //    transform.position = new Vector3(13.0f, 0.0f, 0.0f);
-            //    return true;
-            //}
+            // Left Portal
+            if (yPosition == 14 & xPosition == 0)
+            {
+                transform.position = new Vector3(14.5f, 0.0f, 0.0f);
+                return true;
+            }
 
-            //if (levelGenerator.levelMap[yPosition, xPosition] == 9)
-            //{
-            //    transform.position = new Vector3(14.5f, 0.0f, 0.0f);
-            //    return true;
-            //}
+            // Empty Grid
             if (levelGenerator.levelMap[yPosition, xPosition] == 0)
             {
-                //Debug.Log(levelGenerator.levelMap[yPosition, xPosition]);
                 isEating = false;
                 return true;
             }
+
+            // Pellet Grid
             if (levelGenerator.levelMap[yPosition, xPosition] == 5 || levelGenerator.levelMap[yPosition, xPosition] == 6)
             {
-                
                 isEating = true;
                 levelGenerator.levelMap[yPosition, xPosition] = 0;
                 return true;
             }
-            //Debug.Log(levelGenerator.levelMap[yPosition, xPosition]);
         }
 
         // Top Right
@@ -133,25 +133,21 @@ public class PacStudentController : MonoBehaviour
             xPosition = (int)((transform.position.x - 0.5f) + inputDirection.x);
             yPosition = (int)(Mathf.Abs(transform.position.y - 14) + -inputDirection.y);
 
-            //Debug.Log("X : " + xPosition + " Y : " + yPosition);
+            // Right Portal
+            if (yPosition == 14 & xPosition == 13)
+            {
+                transform.position = new Vector3(-14.5f, 0.0f, 0.0f);
+                return true;
+            }
 
-            //if (yPosition == 14 & xPosition == 13)
-            //{
-            //    transform.position = new Vector3(-13.0f, 0.0f, 0.0f);
-            //    return true;
-            //}
-
-            //if (levelGenerator.levelMap[yPosition, xPosition] == 9)
-            //{
-            //    transform.position = new Vector3(-14.5f, 0.0f, 0.0f);
-            //    return true;
-            //}
-
+            // Empty Grid
             if (levelGenerator.levelMapTopRight[yPosition, xPosition] == 0)
             {
                 isEating = false;
                 return true;
             }
+
+            // Pellet Grid
             if (levelGenerator.levelMapTopRight[yPosition, xPosition] == 5 || levelGenerator.levelMapTopRight[yPosition, xPosition] == 6)
             {
                 isEating = true;
@@ -166,14 +162,14 @@ public class PacStudentController : MonoBehaviour
             xPosition = (int)((transform.position.x + 13.5f) + inputDirection.x);
             yPosition = (int)Mathf.Abs((transform.position.y + 1) + inputDirection.y);
 
-            //Debug.Log("X : " + xPosition + " Y : " + yPosition);
-            //Debug.Log(levelGenerator.levelMapBottomLeft[yPosition, xPosition]);
-
+            // Empty Grid
             if (levelGenerator.levelMapBottomLeft[yPosition, xPosition] == 0)
             {
                 isEating = false;
                 return true;
             }
+
+            // Pellet Grid
             else if (levelGenerator.levelMapBottomLeft[yPosition, xPosition] == 5 || levelGenerator.levelMapBottomLeft[yPosition, xPosition] == 6)
             {
                 isEating = true;
@@ -188,14 +184,14 @@ public class PacStudentController : MonoBehaviour
             xPosition = (int)((transform.position.x - 0.5f) + inputDirection.x);
             yPosition = (int)Mathf.Abs((transform.position.y + 1) + inputDirection.y);
 
-            //Debug.Log("X : " + xPosition + " Y : " + yPosition);
-            //Debug.Log(levelGenerator.levelMapBottomRight[yPosition, xPosition]);
-
+            // Empty Grid
             if (levelGenerator.levelMapBottomRight[yPosition, xPosition] == 0)
             {
                 isEating = false;
                 return true;
             }
+
+            // Pellet Grid
             else if (levelGenerator.levelMapBottomRight[yPosition, xPosition] == 5 || levelGenerator.levelMapBottomRight[yPosition, xPosition] == 6)
             {
                 isEating = true;
@@ -207,34 +203,34 @@ public class PacStudentController : MonoBehaviour
         return false;
     }
 
-    // Using RayCast to check if Grid is Walkable
-    bool RayCastCheck(Vector3 inputDirection)
-    {
-        Vector3 pos = transform.position;
-        inputDirection += new Vector3(inputDirection.x * 0.45f, inputDirection.y * 0.45f);
+    //// Using RayCast to check if Grid is Walkable
+    //bool RayCastCheck(Vector3 inputDirection)
+    //{
+    //    Vector3 pos = transform.position;
+    //    inputDirection += new Vector3(inputDirection.x * 0.45f, inputDirection.y * 0.45f);
 
-        RaycastHit2D hit = Physics2D.Linecast(pos + inputDirection, pos);
-        Debug.DrawLine(pos + inputDirection, pos, Color.yellow);
+    //    RaycastHit2D hit = Physics2D.Linecast(pos + inputDirection, pos);
+    //    Debug.DrawLine(pos + inputDirection, pos, Color.yellow);
 
-        if (hit)
-        {
-            if (hit.collider.CompareTag("NormalPellet") || hit.collider.CompareTag("PowerPellet") || hit.collider.CompareTag("Portal") || (hit.collider == GetComponent<Collider2D>()))
-            {
-                Debug.Log("Normal Pellet");
-                return true;
-            }
-            if (hit.collider.CompareTag("Wall"))
-            {
-                Debug.Log("Wall");
-                return false;
-            }
-        }
-        return false;
-    }
+    //    if (hit)
+    //    {
+    //        if (hit.collider.CompareTag("NormalPellet") || hit.collider.CompareTag("PowerPellet") || hit.collider.CompareTag("Portal") || (hit.collider == GetComponent<Collider2D>()))
+    //        {
+    //            Debug.Log("Normal Pellet");
+    //            return true;
+    //        }
+    //        if (hit.collider.CompareTag("Wall"))
+    //        {
+    //            Debug.Log("Wall");
+    //            return false;
+    //        }
+    //    }
+    //    return false;
+    //}
 
     void Tweening(Vector3 inputDirection)
     {
-        tweener.AddTween(transform, transform.position, transform.position + inputDirection, 0.3f);
+        tweener.AddTween(transform, transform.position, transform.position + inputDirection, 0.3f); 
     }
 
     void CharacterRotation()
@@ -330,19 +326,7 @@ public class PacStudentController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("NormalPellet"))
-        {
-            //if (movementSource.isPlaying)
-            //{
-            //if (isEating)
-            //{
-            //    Debug.Log("Eat");
-            //    movementSource.clip = movementClips[1];
-            //    movementSource.volume = 0.2f;
-            //    movementSource.Play();
-            //}
-            //}
-            
-
+        {          
             playerScore += 10;
             Destroy(collision.gameObject);
         }
@@ -355,10 +339,8 @@ public class PacStudentController : MonoBehaviour
 
         if (collision.CompareTag("PowerPellet"))
         {
-            ghostMovement.SetScared();
+            gameManager.ScareGhost();
             Destroy(collision.gameObject);
         }
-
-        //Debug.Log(playerScore);
     }
 }
