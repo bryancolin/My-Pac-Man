@@ -14,12 +14,12 @@ public class GhostMovement : MonoBehaviour
 
     private void Awake()
     {
-        gameManager = GameObject.FindWithTag("Managers").GetComponent<GameManager>();
+
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = GameObject.FindWithTag("Managers").GetComponent<GameManager>();
     }
 
     // Update is called once per frame

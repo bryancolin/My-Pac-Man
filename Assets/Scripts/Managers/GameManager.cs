@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instances;
-
     public enum GameState { StartScene, GameScene, DesignScene }
 
     public static GameState currentGameState = GameState.StartScene;
@@ -22,7 +20,16 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        SetSingleton();
+        backgroundMusic = GameObject.FindWithTag("Managers").GetComponent<AudioManager>();
+
+        if (currentGameState == GameState.GameScene)
+        {
+            if (SceneManager.GetSceneByName("GameScene").isLoaded)
+            {
+                SetCamera();
+                SetGame();
+            }
+        }
     }
 
     private void Start()
@@ -32,47 +39,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (currentGameState == GameState.GameScene)
-        {
-            if (SceneManager.GetSceneByName("GameScene").isLoaded)
-            {
-                if (!isSetUp)
-                {
-                    SetCamera();
-                    SetGame();
-                }
-            }
-        }
-        //timer += Time.deltaTime;
-        //if(isScared && timer <= 10)
-        //{
-        //    if(timer >=7)
-        //    {
-        //        RecoverGhost();
-        //    }
-        //}
-        //else
-        //{
-        //    NormalGhost();
-        //}
-    }
 
-    private void LateUpdate()
-    {
-
-    }
-
-    void SetSingleton()
-    {
-        if (Instances == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            Instances = this;
-        }
-        else if (Instances != this)
-        {
-            Destroy(gameObject);
-        }
     }
 
     // Set Camera for Game Scene
@@ -86,13 +53,18 @@ public class GameManager : MonoBehaviour
     private void SetGame()
     {
         pacStudent = GameObject.FindWithTag("Player");
+        pacStudent.GetComponent<PacStudentController>().enabled = true;
 
         redGhost = GameObject.FindWithTag("RedGhost");
         blueGhost = GameObject.FindWithTag("BlueGhost");
         yellowGhost = GameObject.FindWithTag("YellowGhost");
         pinkGhost = GameObject.FindWithTag("PinkGhost");
 
-        backgroundMusic = GameObject.FindWithTag("Managers").GetComponent<AudioManager>();
+        redGhost.GetComponent<GhostMovement>().enabled = true;
+        blueGhost.GetComponent<GhostMovement>().enabled = true;
+        yellowGhost.GetComponent<GhostMovement>().enabled = true;
+        pinkGhost.GetComponent<GhostMovement>().enabled = true;
+
 
         NormalGhost();
 

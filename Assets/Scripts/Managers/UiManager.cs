@@ -8,19 +8,19 @@ using TMPro;
 
 public class UiManager : MonoBehaviour
 {
-    private GameManager gameManager;
+    public static UiManager Instances;
     public AudioManager backgroundMusic;
+
     private PacStudentController pacStudent;
-    private TextMeshProUGUI playerScore, gameDurationTime, ghostScaredTime, countdownDisplay;
+    private TextMeshProUGUI playerScore, gameDurationTime, ghostScaredTime;
 
-    private float playTime;
     private TimeSpan timePlaying;
+    private float playTime;
 
-    private int countdownTime = 3;
     // Start is called before the first frame update
     private void Awake()
     {
-        gameManager = GameObject.FindWithTag("Managers").GetComponent<GameManager>();
+        SetSingleton();
     }
 
     void Start()
@@ -35,34 +35,12 @@ public class UiManager : MonoBehaviour
         {
             if (SceneManager.GetSceneByName("GameScene").isLoaded)
             {
-                if (pacStudent != null)
-                {
-                    BeginGame();
-                    //if (Time.timeScale == 0)
-                    //{
-                    //    StartCoroutine(CountdownToStart());
-                    //}
-                }
+                StartTimer();
             }
         }
     }
 
-    IEnumerator CountdownToStart()
-    {
-        while (countdownTime > 0)
-        {
-            countdownDisplay.SetText(countdownTime.ToString());
-            yield return new WaitForSeconds(1f);
-            countdownTime--;
-        }
-
-        countdownDisplay.SetText("GO!");
-        yield return new WaitForSeconds(1f);
-        //Time.timeScale = 1;
-        countdownDisplay.gameObject.SetActive(false);
-    }
-
-    private void BeginGame()
+    private void StartTimer()
     {
         playerScore.SetText(pacStudent.playerScore.ToString());
 
@@ -76,7 +54,9 @@ public class UiManager : MonoBehaviour
     {
         if (GameManager.currentGameState == GameManager.GameState.StartScene)
         {
+            backgroundMusic.StopPlaying();
             GameManager.currentGameState = GameManager.GameState.GameScene;
+
             SceneManager.LoadScene(1);
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
@@ -92,11 +72,11 @@ public class UiManager : MonoBehaviour
         if (GameManager.currentGameState == GameManager.GameState.GameScene)
         {
             SaveGameManager.SaveGame(pacStudent.playerScore, timePlaying.TotalMinutes);
-            backgroundMusic.ChangeBackgroundMusic(0);
             playTime = 0;
 
+            backgroundMusic.ChangeBackgroundMusic(0);
             GameManager.currentGameState = GameManager.GameState.StartScene;
-            gameManager.isSetUp = false;
+            Destroy(this.gameObject.GetComponent<GameManager>());
 
             SceneManager.LoadScene(0);
             SceneManager.sceneLoaded += OnSceneLoaded;
@@ -115,11 +95,10 @@ public class UiManager : MonoBehaviour
             GetExitButton();
 
             pacStudent = GameObject.FindWithTag("Player").GetComponent<PacStudentController>();
+
             playerScore = GameObject.FindWithTag("PlayerScore").GetComponent<TextMeshProUGUI>();
             gameDurationTime = GameObject.FindWithTag("GameDuration").GetComponent<TextMeshProUGUI>();
             ghostScaredTime = GameObject.FindWithTag("GhostTimer").GetComponent<TextMeshProUGUI>();
-
-            countdownDisplay = GameObject.FindWithTag("CountDown").GetComponent<TextMeshProUGUI>();
         }
 
         if (scene.buildIndex == 2)
@@ -141,5 +120,18 @@ public class UiManager : MonoBehaviour
     {
         Button exitButton = GameObject.FindWithTag("ExitButton").GetComponent<Button>();
         exitButton.onClick.AddListener(ExitGame);
+    }
+
+    void SetSingleton()
+    {
+        if (Instances == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            Instances = this;
+        }
+        else if (Instances != this)
+        {
+            Destroy(gameObject);
+        }
     }
 }

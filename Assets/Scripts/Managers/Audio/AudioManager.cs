@@ -34,4 +34,9 @@ public class AudioManager : MonoBehaviour
         backgroundMusic.Play();
     }
 
+    public void StopPlaying()
+    {
+        backgroundMusic.Stop();
+    }
+
 }

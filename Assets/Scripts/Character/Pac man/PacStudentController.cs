@@ -27,12 +27,12 @@ public class PacStudentController : MonoBehaviour
 
     private void Awake()
     {
-        gameManager = GameObject.FindWithTag("Managers").GetComponent<GameManager>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.FindWithTag("Managers").GetComponent<GameManager>();
         tweener = GetComponent<Tweener>();
     }
 

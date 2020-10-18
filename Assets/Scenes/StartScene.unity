@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 123.7, y: -274.1}
+  m_AnchoredPosition: {x: 133.4, y: -275}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &202977533
@@ -250,7 +250,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 55.1, y: -275.30002}
+  m_AnchoredPosition: {x: 59.2, y: -275}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &224483275
@@ -745,7 +745,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -73, y: -175.7}
+  m_AnchoredPosition: {x: -75, y: -175}
   m_SizeDelta: {x: 30, y: 34}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!95 &1093692642
@@ -913,7 +913,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1337483536}
-  - component: {fileID: 1337483538}
   - component: {fileID: 1337483537}
   - component: {fileID: 1337483535}
   - component: {fileID: 1337483540}
@@ -964,19 +963,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221c70c9d6727448eb850e278c0bcb06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1337483538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1337483534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eccebede06d754becb98c24d7fc2897c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isSetUp: 0
 --- !u!114 &1337483540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1819,7 +1805,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -83, y: -274.2}
+  m_AnchoredPosition: {x: -86.9, y: -275}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2053036212

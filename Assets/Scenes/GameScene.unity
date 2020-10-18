@@ -5773,7 +5773,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 882554138}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1bbf9883c2a61461f99fa63e8145cb96, type: 3}
   m_Name: 
@@ -11283,6 +11283,7 @@ GameObject:
   - component: {fileID: 1762037207}
   - component: {fileID: 1762037209}
   - component: {fileID: 1762037208}
+  - component: {fileID: 1762037210}
   m_Layer: 5
   m_Name: Count Down Display
   m_TagString: CountDown
@@ -11429,6 +11430,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762037206}
   m_CullTransparentMesh: 0
+--- !u!114 &1762037210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762037206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c96c01575e7498ba1205d074daefd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2052618905 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4983667005009921004, guid: a2e5dbffc409943d49b9bcfad35fd72f,
@@ -11847,7 +11860,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5039382559103379077}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 766f20ba0de014af2b76a52685f9c9db, type: 3}
   m_Name: 
@@ -11967,7 +11980,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6079676362051335773}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 766f20ba0de014af2b76a52685f9c9db, type: 3}
   m_Name: 
@@ -12166,7 +12179,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8006661264844424887}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 766f20ba0de014af2b76a52685f9c9db, type: 3}
   m_Name: 
@@ -12290,7 +12303,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8440065018839963998}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 766f20ba0de014af2b76a52685f9c9db, type: 3}
   m_Name: 
