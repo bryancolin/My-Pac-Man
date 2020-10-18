@@ -12,9 +12,9 @@ public class PacStudentController : MonoBehaviour
 
     public AudioSource movementSource;
     public AudioClip[] movementClips;
-    private bool isEating = true;
+    private bool isEating = true, isCollide = false;
 
-    private Tweener tweener; 
+    private Tweener tweener;
     private float movementSqrtMagnitude;
 
     private Vector3 movement, lastInput, currentInput, destination;
@@ -102,7 +102,7 @@ public class PacStudentController : MonoBehaviour
             yPosition = (int)(Mathf.Abs(transform.position.y - 14) + -inputDirection.y);
 
             //Debug.Log("X : " + xPosition + " Y : " + yPosition);
-            Debug.Log(levelGenerator.levelMap[yPosition, xPosition]);
+            //Debug.Log(levelGenerator.levelMap[yPosition, xPosition]);
 
             // Left Portal
             if (yPosition == 14 & xPosition == 0)
@@ -200,6 +200,9 @@ public class PacStudentController : MonoBehaviour
             }
         }
 
+        //isCollide = true;
+        //movementSource.volume = 1.0f;
+        //movementSource.PlayOneShot(movementClips[2]);
         return false;
     }
 
@@ -214,11 +217,6 @@ public class PacStudentController : MonoBehaviour
 
     //    if (hit)
     //    {
-    //        if (hit.collider.CompareTag("NormalPellet") || hit.collider.CompareTag("PowerPellet") || hit.collider.CompareTag("Portal") || (hit.collider == GetComponent<Collider2D>()))
-    //        {
-    //            Debug.Log("Normal Pellet");
-    //            return true;
-    //        }
     //        if (hit.collider.CompareTag("Wall"))
     //        {
     //            Debug.Log("Wall");
@@ -230,7 +228,7 @@ public class PacStudentController : MonoBehaviour
 
     void Tweening(Vector3 inputDirection)
     {
-        tweener.AddTween(transform, transform.position, transform.position + inputDirection, 0.3f); 
+        tweener.AddTween(transform, transform.position, transform.position + inputDirection, 0.3f);
     }
 
     void CharacterRotation()
@@ -280,9 +278,10 @@ public class PacStudentController : MonoBehaviour
     void MovementAudio()
     {
         Vector3 direction = destination - transform.position;
-
+        //Debug.Log(direction.sqrMagnitude);
         if (direction.sqrMagnitude == 1.0f)
         {
+            movementSource.Stop();
             if (!movementSource.isPlaying)
             {
                 if (isEating)
@@ -290,18 +289,17 @@ public class PacStudentController : MonoBehaviour
                     Debug.Log("Eat");
                     movementSource.clip = movementClips[1];
                     movementSource.volume = 0.2f;
-                    movementSource.Play();
                 }
                 else
                 {
                     Debug.Log("Move");
                     movementSource.clip = movementClips[0];
                     movementSource.volume = 0.5f;
-                    movementSource.Play();
                 }
+                movementSource.PlayDelayed(0.1f);
             }
         }
-        else if (direction.sqrMagnitude < 1.0f)
+        else if (direction.sqrMagnitude == 0.0f)
         {
             if (movementSource.isPlaying)
             {
@@ -325,8 +323,18 @@ public class PacStudentController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Vector3 direction = destination - transform.position;
+        if (direction.sqrMagnitude == 0.0f)
+        {
+            if (collision.CompareTag("Wall"))
+            {
+                movementSource.PlayOneShot(movementClips[2]);
+                //Debug.Log("Trigger Enter: " + collision.name + " : " + collision.offset);
+            }
+        }
+
         if (collision.CompareTag("NormalPellet"))
-        {          
+        {
             playerScore += 10;
             Destroy(collision.gameObject);
         }
