@@ -12,7 +12,7 @@ public class PacStudentController : MonoBehaviour
 
     public AudioSource movementSource;
     public AudioClip[] movementClips;
-    private bool isEating = true, isCollide = false;
+    private bool isEating = true;
 
     private Tweener tweener;
     private float movementSqrtMagnitude;
@@ -42,12 +42,6 @@ public class PacStudentController : MonoBehaviour
         if (!tweener.TweenExists(transform))
         {
             GetMovementInput();
-
-            //if (!RayCastCheck())
-            //    CharacterPosition();
-            //else
-            //    movementSqrtMagnitude = 0.0f;
-
             CharacterPosition();
             CharacterRotation();
             WalkingAnimation();
@@ -62,7 +56,6 @@ public class PacStudentController : MonoBehaviour
         movement.y = Input.GetAxis("Vertical");
 
         movement = Vector3.ClampMagnitude(movement, 1.0f);
-        //movementSqrtMagnitude = movement.sqrMagnitude;
 
         if (movement.x > 0)
             lastInput = Vector3.right;
@@ -199,32 +192,30 @@ public class PacStudentController : MonoBehaviour
                 return true;
             }
         }
-
-        //isCollide = true;
-        //movementSource.volume = 1.0f;
-        //movementSource.PlayOneShot(movementClips[2]);
         return false;
     }
 
-    //// Using RayCast to check if Grid is Walkable
-    //bool RayCastCheck(Vector3 inputDirection)
-    //{
-    //    Vector3 pos = transform.position;
-    //    inputDirection += new Vector3(inputDirection.x * 0.45f, inputDirection.y * 0.45f);
+    /*
+    // Using RayCast to check if Grid is Walkable
+    bool RayCastCheck(Vector3 inputDirection)
+    {
+        Vector3 pos = transform.position;
+        inputDirection += new Vector3(inputDirection.x * 0.45f, inputDirection.y * 0.45f);
 
-    //    RaycastHit2D hit = Physics2D.Linecast(pos + inputDirection, pos);
-    //    Debug.DrawLine(pos + inputDirection, pos, Color.yellow);
+        RaycastHit2D hit = Physics2D.Linecast(pos + inputDirection, pos);
+        Debug.DrawLine(pos + inputDirection, pos, Color.yellow);
 
-    //    if (hit)
-    //    {
-    //        if (hit.collider.CompareTag("Wall"))
-    //        {
-    //            Debug.Log("Wall");
-    //            return false;
-    //        }
-    //    }
-    //    return false;
-    //}
+        if (hit)
+        {
+            if (hit.collider.CompareTag("Wall"))
+            {
+                Debug.Log("Wall");
+                return false;
+            }
+        }
+        return false;
+    }
+    */
 
     void Tweening(Vector3 inputDirection)
     {
