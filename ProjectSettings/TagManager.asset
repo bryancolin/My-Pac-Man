@@ -12,7 +12,6 @@ TagManager:
   - PowerPellet
   - Junction
   - ScoreTime
-  - BoxParticle
   - Cherry
   - Portal
   - Wall
@@ -29,6 +28,8 @@ TagManager:
   - GameDuration
   - GhostTimer
   - CountDown
+  - MovingParticle
+  - CollisionParticle
   layers:
   - Default
   - TransparentFX

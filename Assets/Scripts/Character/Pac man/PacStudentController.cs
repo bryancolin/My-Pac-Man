@@ -6,7 +6,7 @@ using TMPro;
 public class PacStudentController : MonoBehaviour
 {
     public Animator animator;
-    public ParticleSystem particleSystem;
+    public ParticleSystem movingParticle, collideParticle;
 
     public LevelGenerator levelGenerator;
 
@@ -267,70 +267,48 @@ public class PacStudentController : MonoBehaviour
     {
         if (movementSqrtMagnitude != 1.0f)
         {
-            particleSystem.Stop();
+            movingParticle.Stop();
         }
         else
         {
-            particleSystem.Play();
+            movingParticle.Play();
         }
     }
 
     void MovementAudio()
     {
-        Vector3 direction = destination - transform.position;
-        //Debug.Log(direction.sqrMagnitude);
-        if (direction.sqrMagnitude == 1.0f)
+        if (movementSqrtMagnitude == 1.0f)
         {
             movementSource.Stop();
             if (!movementSource.isPlaying)
             {
                 if (isEating)
                 {
-                    Debug.Log("Eat");
+                    // Play Eat
                     movementSource.clip = movementClips[1];
                     movementSource.volume = 0.2f;
                 }
                 else
                 {
-                    Debug.Log("Move");
+                    // Play Move
                     movementSource.clip = movementClips[0];
                     movementSource.volume = 0.5f;
                 }
                 movementSource.PlayDelayed(0.1f);
             }
         }
-        else if (direction.sqrMagnitude == 0.0f)
-        {
-            if (movementSource.isPlaying)
-            {
-                movementSource.Stop();
-            }
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("hit");
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Wall")
-        {
-            Debug.Log(collision.gameObject.name);
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Vector3 direction = destination - transform.position;
-        if (direction.sqrMagnitude == 0.0f)
+
+        if (collision.CompareTag("Wall") && direction.sqrMagnitude == 0.0f)
         {
-            if (collision.CompareTag("Wall"))
-            {
-                movementSource.PlayOneShot(movementClips[2]);
-                //Debug.Log("Trigger Enter: " + collision.name + " : " + collision.offset);
-            }
+            // Play Collision
+            movementSource.PlayOneShot(movementClips[2]);
+            collideParticle.Play();
+            //Debug.Log("Trigger Enter: " + collision.name + " : " + collision.offset);
         }
 
         if (collision.CompareTag("NormalPellet"))
