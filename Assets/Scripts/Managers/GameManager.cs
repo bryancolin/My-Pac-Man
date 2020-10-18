@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
 
     private AudioManager backgroundMusic;
 
-    private bool isSetUp = false, isScared = false;
+    public bool isSetUp = false;
+    private bool isScared = false;
 
     private float timer = 0;
 
@@ -31,6 +32,17 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (currentGameState == GameState.GameScene)
+        {
+            if (SceneManager.GetSceneByName("GameScene").isLoaded)
+            {
+                if (!isSetUp)
+                {
+                    SetCamera();
+                    SetGame();
+                }
+            }
+        }
         //timer += Time.deltaTime;
         //if(isScared && timer <= 10)
         //{
@@ -47,18 +59,7 @@ public class GameManager : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (currentGameState == GameState.GameScene)
-        {
-            if (SceneManager.GetSceneByName("GameScene").isLoaded)
-            {
-                if (!isSetUp)
-                {
-                    SetCamera();
-                    SetGame();
-                }
-            }
-        }
-      
+
     }
 
     void SetSingleton()
@@ -105,14 +106,14 @@ public class GameManager : MonoBehaviour
         yellowGhost.GetComponent<GhostMovement>().SetGhost();
         pinkGhost.GetComponent<GhostMovement>().SetGhost();
 
-        if(isScared)
+        if (isScared)
         {
             redGhost.GetComponent<GhostMovement>().SetNormal();
             blueGhost.GetComponent<GhostMovement>().SetNormal();
             yellowGhost.GetComponent<GhostMovement>().SetNormal();
             pinkGhost.GetComponent<GhostMovement>().SetNormal();
         }
-        
+
 
         backgroundMusic.ChangeBackgroundMusic(1);
     }

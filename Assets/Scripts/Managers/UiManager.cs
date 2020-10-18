@@ -8,6 +8,7 @@ using TMPro;
 
 public class UiManager : MonoBehaviour
 {
+    private GameManager gameManager;
     public AudioManager backgroundMusic;
     private PacStudentController pacStudent;
     private TextMeshProUGUI playerScore, gameDurationTime, ghostScaredTime, countdownDisplay;
@@ -19,7 +20,7 @@ public class UiManager : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-
+        gameManager = GameObject.FindWithTag("Managers").GetComponent<GameManager>();
     }
 
     void Start()
@@ -95,6 +96,8 @@ public class UiManager : MonoBehaviour
             playTime = 0;
 
             GameManager.currentGameState = GameManager.GameState.StartScene;
+            gameManager.isSetUp = false;
+
             SceneManager.LoadScene(0);
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
