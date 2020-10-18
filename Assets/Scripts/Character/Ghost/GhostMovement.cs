@@ -4,33 +4,22 @@ using UnityEngine;
 
 public class GhostMovement : MonoBehaviour
 {
-    private AudioManager backgroundMusic;
+    //[SerializeField]
+    //public enum GhostState { Normal, Scared, Recovering, Death }
 
-    [SerializeField]
-    private GameObject[] ghost;
-    public enum GhostState { Normal, Scared, Recovering, Death }
-
-    public static GhostState currentRedGhost = GhostState.Normal;
-    public static GhostState currentBlueGhost = GhostState.Normal;
-    public static GhostState currentYellowGhost = GhostState.Normal;
-    public static GhostState currentPinkGhost = GhostState.Normal;
+    private GameManager gameManager;
 
     private float timer;
     private int lastTime;
 
     private void Awake()
     {
-        for (int i = 0; i < ghost.Length; i++)
-        {
-            ghost[i].GetComponent<Animator>().SetFloat("Speed", 1);
-        }
-
-        backgroundMusic = GameObject.FindWithTag("Managers").GetComponent<AudioManager>();
-        backgroundMusic.ChangeBackgroundMusic(1);
+        gameManager = GameObject.FindWithTag("Managers").GetComponent<GameManager>();
     }
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -52,41 +41,31 @@ public class GhostMovement : MonoBehaviour
         //    }
     }
 
+    public void SetGhost()
+    {
+        transform.GetComponent<Animator>().SetFloat("Speed", 1);
+    }
+
+    // Set All Ghost back to Normal State
     public void SetNormal()
     {
-        // Set All Ghost back to Normal State
-        for(int i=0; i< ghost.Length; i++)
-        {
-            ghost[i].GetComponent<Animator>().SetBool("Transition", false);
-        }
-        backgroundMusic.ChangeBackgroundMusic(0);
+        transform.GetComponent<Animator>().SetBool("Transition", false);
+        //backgroundMusic.ChangeBackgroundMusic(1);
     }
 
+    // Set All Ghost to Scared State
     public void SetScared()
     {
-        // Set All Ghost to Scared State
-        for (int i = 0; i < ghost.Length; i++)
-        {
-            ghost[i].GetComponent<Animator>().SetTrigger("Scared");
-        }
-        backgroundMusic.ChangeBackgroundMusic(2);
-
-        currentRedGhost = GhostState.Scared;
-        currentBlueGhost = GhostState.Scared;
-        currentYellowGhost = GhostState.Scared;
-        currentPinkGhost = GhostState.Scared;
+        transform.GetComponent<Animator>().SetTrigger("Scared");
+        //backgroundMusic.ChangeBackgroundMusic(2);
 
         // Start timer now
-        timer += 0;
+        //timer += 0;
     }
 
+    // Set All Ghost to Recovering State
     public void SetTransition()
     {
-        // Set All Ghost to Recovering State
-        for (int i = 0; i < ghost.Length; i++)
-        {
-            ghost[i].GetComponent<Animator>().SetBool("Transition", true);
-            backgroundMusic.ChangeBackgroundMusic(3);
-        }
+        transform.GetComponent<Animator>().SetBool("Transition", true);
     }
 }
