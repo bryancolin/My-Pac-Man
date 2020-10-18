@@ -10,15 +10,12 @@ public class UiManager : MonoBehaviour
 {
     public AudioManager backgroundMusic;
     private PacStudentController pacStudent;
-    private TextMeshProUGUI playerScore, gameDurationTime, ghostScaredTime;
+    private TextMeshProUGUI playerScore, gameDurationTime, ghostScaredTime, countdownDisplay;
 
     private float playTime;
     private TimeSpan timePlaying;
-    //private Image innerBar;
-    //private Transform playerTransform;
-    //private Camera camera;
 
-    //private float yRotation;
+    private int countdownTime = 3;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -35,25 +32,43 @@ public class UiManager : MonoBehaviour
     {
         if (GameManager.currentGameState == GameManager.GameState.GameScene)
         {
-            if (pacStudent != null)
+            if (SceneManager.GetSceneByName("GameScene").isLoaded)
             {
-                playerScore.SetText(pacStudent.playerScore.ToString());
-                BeginTimer();
+                if (pacStudent != null)
+                {
+                    BeginGame();
+                    //if (Time.timeScale == 0)
+                    //{
+                    //    StartCoroutine(CountdownToStart());
+                    //}
+                }
             }
         }
     }
 
-    public void BeginTimer()
+    IEnumerator CountdownToStart()
     {
+        while (countdownTime > 0)
+        {
+            countdownDisplay.SetText(countdownTime.ToString());
+            yield return new WaitForSeconds(1f);
+            countdownTime--;
+        }
+
+        countdownDisplay.SetText("GO!");
+        yield return new WaitForSeconds(1f);
+        //Time.timeScale = 1;
+        countdownDisplay.gameObject.SetActive(false);
+    }
+
+    private void BeginGame()
+    {
+        playerScore.SetText(pacStudent.playerScore.ToString());
+
         playTime += Time.deltaTime;
         timePlaying = TimeSpan.FromSeconds(playTime);
 
         gameDurationTime.SetText(timePlaying.ToString("mm':'ss':'ff"));
-    }
-
-    private void LateUpdate()
-    {
-
     }
 
     public void LoadFirstLevel()
@@ -75,7 +90,7 @@ public class UiManager : MonoBehaviour
     {
         if (GameManager.currentGameState == GameManager.GameState.GameScene)
         {
-            SaveGameManager.SaveGame(pacStudent.playerScore, timePlaying.ToString("mm':'ss':'ff"));
+            SaveGameManager.SaveGame(pacStudent.playerScore, timePlaying.TotalMinutes);
             backgroundMusic.ChangeBackgroundMusic(0);
             playTime = 0;
 
@@ -87,7 +102,7 @@ public class UiManager : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if(scene.buildIndex == 0)
+        if (scene.buildIndex == 0)
         {
             GetStartSceneButton();
         }
@@ -100,11 +115,13 @@ public class UiManager : MonoBehaviour
             playerScore = GameObject.FindWithTag("PlayerScore").GetComponent<TextMeshProUGUI>();
             gameDurationTime = GameObject.FindWithTag("GameDuration").GetComponent<TextMeshProUGUI>();
             ghostScaredTime = GameObject.FindWithTag("GhostTimer").GetComponent<TextMeshProUGUI>();
+
+            countdownDisplay = GameObject.FindWithTag("CountDown").GetComponent<TextMeshProUGUI>();
         }
 
-        if(scene.buildIndex == 2)
+        if (scene.buildIndex == 2)
         {
-            
+
         }
     }
 

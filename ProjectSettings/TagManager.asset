@@ -28,6 +28,7 @@ TagManager:
   - PlayerScore
   - GameDuration
   - GhostTimer
+  - CountDown
   layers:
   - Default
   - TransparentFX

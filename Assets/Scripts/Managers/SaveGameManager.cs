@@ -18,23 +18,30 @@ public class SaveGameManager : MonoBehaviour
         LoadGame();
     }  
 
+    // Load Save File to the Game
     public void LoadGame()
     {
         // If highScoreKey & timeKey exists, Load into a HighScore and Time Text from UI
         if(PlayerPrefs.HasKey(highScoreKey) && PlayerPrefs.HasKey(timeKey))
         {
             scoreLabel = GameObject.FindWithTag("ScoreTime").GetComponent<TextMeshProUGUI>();
-            scoreLabel.SetText("High Score: " + PlayerPrefs.GetInt(highScoreKey) + " - Time: " + PlayerPrefs.GetString(timeKey));
+            scoreLabel.SetText("High Score: " + PlayerPrefs.GetInt(highScoreKey) + " - Time: " + PlayerPrefs.GetFloat(timeKey));
         }
     }
 
-    public static void SaveGame(int highScore, string time)
+    // Save High Score and Time to the File
+    public static void SaveGame(int highScore, double time)
     {
-        // Save High Score and Time
+        // If highschore is higher than previous high score
         if (PlayerPrefs.GetInt(highScoreKey) < highScore)
         {
             PlayerPrefs.SetInt(highScoreKey, highScore);
-            PlayerPrefs.SetString(timeKey, time);
+
+            // If the time playing is lower than previous time playing
+            if (PlayerPrefs.GetFloat(timeKey) > time)
+            {
+                PlayerPrefs.GetFloat(timeKey, (float) time);
+            }
         }
         PlayerPrefs.Save();
     }
