@@ -6,7 +6,7 @@ using TMPro;
 public class PacStudentController : MonoBehaviour
 {
     public Animator animator;
-    public ParticleSystem movingParticle, collideParticle;
+    public ParticleSystem movingParticle, collideParticle, deathParticle;
 
     public LevelGenerator levelGenerator;
 
@@ -319,5 +319,10 @@ public class PacStudentController : MonoBehaviour
             gameManager.ScareGhost();
             Destroy(collision.gameObject);
         }
+    }
+
+    private void DeadTrigger()
+    {
+        deathParticle.Play();
     }
 }
