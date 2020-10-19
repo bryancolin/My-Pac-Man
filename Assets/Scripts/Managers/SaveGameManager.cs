@@ -11,10 +11,19 @@ public class SaveGameManager : MonoBehaviour
     private const string highScoreKey = "HighScore";
     private const string timeKey = "Time";
 
+    private static int previousHighScore;
+    private static float previousTimePlay;
+
+    private TimeSpan timePlaying;
+
     private TextMeshProUGUI scoreLabel;
 
     void Awake()
     {
+        previousHighScore = PlayerPrefs.GetInt(highScoreKey);
+        previousTimePlay = PlayerPrefs.GetFloat(timeKey);
+        timePlaying = TimeSpan.FromSeconds(previousTimePlay);
+
         LoadGame();
     }  
 
@@ -25,24 +34,28 @@ public class SaveGameManager : MonoBehaviour
         if(PlayerPrefs.HasKey(highScoreKey) && PlayerPrefs.HasKey(timeKey))
         {
             scoreLabel = GameObject.FindWithTag("ScoreTime").GetComponent<TextMeshProUGUI>();
-            scoreLabel.SetText("High Score: " + PlayerPrefs.GetInt(highScoreKey) + " - Time: " + PlayerPrefs.GetFloat(timeKey));
+            scoreLabel.SetText("High Score: " + previousHighScore + " - Time: " + timePlaying.ToString("mm':'ss':'ff"));
         }
     }
 
-    // Save High Score and Time to the File
+    // Save High Score and Time Playing Duration to the File
     public static void SaveGame(int highScore, double time)
     {
-        // If highschore is higher than previous high score
-        if (PlayerPrefs.GetInt(highScoreKey) < highScore)
+        // If current highschore is equal to previous high score
+        if (previousHighScore == highScore)
         {
             PlayerPrefs.SetInt(highScoreKey, highScore);
 
-            // If the time playing is lower than previous time playing
+            // If current time playing is lower than previous time playing
             if (PlayerPrefs.GetFloat(timeKey) > time)
-            {
-                PlayerPrefs.GetFloat(timeKey, (float) time);
-            }
+                PlayerPrefs.SetFloat(timeKey, (float) time);
         }
+        else if(previousHighScore < highScore)
+        {
+            PlayerPrefs.SetInt(highScoreKey, highScore);
+            PlayerPrefs.SetFloat(timeKey, (float) time);
+        }
+
         PlayerPrefs.Save();
     }
 }

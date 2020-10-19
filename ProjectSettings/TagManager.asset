@@ -31,7 +31,10 @@ TagManager:
   - MovingParticle
   - CollisionParticle
   - DeathParticle
-  - Test
+  - Lives1
+  - Lives2
+  - Lives3
+  - BGM
   layers:
   - Default
   - TransparentFX
