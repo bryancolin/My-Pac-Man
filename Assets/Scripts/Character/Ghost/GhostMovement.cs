@@ -32,20 +32,7 @@ public class GhostMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //    timer += Time.deltaTime;
-        //    if(currentRedGhost == GhostState.Scared && timer <= 10)
-        //    {
-        //        lastTime = (int)timer;
-        //        //Debug.Log(lastTime);
-        //        if (timer >= 7)
-        //        {
-        //            SetTransition();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        SetNormal();
-        //    }
+
     }
 
     public void SetGhost()
@@ -124,7 +111,7 @@ public class GhostMovement : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<PacStudentController>().deathParticle.Play();
+            //collision.GetComponent<PacStudentController>().deathParticle.Play();
             collision.transform.position = new Vector3(-12.5f, 13.0f, 0.0f);
         }
     }
