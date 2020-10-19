@@ -9,6 +9,7 @@ public class CountdownController : MonoBehaviour
     private int countdownTime = 3;
 
     private GameObject managers;
+    private Coroutine countDownCoroutine;
 
     private void Awake()
     {
@@ -21,7 +22,11 @@ public class CountdownController : MonoBehaviour
         }
 
         Time.timeScale = 0;
-        StartCoroutine(CountdownToStart());
+
+        if (countDownCoroutine == null)
+        {
+            countDownCoroutine = StartCoroutine(CountdownToStart());
+        }
     }
     // Start is called before the first frame update
     void Start()
@@ -56,5 +61,7 @@ public class CountdownController : MonoBehaviour
         }
 
         Time.timeScale = 1;
+
+        countDownCoroutine = null;
     }
 }

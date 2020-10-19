@@ -17,6 +17,11 @@ public class UiManager : MonoBehaviour
     private TimeSpan timePlaying;
     private float playTime;
 
+    private float countdownTime;
+    private Coroutine startTimer = null;
+
+    private Text test;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -25,7 +30,7 @@ public class UiManager : MonoBehaviour
 
     void Start()
     {
-        
+        test = GameObject.FindWithTag("Test").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -65,6 +70,33 @@ public class UiManager : MonoBehaviour
     public void LoadDesignLevel()
     {
 
+    }
+
+    public void Timer()
+    {
+        if(startTimer != null)
+        {
+            StopCoroutine(startTimer);
+        }
+        startTimer = StartCoroutine(CountdownToStart());
+    }
+
+    IEnumerator CountdownToStart()
+    {
+        countdownTime = 10;
+        while (countdownTime > 0)
+        {
+            test.text = countdownTime.ToString();
+            yield return new WaitForSecondsRealtime(1f);
+            countdownTime--;
+        }
+
+        test.text = "GO!"; 
+        yield return new WaitForSecondsRealtime(1f);
+
+        //test.gameObject.SetActive(false);
+
+        startTimer = null;
     }
 
     public void ExitGame()

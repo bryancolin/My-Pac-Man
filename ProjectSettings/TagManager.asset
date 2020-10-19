@@ -30,7 +30,8 @@ TagManager:
   - CountDown
   - MovingParticle
   - CollisionParticle
-  - BGM
+  - DeathParticle
+  - Test
   layers:
   - Default
   - TransparentFX
