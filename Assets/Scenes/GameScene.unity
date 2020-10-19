@@ -5782,7 +5782,6 @@ MonoBehaviour:
   movingParticle: {fileID: 386416247}
   collideParticle: {fileID: 1219544408}
   deathParticle: {fileID: 1306197154}
-  levelGenerator: {fileID: 924057089}
   movementSource: {fileID: 882554143}
   movementClips:
   - {fileID: 8300000, guid: 17509eea893e64079aee6880903c44af, type: 3}
@@ -6040,18 +6039,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &924057089 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6313858788102525423, guid: 4e0769c39aa8f41cb91a03af262f0051,
-    type: 3}
-  m_PrefabInstance: {fileID: 6313858789060181326}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89615f9a4dd744c6db680d171986176d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -16707,6 +16694,11 @@ PrefabInstance:
     - target: {fileID: 6970075363643673827, guid: 4e0769c39aa8f41cb91a03af262f0051,
         type: 3}
       propertyPath: m_Name
+      value: Maze
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970075363643673827, guid: 4e0769c39aa8f41cb91a03af262f0051,
+        type: 3}
+      propertyPath: m_TagString
       value: Maze
       objectReference: {fileID: 0}
     m_RemovedComponents: []
