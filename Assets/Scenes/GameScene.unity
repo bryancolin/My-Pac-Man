@@ -5619,8 +5619,9 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1516aeb7c39184426b169f910f8a3678, type: 2}
+  m_sharedMaterial: {fileID: -688373884712921088, guid: 1516aeb7c39184426b169f910f8a3678,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5778,22 +5779,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bbf9883c2a61461f99fa63e8145cb96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 882554141}
-  movingParticle: {fileID: 386416247}
-  collideParticle: {fileID: 1219544408}
-  deathParticle: {fileID: 1306197154}
   movementSource: {fileID: 882554143}
   movementClips:
   - {fileID: 8300000, guid: 17509eea893e64079aee6880903c44af, type: 3}
   - {fileID: 8300000, guid: a8b9cd424916b40f3947ec503c67c96b, type: 3}
   - {fileID: 8300000, guid: 14dd607577f7e4fda8224fd875a0067f, type: 3}
   playerScore: 0
---- !u!95 &882554141 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2968334368490602949, guid: 59629593948e24a949e347d276e9d2f9,
-    type: 3}
-  m_PrefabInstance: {fileID: 2968334369423601631}
-  m_PrefabAsset: {fileID: 0}
 --- !u!50 &882554142
 Rigidbody2D:
   serializedVersion: 4
@@ -16225,7 +16216,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 75, y: 30}
+  m_SizeDelta: {x: 10, y: 30}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &2133412007
 MonoBehaviour:
@@ -16245,7 +16236,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ghost Scared Timer
+  m_text: 'Timer
 
 '
   m_isRightToLeft: 0
@@ -16317,10 +16308,10 @@ MonoBehaviour:
   m_margin: {x: -78.44245, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2133412007}
-    characterCount: 19
+    characterCount: 6
     spriteCount: 0
-    spaceCount: 3
-    wordCount: 3
+    spaceCount: 1
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
