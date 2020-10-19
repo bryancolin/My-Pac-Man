@@ -14,7 +14,6 @@ public class GhostMovement : MonoBehaviour
     private Coroutine startTimer;
 
     private int timer;
-    private int lastTime;
 
     private bool isScared = false, isRecovering = false;
 
@@ -110,8 +109,6 @@ public class GhostMovement : MonoBehaviour
             yield return new WaitForSeconds(1f);
             timer--;
         }
-
-        yield return new WaitForSeconds(1f);
 
         ghostTimer.gameObject.SetActive(false);
 
