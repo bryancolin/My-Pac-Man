@@ -35,6 +35,7 @@ TagManager:
   - Lives2
   - Lives3
   - BGM
+  - Maze
   layers:
   - Default
   - TransparentFX

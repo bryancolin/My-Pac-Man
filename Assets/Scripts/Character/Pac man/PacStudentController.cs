@@ -5,10 +5,10 @@ using TMPro;
 
 public class PacStudentController : MonoBehaviour
 {
-    public Animator animator;
-    public ParticleSystem movingParticle, collideParticle, deathParticle;
-
-    public LevelGenerator levelGenerator;
+    private GameManager gameManager;
+    private ParticleSystem movingParticle, collideParticle, deathParticle;
+    private LevelGenerator levelGenerator;
+    private Animator animator;
 
     public AudioSource movementSource;
     public AudioClip[] movementClips;
@@ -23,7 +23,6 @@ public class PacStudentController : MonoBehaviour
 
     public int playerScore;
 
-    private GameManager gameManager;
 
     private void Awake()
     {
@@ -33,6 +32,17 @@ public class PacStudentController : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.FindWithTag("Managers").GetComponent<GameManager>();
+
+        // Maze
+        levelGenerator = GameObject.FindWithTag("Maze").GetComponent<LevelGenerator>();
+
+        // Particle System
+        movingParticle = GameObject.FindWithTag("MovingParticle").GetComponent<ParticleSystem>();
+        collideParticle = GameObject.FindWithTag("CollisionParticle").GetComponent<ParticleSystem>();
+        deathParticle = GameObject.FindWithTag("DeathParticle").GetComponent<ParticleSystem>();
+
+        // PacStudent Animator and Tweener
+        animator = GetComponent<Animator>();
         tweener = GetComponent<Tweener>();
     }
 
