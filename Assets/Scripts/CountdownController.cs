@@ -13,8 +13,12 @@ public class CountdownController : MonoBehaviour
     private void Awake()
     {
         countdownDisplay = GameObject.FindWithTag("CountDown").GetComponent<TextMeshProUGUI>();
+
         managers = GameObject.FindWithTag("Managers");
-        managers.gameObject.SetActive(false);
+        if (managers != null)
+        {
+            managers.gameObject.SetActive(false);
+        }
 
         Time.timeScale = 0;
         StartCoroutine(CountdownToStart());
@@ -45,8 +49,11 @@ public class CountdownController : MonoBehaviour
 
         countdownDisplay.gameObject.SetActive(false);
 
-        managers.gameObject.SetActive(true);
-        GameObject.FindWithTag("Managers").AddComponent<GameManager>();
+        if (managers != null)
+        {
+            managers.gameObject.SetActive(true);
+            GameObject.FindWithTag("Managers").AddComponent<GameManager>();
+        }
 
         Time.timeScale = 1;
     }

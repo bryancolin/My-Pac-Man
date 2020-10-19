@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Round Circle
   m_Shader: {fileID: 211, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _ALPHABLEND_ON _COLORADDSUBDIFF_ON
+  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _COLORADDSUBDIFF_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -30,7 +30,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 5d8be8edcad584492b2481ba19ecf3e6, type: 3}
+        m_Texture: {fileID: 2800000, guid: e47921eea37ec463382067478a20423d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -50,11 +50,11 @@ Material:
     - _EmissionEnabled: 0
     - _FlipbookMode: 0
     - _LightingEnabled: 0
-    - _Mode: 2
+    - _Mode: 3
     - _SoftParticlesEnabled: 0
     - _SoftParticlesFarFadeDistance: 1
     - _SoftParticlesNearFadeDistance: 0
-    - _SrcBlend: 5
+    - _SrcBlend: 1
     - _ZWrite: 0
     m_Colors:
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
