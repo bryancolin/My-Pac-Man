@@ -17,7 +17,6 @@ public class CherryController : MonoBehaviour
 
     private List<Vector3> listOfZones = new List<Vector3>();
 
-    private Coroutine coroutine;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +26,8 @@ public class CherryController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SetZones();
+        // Random Range every 15 seconds
+        Invoke("SetZones", 15.0f);
 
         timer += Time.deltaTime;
         if ((int)timer > lastTime)
@@ -62,28 +62,11 @@ public class CherryController : MonoBehaviour
 
         cherryRef = Instantiate(cherry, startPosition, Quaternion.identity);
 
-        //if (!tweenRef.TweenExists(cherryRef.transform))
-        //{
+        if (!tweenRef.TweenExists(cherryRef.transform))
+        {
             tweenRef.AddTween(cherryRef.transform, cherryRef.transform.position, -cherryRef.transform.position, 10.0f);
-            //Debug.Log("Spawned");
-            //coroutine = StartCoroutine(DestroyCherry());
-        //}
+        }
     }
-
-    //// Destroy Cherry every 15 seconds when it is spawned
-    //IEnumerator DestroyCherry()
-    //{
-    //    yield return new WaitForSeconds(15.0f);
-    //    if (cherryRef != null)
-    //    {
-    //        if (cherryRef.transform.position == finalPosition)
-    //        {
-    //            Destroy(cherryRef);
-    //            //Debug.Log("Destroy");
-    //        }
-    //    }
-    //    coroutine = null;
-    //}
 
     private void DestroyCherry()
     {

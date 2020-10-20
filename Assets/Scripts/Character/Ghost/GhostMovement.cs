@@ -38,7 +38,7 @@ public class GhostMovement : MonoBehaviour
                 
                 break;
             case GameManager.GameState.GameOverScene:
-                this.gameObject.GetComponent<GhostMovement>().enabled = false;
+                Destroy(this.gameObject.GetComponent<GhostMovement>());
                 break;
         }
     }
@@ -120,6 +120,7 @@ public class GhostMovement : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             PacStudentController pacStudent = collision.GetComponent<PacStudentController>();
+
             if(isScared)
             {
                 pacStudent.playerScore += 300;
@@ -127,8 +128,8 @@ public class GhostMovement : MonoBehaviour
             else
             {
                 pacStudent.DeadTrigger();
-                //GameManager.currentGameState = GameManager.GameState.GameOverScene;
-                collision.transform.position = new Vector3(-12.5f, 13.0f, 0.0f);
+                gameManager.LoseLife();
+                //collision.transform.position = new Vector3(-12.5f, 13.0f, 0.0f);
             }
         }
     }

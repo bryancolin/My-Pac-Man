@@ -61,8 +61,9 @@ public class PacStudentController : MonoBehaviour
                     MovementAudio();
                 }
                 break;
+
             case GameManager.GameState.GameOverScene:
-                this.gameObject.GetComponent<PacStudentController>().enabled = false;
+                Destroy(gameObject.GetComponent<PacStudentController>());
                 break;
         }
     }

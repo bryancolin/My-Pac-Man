@@ -16,7 +16,7 @@ public class UiManager : MonoBehaviour
     private PacStudentController pacStudent;
     private TextMeshProUGUI playerScore, gameDurationTime, ghostScaredTime, gameOver;
 
-    private List<Image> lives;
+    public List<Image> lives;
     private Image live1, live2, live3;
 
     private TimeSpan timePlaying;
@@ -137,8 +137,8 @@ public class UiManager : MonoBehaviour
 
             // Lives GameObject
             live1 = GameObject.Find("Lives 1").GetComponent<Image>();
-            live2 = GameObject.Find("Lives 1").GetComponent<Image>();
-            live3 = GameObject.Find("Lives 1").GetComponent<Image>();
+            live2 = GameObject.Find("Lives 2").GetComponent<Image>();
+            live3 = GameObject.Find("Lives 3").GetComponent<Image>();
 
             lives.Add(live1);
             lives.Add(live2);

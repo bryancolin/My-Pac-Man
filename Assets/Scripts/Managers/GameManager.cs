@@ -12,19 +12,23 @@ public class GameManager : MonoBehaviour
     private GameObject pacStudent, redGhost, blueGhost, yellowGhost, pinkGhost;
 
     private AudioManager backgroundMusic;
+    private UiManager uiManager;
 
     private bool isScared = false;
 
     private float timer = 0;
+    private int lives;
 
     private void Awake()
     {
         backgroundMusic = GameObject.FindWithTag("Managers").GetComponent<AudioManager>();
+        uiManager = GameObject.FindWithTag("Managers").GetComponent<UiManager>();
 
         if (currentGameState == GameState.GameScene)
         {
             if (SceneManager.GetSceneByName("GameScene").isLoaded)
             {
+                lives = 3;
                 SetCamera();
                 SetGame();
             }
@@ -38,12 +42,18 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if(lives == 0)
+        {
+            currentGameState = GameState.GameOverScene;
+        }
+
         switch (currentGameState)
         {
             case GameState.GameScene:
                 break;
 
             case GameState.GameOverScene:
+                ResetGame();
                 break;
         }
     }
@@ -72,6 +82,16 @@ public class GameManager : MonoBehaviour
         pinkGhost.GetComponent<GhostMovement>().enabled = true;
 
         NormalGhost();
+    }
+
+    private void ResetGame()
+    {
+        pacStudent.GetComponent<Animator>().SetFloat("Speed", 0);
+
+        redGhost.GetComponent<Animator>().SetFloat("Speed", 0);
+        blueGhost.GetComponent<Animator>().SetFloat("Speed", 0);
+        yellowGhost.GetComponent<Animator>().SetFloat("Speed", 0);
+        pinkGhost.GetComponent<Animator>().SetFloat("Speed", 0);
     }
 
     public void NormalGhost()
@@ -114,5 +134,11 @@ public class GameManager : MonoBehaviour
         pinkGhost.GetComponent<GhostMovement>().SetTransition();
     }
 
+    public void LoseLife()
+    {
+        lives--;
+        Destroy(uiManager.lives[lives]);
+        uiManager.lives.RemoveAt(lives);
+    }
 
 }
