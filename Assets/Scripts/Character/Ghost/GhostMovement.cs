@@ -119,9 +119,17 @@ public class GhostMovement : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            //collision.GetComponent<PacStudentController>().deathParticle.Play();
-            GameManager.currentGameState = GameManager.GameState.GameOverScene;
-            collision.transform.position = new Vector3(-12.5f, 13.0f, 0.0f);
+            PacStudentController pacStudent = collision.GetComponent<PacStudentController>();
+            if(isScared)
+            {
+                pacStudent.playerScore += 300;
+            }
+            else
+            {
+                pacStudent.DeadTrigger();
+                //GameManager.currentGameState = GameManager.GameState.GameOverScene;
+                collision.transform.position = new Vector3(-12.5f, 13.0f, 0.0f);
+            }
         }
     }
 

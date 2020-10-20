@@ -307,7 +307,7 @@ public class PacStudentController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         Vector3 direction = destination - transform.position;
 
@@ -338,7 +338,7 @@ public class PacStudentController : MonoBehaviour
         }
     }
 
-    private void DeadTrigger()
+    public void DeadTrigger()
     {
         deathParticle.Play();
     }

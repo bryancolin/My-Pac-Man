@@ -11015,7 +11015,7 @@ GameObject:
   - component: {fileID: 1253615270}
   - component: {fileID: 1253615269}
   m_Layer: 5
-  m_Name: Ghost Scared Timer
+  m_Name: Ghost Timer
   m_TagString: GhostTimer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16229,13 +16229,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1699045137}
-    characterCount: 9
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0

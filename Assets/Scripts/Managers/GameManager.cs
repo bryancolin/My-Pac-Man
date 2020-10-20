@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
 
     private AudioManager backgroundMusic;
 
-    public bool isSetUp = false;
     private bool isScared = false;
 
     private float timer = 0;
@@ -34,12 +33,19 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-
+        
     }
 
     private void Update()
     {
+        switch (currentGameState)
+        {
+            case GameState.GameScene:
+                break;
 
+            case GameState.GameOverScene:
+                break;
+        }
     }
 
     // Set Camera for Game Scene
@@ -66,8 +72,6 @@ public class GameManager : MonoBehaviour
         pinkGhost.GetComponent<GhostMovement>().enabled = true;
 
         NormalGhost();
-
-        isSetUp = true;
     }
 
     public void NormalGhost()
