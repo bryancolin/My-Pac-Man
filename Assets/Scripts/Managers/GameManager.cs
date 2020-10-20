@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public enum GameState { StartScene, GameScene, DesignScene }
+    public enum GameState { StartScene, GameScene, DesignScene, GameOverScene }
 
     public static GameState currentGameState = GameState.StartScene;
 
@@ -65,7 +65,6 @@ public class GameManager : MonoBehaviour
         yellowGhost.GetComponent<GhostMovement>().enabled = true;
         pinkGhost.GetComponent<GhostMovement>().enabled = true;
 
-
         NormalGhost();
 
         isSetUp = true;
@@ -85,7 +84,6 @@ public class GameManager : MonoBehaviour
             yellowGhost.GetComponent<GhostMovement>().SetNormal();
             pinkGhost.GetComponent<GhostMovement>().SetNormal();
         }
-
 
         backgroundMusic.ChangeBackgroundMusic(1);
     }

@@ -36,6 +36,7 @@ TagManager:
   - Lives3
   - BGM
   - Maze
+  - GameOver
   layers:
   - Default
   - TransparentFX

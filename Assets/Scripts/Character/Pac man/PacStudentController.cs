@@ -23,7 +23,6 @@ public class PacStudentController : MonoBehaviour
 
     public int playerScore;
 
-
     private void Awake()
     {
     }
@@ -49,14 +48,22 @@ public class PacStudentController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!tweener.TweenExists(transform))
+        switch (GameManager.currentGameState)
         {
-            GetMovementInput();
-            CharacterPosition();
-            CharacterRotation();
-            WalkingAnimation();
-            ParticlePlay();
-            MovementAudio();
+            case GameManager.GameState.GameScene:
+                if (!tweener.TweenExists(transform))
+                {
+                    GetMovementInput();
+                    CharacterPosition();
+                    CharacterRotation();
+                    WalkingAnimation();
+                    ParticlePlay();
+                    MovementAudio();
+                }
+                break;
+            case GameManager.GameState.GameOverScene:
+                this.gameObject.GetComponent<PacStudentController>().enabled = false;
+                break;
         }
     }
 

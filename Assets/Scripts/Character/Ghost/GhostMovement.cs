@@ -32,7 +32,15 @@ public class GhostMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        switch (GameManager.currentGameState)
+        {
+            case GameManager.GameState.GameScene:
+                
+                break;
+            case GameManager.GameState.GameOverScene:
+                this.gameObject.GetComponent<GhostMovement>().enabled = false;
+                break;
+        }
     }
 
     public void SetGhost()
@@ -112,6 +120,7 @@ public class GhostMovement : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             //collision.GetComponent<PacStudentController>().deathParticle.Play();
+            GameManager.currentGameState = GameManager.GameState.GameOverScene;
             collision.transform.position = new Vector3(-12.5f, 13.0f, 0.0f);
         }
     }

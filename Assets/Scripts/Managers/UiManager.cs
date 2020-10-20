@@ -9,16 +9,20 @@ using TMPro;
 public class UiManager : MonoBehaviour
 {
     public static UiManager Instances;
+
     public AudioManager backgroundMusic;
+    private GameManager gameManager;
 
     private PacStudentController pacStudent;
-    private TextMeshProUGUI playerScore, gameDurationTime, ghostScaredTime;
+    private TextMeshProUGUI playerScore, gameDurationTime, ghostScaredTime, gameOver;
 
     private List<Image> lives;
     private Image live1, live2, live3;
 
     private TimeSpan timePlaying;
     private float playTime;
+
+    private bool isDisplay = false;
 
     // Start is called before the first frame update
     private void Awake()
@@ -34,16 +38,27 @@ public class UiManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.currentGameState == GameManager.GameState.GameScene)
+        switch (GameManager.currentGameState)
         {
-            if (SceneManager.GetSceneByName("GameScene").isLoaded)
-            {
-                StartTimer();
-            }
+            case GameManager.GameState.GameScene:
+                if (SceneManager.GetSceneByName("GameScene").isLoaded)
+                    StartGame();
+                break;
+
+            case GameManager.GameState.GameOverScene:
+                if(isDisplay == false)
+                {
+                    gameOver = GameObject.FindWithTag("GameOver").GetComponent<TextMeshProUGUI>();
+                    gameOver.enabled = true;
+                    isDisplay = true;
+                }
+                
+                Invoke("ResetGame", 3.0f);
+                break;
         }
     }
 
-    private void StartTimer()
+    private void StartGame() 
     {
         // Score
         playerScore.SetText(pacStudent.playerScore.ToString());
@@ -55,9 +70,21 @@ public class UiManager : MonoBehaviour
         gameDurationTime.SetText(timePlaying.ToString("mm':'ss':'ff"));
     }
 
-    private void ResetTimer()
+    private void ResetGame()
     {
-        playTime = 0;
+        //Time.timeScale = 0;
+        if (GameManager.currentGameState == GameManager.GameState.GameOverScene)
+        {
+            SaveGameManager.SaveGame(pacStudent.playerScore, timePlaying.TotalSeconds);
+            playTime = 0;
+
+            backgroundMusic.ChangeBackgroundMusic(0);
+            GameManager.currentGameState = GameManager.GameState.StartScene;
+            Destroy(this.gameObject.GetComponent<GameManager>());
+
+            SceneManager.LoadScene(0);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
     }
 
     public void LoadFirstLevel()
@@ -81,9 +108,6 @@ public class UiManager : MonoBehaviour
     {
         if (GameManager.currentGameState == GameManager.GameState.GameScene)
         {
-            SaveGameManager.SaveGame(pacStudent.playerScore, timePlaying.TotalSeconds);
-            ResetTimer();
-
             backgroundMusic.ChangeBackgroundMusic(0);
             GameManager.currentGameState = GameManager.GameState.StartScene;
             Destroy(this.gameObject.GetComponent<GameManager>());
