@@ -128,7 +128,7 @@ public class UiManager : MonoBehaviour
 
     public void ExitGame()
     {
-        if (GameManager.currentGameState == GameManager.GameState.GameScene)
+        if (GameManager.currentGameState == GameManager.GameState.GameScene && Time.timeScale == 1)
         {
             Reset();
         }
