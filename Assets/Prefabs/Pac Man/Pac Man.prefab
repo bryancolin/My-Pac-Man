@@ -9549,7 +9549,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1306197151}
   serializedVersion: 6
   lengthInSec: 5
-  simulationSpeed: 5
+  simulationSpeed: 15
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -14279,7 +14279,7 @@ GameObject:
   - component: {fileID: 882554139}
   - component: {fileID: 882554140}
   m_Layer: 0
-  m_Name: 'Pac Man '
+  m_Name: Pac Man
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14293,7 +14293,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2968334368490602950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -12.5, y: 13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 386416245}
@@ -14534,4 +14534,3 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17509eea893e64079aee6880903c44af, type: 3}
   - {fileID: 8300000, guid: a8b9cd424916b40f3947ec503c67c96b, type: 3}
   - {fileID: 8300000, guid: 14dd607577f7e4fda8224fd875a0067f, type: 3}
-  playerScore: 0

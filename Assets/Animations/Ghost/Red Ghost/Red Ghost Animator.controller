@@ -206,6 +206,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: Transition
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Scared
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5662503983634264864}
   m_Solo: 0
