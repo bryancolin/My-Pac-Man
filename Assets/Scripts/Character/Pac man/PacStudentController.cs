@@ -324,7 +324,12 @@ public class PacStudentController : MonoBehaviour
             // Play Collision
             movementSource.PlayOneShot(movementClips[2]);
             collideParticle.Play();
-            //Debug.Log("Trigger Enter: " + collision.name + " : " + collision.offset);
+            Debug.Log("Trigger Enter: " + collision.name + " : " + collision.offset);
+        }
+
+        if(collision.CompareTag("Portal"))
+        {
+            collideParticle.Play();
         }
 
         if (collision.CompareTag("NormalPellet"))
@@ -346,8 +351,6 @@ public class PacStudentController : MonoBehaviour
             totalPellets += 1;
             Destroy(collision.gameObject);
         }
-
-        Debug.Log(totalPellets);
     }
 
     public IEnumerator DeadTrigger()
