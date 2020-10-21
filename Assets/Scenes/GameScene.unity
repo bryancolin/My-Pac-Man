@@ -2071,10 +2071,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 344032cd48c5a4ce3a4bcad6d457a4a7, type: 2}
-    - target: {fileID: 1306197154, guid: 59629593948e24a949e347d276e9d2f9, type: 3}
-      propertyPath: simulationSpeed
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 2968334368490602950, guid: 59629593948e24a949e347d276e9d2f9,
         type: 3}
       propertyPath: m_Name

@@ -6,13 +6,14 @@ using TMPro;
 public class PacStudentController : MonoBehaviour
 {
     private GameManager gameManager;
+    private ScoreManager scoreManager;
     private ParticleSystem movingParticle, collideParticle, deathParticle;
     private LevelGenerator levelGenerator;
     private Animator animator;
 
     public AudioSource movementSource;
     public AudioClip[] movementClips;
-    private bool isEating = true;
+    private bool isEating = true, isDeath = false;
 
     private Tweener tweener;
     private float movementSqrtMagnitude;
@@ -20,6 +21,8 @@ public class PacStudentController : MonoBehaviour
     private Vector3 movement, lastInput, currentInput, destination;
 
     private int xPosition, yPosition;
+
+    public int totalPellets;
 
     private void Awake()
     {
@@ -29,6 +32,7 @@ public class PacStudentController : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.FindWithTag("Managers").GetComponent<GameManager>();
+        scoreManager = GameObject.FindWithTag("Managers").GetComponent<ScoreManager>();
 
         // Maze
         levelGenerator = GameObject.FindWithTag("Maze").GetComponent<LevelGenerator>();
@@ -46,7 +50,7 @@ public class PacStudentController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(tweener==null)
+        if (tweener == null)
         {
             tweener = GetComponent<Tweener>();
         }
@@ -326,6 +330,7 @@ public class PacStudentController : MonoBehaviour
         if (collision.CompareTag("NormalPellet"))
         {
             UiManager.Instance.UpdateScore(10);
+            totalPellets += 1;
             Destroy(collision.gameObject);
         }
 
@@ -338,13 +343,16 @@ public class PacStudentController : MonoBehaviour
         if (collision.CompareTag("PowerPellet"))
         {
             gameManager.ScareGhost();
+            totalPellets += 1;
             Destroy(collision.gameObject);
         }
+
+        Debug.Log(totalPellets);
     }
 
     public IEnumerator DeadTrigger()
     {
-        // Play Death Particle 
+        // Play Death Particle
         deathParticle.Play();
 
         // Last Input & Current Input becomes null

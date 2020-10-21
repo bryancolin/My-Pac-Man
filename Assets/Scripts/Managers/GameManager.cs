@@ -9,10 +9,10 @@ public class GameManager : MonoBehaviour
 
     public static GameState currentGameState = GameState.StartScene;
 
-    private GameObject pacStudent, redGhost, blueGhost, yellowGhost, pinkGhost;
-
     private AudioManager backgroundMusic;
     private UiManager uiManager;
+  
+    private GameObject pacStudent, redGhost, blueGhost, yellowGhost, pinkGhost;
 
     private bool isScared = false;
 
@@ -22,21 +22,19 @@ public class GameManager : MonoBehaviour
     {
         backgroundMusic = GameObject.FindWithTag("Managers").GetComponent<AudioManager>();
         uiManager = GameObject.FindWithTag("Managers").GetComponent<UiManager>();
+    }
 
+    private void Start()
+    {
         if (currentGameState == GameState.GameScene)
         {
             if (SceneManager.GetSceneByName("GameScene").isLoaded)
             {
                 lives = 3;
                 SetCamera();
-                SetGame();
+                SetCharacter();
             }
         }
-    }
-
-    private void Start()
-    {
-
     }
 
     private void Update()
@@ -44,7 +42,7 @@ public class GameManager : MonoBehaviour
         switch (currentGameState)
         {
             case GameState.GameScene:
-                if(lives == 0)
+                if(lives == 0 || pacStudent.GetComponent<PacStudentController>().totalPellets == 222)
                 {
                     currentGameState = GameState.GameOverScene;
                 }
@@ -64,16 +62,15 @@ public class GameManager : MonoBehaviour
     }
 
     // Get GameObject Character and Audio Manager
-    private void SetGame()
+    private void SetCharacter()
     {
         pacStudent = GameObject.FindWithTag("Player");
-        pacStudent.GetComponent<PacStudentController>().enabled = true;
-
         redGhost = GameObject.FindWithTag("RedGhost");
         blueGhost = GameObject.FindWithTag("BlueGhost");
         yellowGhost = GameObject.FindWithTag("YellowGhost");
         pinkGhost = GameObject.FindWithTag("PinkGhost");
 
+        pacStudent.GetComponent<PacStudentController>().enabled = true;
         redGhost.GetComponent<GhostMovement>().enabled = true;
         blueGhost.GetComponent<GhostMovement>().enabled = true;
         yellowGhost.GetComponent<GhostMovement>().enabled = true;
@@ -85,7 +82,6 @@ public class GameManager : MonoBehaviour
     private void ResetGame()
     {
         pacStudent.GetComponent<Animator>().SetFloat("Speed", 0);
-
         redGhost.GetComponent<Animator>().SetFloat("Speed", 0);
         blueGhost.GetComponent<Animator>().SetFloat("Speed", 0);
         yellowGhost.GetComponent<Animator>().SetFloat("Speed", 0);
@@ -118,17 +114,8 @@ public class GameManager : MonoBehaviour
         blueGhost.GetComponent<GhostMovement>().SetScared();
         yellowGhost.GetComponent<GhostMovement>().SetScared();
         pinkGhost.GetComponent<GhostMovement>().SetScared();
-
-        backgroundMusic.ChangeBackgroundMusic(2);
     }
 
-    public void RecoverGhost()
-    {
-        redGhost.GetComponent<GhostMovement>().SetTransition();
-        blueGhost.GetComponent<GhostMovement>().SetTransition();
-        yellowGhost.GetComponent<GhostMovement>().SetTransition();
-        pinkGhost.GetComponent<GhostMovement>().SetTransition();
-    }
 
     public void LoseLife()
     {
