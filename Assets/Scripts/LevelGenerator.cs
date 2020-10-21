@@ -109,10 +109,10 @@ public class LevelGenerator : MonoBehaviour
             q[i].name = $"Quandrant {i + 1}";
         }
 
-        //q[0].transform.position = new Vector3(6.75f, 7.5f, 0.0f);
-        //q[1].transform.position = new Vector3(-6.75f, 7.5f, 0.0f);
-        //q[2].transform.position = new Vector3(-6.75f, -7.5f, 0.0f);
-        //q[3].transform.position = new Vector3(6.75f, -7.5f, 0.0f);
+        q[0].transform.position = new Vector3(6.75f, 7.5f, 0.0f);
+        q[1].transform.position = new Vector3(-6.75f, 7.5f, 0.0f);
+        q[2].transform.position = new Vector3(-6.75f, -7.5f, 0.0f);
+        q[3].transform.position = new Vector3(6.75f, -7.5f, 0.0f);
     }
 
     private void Quadrants()

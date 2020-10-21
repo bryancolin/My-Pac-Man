@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
 
     private bool isScared = false;
 
-    private float timer = 0;
     private int lives;
 
     private void Awake()
@@ -37,19 +36,18 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
 
     private void Update()
     {
-        if(lives == 0)
-        {
-            currentGameState = GameState.GameOverScene;
-        }
-
         switch (currentGameState)
         {
             case GameState.GameScene:
+                if(lives == 0)
+                {
+                    currentGameState = GameState.GameOverScene;
+                }
                 break;
 
             case GameState.GameOverScene:

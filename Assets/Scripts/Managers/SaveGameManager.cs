@@ -23,7 +23,6 @@ public class SaveGameManager : MonoBehaviour
         previousHighScore = PlayerPrefs.GetInt(highScoreKey);
         previousTimePlay = PlayerPrefs.GetFloat(timeKey);
         timePlaying = TimeSpan.FromSeconds(previousTimePlay);
-
         LoadGame();
     }  
 
@@ -33,6 +32,7 @@ public class SaveGameManager : MonoBehaviour
         // If highScoreKey & timeKey exists, Load into a HighScore and Time Text from UI
         if(PlayerPrefs.HasKey(highScoreKey) && PlayerPrefs.HasKey(timeKey))
         {
+            //UiManager.Instance.UpdateScoreLabel();
             scoreLabel = GameObject.FindWithTag("ScoreTime").GetComponent<TextMeshProUGUI>();
             scoreLabel.SetText("High Score: " + previousHighScore + " - Time: " + timePlaying.ToString("mm':'ss':'ff"));
         }

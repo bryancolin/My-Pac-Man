@@ -123,7 +123,7 @@ public class GhostMovement : MonoBehaviour
 
             if(isScared)
             {
-                pacStudent.playerScore += 300;
+                UiManager.Instance.UpdateScore(300);
             }
             else
             {

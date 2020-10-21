@@ -21,8 +21,6 @@ public class PacStudentController : MonoBehaviour
 
     private int xPosition, yPosition;
 
-    public int playerScore;
-
     private void Awake()
     {
     }
@@ -322,13 +320,13 @@ public class PacStudentController : MonoBehaviour
 
         if (collision.CompareTag("NormalPellet"))
         {
-            playerScore += 10;
+            UiManager.Instance.UpdateScore(10);
             Destroy(collision.gameObject);
         }
 
         if (collision.CompareTag("Cherry"))
         {
-            playerScore += 100;
+            UiManager.Instance.UpdateScore(100);
             Destroy(collision.gameObject);
         }
 

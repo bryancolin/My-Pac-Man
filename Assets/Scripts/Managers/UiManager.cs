@@ -8,20 +8,18 @@ using TMPro;
 
 public class UiManager : MonoBehaviour
 {
-    public static UiManager Instances;
+    public static UiManager Instance;
 
     public AudioManager backgroundMusic;
     private GameManager gameManager;
 
-    private PacStudentController pacStudent;
     private TextMeshProUGUI playerScore, gameDurationTime, ghostScaredTime, gameOver;
 
     public List<Image> lives;
     private Image live1, live2, live3;
 
     private TimeSpan timePlaying;
-    private float playTime;
-
+    private float playTime, score;
     private bool isDisplay = false;
 
     // Start is called before the first frame update
@@ -61,7 +59,7 @@ public class UiManager : MonoBehaviour
     private void StartGame() 
     {
         // Score
-        playerScore.SetText(pacStudent.playerScore.ToString());
+        playerScore.SetText(score.ToString());
 
         // Time Playing
         playTime += Time.deltaTime;
@@ -70,20 +68,38 @@ public class UiManager : MonoBehaviour
         gameDurationTime.SetText(timePlaying.ToString("mm':'ss':'ff"));
     }
 
+    public void UpdateScore(int value)
+    {
+        score += value;        
+    }
+
+    private void Reset()
+    {
+        // Reset
+        score = 0;
+        playTime = 0;
+        isDisplay = false;
+        lives.Clear();
+
+        // Change Music to Intro
+        backgroundMusic.ChangeBackgroundMusic(0);
+
+        // Set the Game State to Start
+        GameManager.currentGameState = GameManager.GameState.StartScene;
+        Destroy(this.gameObject.GetComponent<GameManager>());
+
+        SceneManager.LoadScene(0);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
     private void ResetGame()
     {
         //Time.timeScale = 0;
         if (GameManager.currentGameState == GameManager.GameState.GameOverScene)
         {
-            SaveGameManager.SaveGame(pacStudent.playerScore, timePlaying.TotalSeconds);
-            playTime = 0;
-
-            backgroundMusic.ChangeBackgroundMusic(0);
-            GameManager.currentGameState = GameManager.GameState.StartScene;
-            Destroy(this.gameObject.GetComponent<GameManager>());
-
-            SceneManager.LoadScene(0);
-            SceneManager.sceneLoaded += OnSceneLoaded;
+            // Save Game
+            SaveGameManager.SaveGame((int) score, timePlaying.TotalSeconds);
+            Reset();
         }
     }
 
@@ -108,12 +124,7 @@ public class UiManager : MonoBehaviour
     {
         if (GameManager.currentGameState == GameManager.GameState.GameScene)
         {
-            backgroundMusic.ChangeBackgroundMusic(0);
-            GameManager.currentGameState = GameManager.GameState.StartScene;
-            Destroy(this.gameObject.GetComponent<GameManager>());
-
-            SceneManager.LoadScene(0);
-            SceneManager.sceneLoaded += OnSceneLoaded;
+            Reset();
         }
     }
 
@@ -126,9 +137,7 @@ public class UiManager : MonoBehaviour
 
         if (scene.buildIndex == 1)
         {
-            GetExitButton();
-
-            pacStudent = GameObject.FindWithTag("Player").GetComponent<PacStudentController>();
+            GetExitButton();            
 
             // Score, Games Duration and Ghost Scared Timer
             playerScore = GameObject.FindWithTag("PlayerScore").GetComponent<TextMeshProUGUI>();
@@ -140,9 +149,12 @@ public class UiManager : MonoBehaviour
             live2 = GameObject.Find("Lives 2").GetComponent<Image>();
             live3 = GameObject.Find("Lives 3").GetComponent<Image>();
 
-            lives.Add(live1);
-            lives.Add(live2);
-            lives.Add(live3);
+            if (lives.Count < 3)
+            {
+                lives.Add(live1);
+                lives.Add(live2);
+                lives.Add(live3);
+            } 
         }
 
         if (scene.buildIndex == 2)
@@ -168,12 +180,12 @@ public class UiManager : MonoBehaviour
 
     void SetSingleton()
     {
-        if (Instances == null)
+        if (Instance == null)
         {
             DontDestroyOnLoad(gameObject);
-            Instances = this;
+            Instance = this;
         }
-        else if (Instances != this)
+        else if (Instance != this)
         {
             Destroy(gameObject);
         }
