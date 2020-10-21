@@ -35,7 +35,7 @@ public class LevelGenerator : MonoBehaviour
     private GameObject[,] bottomLeft = new GameObject[15, 15];
     private GameObject[,] bottomRight = new GameObject[15, 15];
 
-    private GameObject[] q = new GameObject[4];
+    private readonly GameObject[] q = new GameObject[4];
 
     private int rows, columns;
 
@@ -48,16 +48,6 @@ public class LevelGenerator : MonoBehaviour
 
         EmptyGameObject();
         Quadrants();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void MirrorLevelMap()
