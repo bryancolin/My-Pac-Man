@@ -27,18 +27,7 @@ public class CountdownController : MonoBehaviour
         {
             countDownCoroutine = StartCoroutine(CountdownToStart());
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    }   
 
     IEnumerator CountdownToStart()
     {
