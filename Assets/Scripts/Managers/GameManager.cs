@@ -120,8 +120,6 @@ public class GameManager : MonoBehaviour
         pinkGhost.GetComponent<GhostMovement>().SetScared();
 
         backgroundMusic.ChangeBackgroundMusic(2);
-
-        timer = 0.0f;
     }
 
     public void RecoverGhost()

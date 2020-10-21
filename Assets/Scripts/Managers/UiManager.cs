@@ -13,7 +13,7 @@ public class UiManager : MonoBehaviour
     public AudioManager backgroundMusic;
     private GameManager gameManager;
 
-    private TextMeshProUGUI playerScore, gameDurationTime, ghostScaredTime, gameOver;
+    private TextMeshProUGUI scoreLabel, playerScore, gameDurationTime, ghostScaredTime, gameOver;
 
     public List<Image> lives;
     private Image live1, live2, live3;
@@ -56,6 +56,17 @@ public class UiManager : MonoBehaviour
         }
     }
 
+    public void UpdateScore(int value)
+    {
+        score += value;
+    }
+
+    public void UpdateScoreLabel(int previousHighScore, TimeSpan timePlaying)
+    {
+        scoreLabel = GameObject.FindWithTag("ScoreTime").GetComponent<TextMeshProUGUI>();
+        scoreLabel.SetText("High Score: " + previousHighScore + " - Time: " + timePlaying.ToString("mm':'ss':'ff"));
+    }
+
     private void StartGame() 
     {
         // Score
@@ -66,11 +77,6 @@ public class UiManager : MonoBehaviour
         timePlaying = TimeSpan.FromSeconds(playTime);
 
         gameDurationTime.SetText(timePlaying.ToString("mm':'ss':'ff"));
-    }
-
-    public void UpdateScore(int value)
-    {
-        score += value;        
     }
 
     private void Reset()
