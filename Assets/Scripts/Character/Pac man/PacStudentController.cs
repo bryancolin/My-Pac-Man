@@ -324,7 +324,7 @@ public class PacStudentController : MonoBehaviour
             // Play Collision
             movementSource.PlayOneShot(movementClips[2]);
             collideParticle.Play();
-            Debug.Log("Trigger Enter: " + collision.name + " : " + collision.offset);
+            //Debug.Log("Trigger Enter: " + collision.name + " : " + collision.offset);
         }
 
         if(collision.CompareTag("Portal"))
