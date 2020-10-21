@@ -59,4 +59,9 @@ public class Tweener : MonoBehaviour
         }
         return false;
     }
+
+    public void RemoveTween(int i)
+    {
+        activeTweens.RemoveAt(i);
+    }
 }

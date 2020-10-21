@@ -26,7 +26,6 @@ public class GhostMovement : MonoBehaviour
     {
         gameManager = GameObject.FindWithTag("Managers").GetComponent<GameManager>();
         ghostTimer = GameObject.FindWithTag("GhostTimer").GetComponent<TextMeshProUGUI>();
-        //ghostTimer.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -87,7 +86,6 @@ public class GhostMovement : MonoBehaviour
         ghostTimer.gameObject.SetActive(true);
 
         timer = 10;
-
         ghostTimer.color = Color.green;
 
         while (timer > 0)
@@ -127,9 +125,8 @@ public class GhostMovement : MonoBehaviour
             }
             else
             {
-                pacStudent.DeadTrigger();
+                StartCoroutine(pacStudent.DeadTrigger());
                 gameManager.LoseLife();
-                //collision.transform.position = new Vector3(-12.5f, 13.0f, 0.0f);
             }
         }
     }

@@ -46,6 +46,11 @@ public class PacStudentController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(tweener==null)
+        {
+            tweener = GetComponent<Tweener>();
+        }
+
         switch (GameManager.currentGameState)
         {
             case GameManager.GameState.GameScene:
@@ -337,8 +342,19 @@ public class PacStudentController : MonoBehaviour
         }
     }
 
-    public void DeadTrigger()
+    public IEnumerator DeadTrigger()
     {
+        // Play Death Particle 
         deathParticle.Play();
+
+        // Last Input & Current Input becomes null
+        lastInput = Vector3.zero;
+        currentInput = lastInput;
+        yield return new WaitForSeconds(0.5f);
+
+        // Destroy Tweener, Spawn in Top Left, Add Tweener Back
+        Destroy(gameObject.GetComponent<Tweener>());
+        transform.position = new Vector3(-12.5f, 13.0f, 0.0f);
+        gameObject.AddComponent<Tweener>();
     }
 }
