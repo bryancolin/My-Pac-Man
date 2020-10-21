@@ -10,12 +10,11 @@ public class GhostMovement : MonoBehaviour
 
     private GameManager gameManager;
     private TextMeshProUGUI ghostTimer;
+    private AudioManager backgroundMusic;
 
-    private Coroutine startTimer;
+    private Coroutine startScared, startDeath;
 
-    private int timer;
-
-    private bool isScared = false, isRecovering = false;
+    private bool isNormal = true, isScared = false, isRecovering = false, isDeath = false;
 
     private void Awake()
     {
@@ -25,6 +24,8 @@ public class GhostMovement : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.FindWithTag("Managers").GetComponent<GameManager>();
+        backgroundMusic = GameObject.FindWithTag("Managers").GetComponent<AudioManager>();
+
         ghostTimer = GameObject.FindWithTag("GhostTimer").GetComponent<TextMeshProUGUI>();
     }
 
@@ -49,10 +50,14 @@ public class GhostMovement : MonoBehaviour
 
     // Set Ghost back to Normal State
     public void SetNormal()
-    {
+    { 
+        isNormal = true;
+
         transform.GetComponent<Animator>().SetBool("Scared", false);
         transform.GetComponent<Animator>().SetBool("Transition", false);
-        //backgroundMusic.ChangeBackgroundMusic(1);
+        transform.GetComponent<Animator>().SetBool("Death", false);
+
+        backgroundMusic.ChangeBackgroundMusic(1);
     }
 
     // Set Ghost to Scared State
@@ -60,41 +65,40 @@ public class GhostMovement : MonoBehaviour
     {
         isScared = true;
         // Start timer now
-        if (startTimer != null)
+        if (startScared != null)
         {
-            StopCoroutine(startTimer);
+            StopCoroutine(startScared);
         }
 
-        startTimer = StartCoroutine(StartTimer());
+        startScared = StartCoroutine(StartScared());
     }
 
-    // Set Ghost to Recovering State
-    public void SetTransition()
-    {
-        transform.GetComponent<Animator>().SetBool("Transition", isRecovering);
-    }
-
-    IEnumerator StartTimer()
+    IEnumerator StartScared()
     {
         if (isRecovering == true)
         {
             SetNormal();
         }
 
-        transform.GetComponent<Animator>().SetBool("Scared",isScared);
+        transform.GetComponent<Animator>().SetBool("Scared", isScared);
+
+        backgroundMusic.ChangeBackgroundMusic(2);
 
         ghostTimer.gameObject.SetActive(true);
 
-        timer = 10;
+        int timer = 10;
         ghostTimer.color = Color.green;
 
         while (timer > 0)
         {
-            if(timer == 3)
+            if(isDeath)
+            {
+                yield break;
+            }
+
+            if (timer == 3)
             {
                 ghostTimer.color = Color.red;
-
-                isRecovering = true;
                 SetTransition();
             }
 
@@ -110,7 +114,58 @@ public class GhostMovement : MonoBehaviour
 
         SetNormal();
 
-        startTimer = null;
+        startScared = null;
+    }
+
+    // Set Ghost to Recovering State
+    public void SetTransition()
+    {
+        isRecovering = true;
+        transform.GetComponent<Animator>().SetBool("Transition", isRecovering);
+    }
+
+    // Set Ghost to Death State
+    public void SetDeath()
+    {
+        isDeath = true;
+        transform.GetComponent<Animator>().SetBool("Death", true);
+
+        if (isRecovering)
+        {
+            isRecovering = false;
+            transform.GetComponent<Animator>().SetBool("Transition", false);
+        }
+        else if (isScared)
+        {
+            isScared = false;
+            transform.GetComponent<Animator>().SetBool("Scared", false);
+        }
+
+        if (startDeath != null)
+        {
+            StopCoroutine(startDeath);
+        }
+
+        startDeath = StartCoroutine(StartDeath());
+    }
+
+    IEnumerator StartDeath()
+    {
+        int timer = 5;
+
+        backgroundMusic.ChangeBackgroundMusic(3);
+
+        while (timer > 0)
+        {
+            Debug.Log(timer);
+            yield return new WaitForSeconds(1f);
+            timer--;
+        }
+
+        isDeath = false;
+
+        SetNormal();
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -119,14 +174,18 @@ public class GhostMovement : MonoBehaviour
         {
             PacStudentController pacStudent = collision.GetComponent<PacStudentController>();
 
-            if(isScared)
-            {
-                UiManager.Instance.UpdateScore(300);
-            }
-            else
+            if(isNormal)
             {
                 StartCoroutine(pacStudent.DeadTrigger());
                 gameManager.LoseLife();
+            }
+            else if(isScared || isRecovering)
+            {
+                if (!isDeath)
+                {
+                    UiManager.Instance.UpdateScore(300);
+                    SetDeath();
+                }
             }
         }
     }
