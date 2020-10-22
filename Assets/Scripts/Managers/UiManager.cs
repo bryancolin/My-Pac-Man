@@ -103,9 +103,10 @@ public class UiManager : MonoBehaviour
 
             // Save Game
             SaveGameManager.SaveGame((int)score, timePlaying.TotalSeconds);
-            Reset();
 
             yield return new WaitForSecondsRealtime(3f);
+            Reset();
+
             Time.timeScale = 1;
             gameOverCoroutine = null;
 
