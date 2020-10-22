@@ -63,6 +63,7 @@ public class GhostMovement : MonoBehaviour
     // Set Ghost to Scared State
     public void SetScared()
     {
+        isNormal = false;
         isScared = true;
         // Start timer now
         if (startScared != null)
@@ -80,7 +81,7 @@ public class GhostMovement : MonoBehaviour
             SetNormal();
         }
 
-        transform.GetComponent<Animator>().SetBool("Scared", isScared);
+        transform.GetComponent<Animator>().SetBool("Scared", true);
 
         backgroundMusic.ChangeBackgroundMusic(2);
 
