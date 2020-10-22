@@ -19,9 +19,7 @@ public class CountdownController : MonoBehaviour
         if (managers != null)
         {
             managers.gameObject.SetActive(false);
-        }
-
-        Time.timeScale = 0;
+        }        
 
         if (countDownCoroutine == null)
         {

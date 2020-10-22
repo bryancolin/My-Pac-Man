@@ -122,6 +122,8 @@ public class UiManager : MonoBehaviour
             backgroundMusic.StopPlaying();
             GameManager.currentGameState = GameManager.GameState.GameScene;
 
+            Time.timeScale = 0;
+
             SceneManager.LoadScene(1);
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
