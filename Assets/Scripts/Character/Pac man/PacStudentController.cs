@@ -338,7 +338,7 @@ public class PacStudentController : MonoBehaviour
             totalPellets += 1;
             Destroy(collision.gameObject);
         }
-
+        
         if (collision.CompareTag("Cherry"))
         {
             UiManager.Instance.UpdateScore(100);

@@ -13,6 +13,8 @@ public class UiManager : MonoBehaviour
     public AudioManager backgroundMusic;
     private GameManager gameManager;
 
+    private Coroutine gameOverCoroutine;
+
     private TextMeshProUGUI scoreLabel, playerScore, gameDurationTime, ghostScaredTime, gameOver;
 
     public List<Image> lives;
@@ -20,7 +22,7 @@ public class UiManager : MonoBehaviour
 
     private TimeSpan timePlaying;
     private float playTime, score;
-    private bool isDisplay = false;
+    //private bool isDisplay = false;
 
     // Start is called before the first frame update
     private void Awake()
@@ -44,14 +46,12 @@ public class UiManager : MonoBehaviour
                 break;
 
             case GameManager.GameState.GameOverScene:
-                if(isDisplay == false)
-                {
-                    gameOver = GameObject.FindWithTag("GameOver").GetComponent<TextMeshProUGUI>();
-                    gameOver.enabled = true;
-                    isDisplay = true;
-                }
-                
-                Invoke("ResetGame", 3.0f);
+
+                Time.timeScale = 0;
+
+                if (gameOverCoroutine == null)
+                    gameOverCoroutine = StartCoroutine(ResetGame());
+
                 break;
         }
     }
@@ -84,7 +84,6 @@ public class UiManager : MonoBehaviour
         // Reset
         score = 0;
         playTime = 0;
-        isDisplay = false;
         lives.Clear();
 
         // Change Music to Intro
@@ -93,19 +92,25 @@ public class UiManager : MonoBehaviour
         // Set the Game State to Start
         GameManager.currentGameState = GameManager.GameState.StartScene;
         Destroy(this.gameObject.GetComponent<GameManager>());
-
-        SceneManager.LoadScene(0);
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void ResetGame()
+    IEnumerator ResetGame()
     {
-        //Time.timeScale = 0;
         if (GameManager.currentGameState == GameManager.GameState.GameOverScene)
         {
+            gameOver = GameObject.FindWithTag("GameOver").GetComponent<TextMeshProUGUI>();
+            gameOver.enabled = true;
+
             // Save Game
-            SaveGameManager.SaveGame((int) score, timePlaying.TotalSeconds);
+            SaveGameManager.SaveGame((int)score, timePlaying.TotalSeconds);
             Reset();
+
+            yield return new WaitForSecondsRealtime(3f);
+            Time.timeScale = 1;
+            gameOverCoroutine = null;
+
+            SceneManager.LoadScene(0);
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
     }
 
@@ -131,6 +136,9 @@ public class UiManager : MonoBehaviour
         if (GameManager.currentGameState == GameManager.GameState.GameScene && Time.timeScale == 1)
         {
             Reset();
+
+            SceneManager.LoadScene(0);
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
     }
 
