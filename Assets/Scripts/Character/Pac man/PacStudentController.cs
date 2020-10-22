@@ -58,7 +58,7 @@ public class PacStudentController : MonoBehaviour
         switch (GameManager.currentGameState)
         {
             case GameManager.GameState.GameScene:
-                if (!tweener.TweenExists(transform))
+                if (!tweener.TweenExists(transform) && !isDeath)
                 {
                     GetMovementInput();
                     CharacterPosition();
@@ -120,7 +120,6 @@ public class PacStudentController : MonoBehaviour
             yPosition = (int)(Mathf.Abs(transform.position.y - 14) + -inputDirection.y);
 
             //Debug.Log("X : " + xPosition + " Y : " + yPosition);
-            //Debug.Log(levelGenerator.levelMap[yPosition, xPosition]);
 
             // Left Portal
             if (yPosition == 14 & xPosition == 0)
@@ -357,6 +356,7 @@ public class PacStudentController : MonoBehaviour
     {
         // Play Death Particle
         deathParticle.Play();
+        isDeath = true;
 
         // Last Input & Current Input becomes null
         lastInput = Vector3.zero;
@@ -367,5 +367,6 @@ public class PacStudentController : MonoBehaviour
         Destroy(gameObject.GetComponent<Tweener>());
         transform.position = new Vector3(-12.5f, 13.0f, 0.0f);
         gameObject.AddComponent<Tweener>();
+        isDeath = false;
     }
 }
