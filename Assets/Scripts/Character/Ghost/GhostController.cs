@@ -8,9 +8,29 @@ public class GhostController : MonoBehaviour
     private LevelGenerator levelGenerator;
     private Tweener tweener;
 
-    private Vector3 movement, lastInput, currentInput, destination;
-    private int xPosition, yPosition;
+    private Vector3[] directions = { Vector3.up, Vector3.right, Vector3.down, Vector3.left };
+    private Vector3 movement, lastDirection, currentDirection, destination;
+    private int xPosition, yPosition, directionIndex = 1;
     private float movementSqrtMagnitude;
+
+    //[SerializeField]
+    //private Vector2 currentDirection;
+
+    [SerializeField]
+    private float rayDistance;
+
+    [SerializeField]
+    private LayerMask rayLayer;
+
+    // movement speed
+    [SerializeField] float speed;
+
+    private Rigidbody2D rb;
+
+    private void Awake()
+    {
+        //rb = GetComponent<Rigidbody2D>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +38,9 @@ public class GhostController : MonoBehaviour
         tweener = GetComponent<Tweener>();
         levelGenerator = GameObject.FindWithTag("Maze").GetComponent<LevelGenerator>();
         animator = GetComponent<Animator>();
+
+        currentDirection = directions[1];
+        Debug.Log(currentDirection);
     }
 
     // Update is called once per frame
@@ -25,44 +48,65 @@ public class GhostController : MonoBehaviour
     {
         if (!tweener.TweenExists(transform))
         {
-            GetMovementInput();
             CharacterPosition();
             WalkingAnimation();
         }
     }
 
-    void GetMovementInput()
+    void RandomDirection()
     {
-        movement.x = Input.GetAxis("Horizontal");
-        movement.y = Input.GetAxis("Vertical");
+        // randomly select between -1 and 1;
+        directionIndex += Random.Range(0, 2) * 2 - 1;
 
-        movement = Vector3.ClampMagnitude(movement, 1.0f);
+        // keeps index from exceeding 3
+        int clampedIndex = directionIndex % directions.Length;
 
-        if (movement.x > 0)
-            lastInput = Vector3.right;
-        else if (movement.x < 0)
-            lastInput = Vector3.left;
-        else if (movement.y > 0)
-            lastInput = Vector3.up;
-        else if (movement.y < 0)
-            lastInput = Vector3.down;
-    }
-
-    void CharacterPosition()
-    {
-        if (GridCheck(lastInput))
+        // keep index positive
+        if (clampedIndex < 0)
         {
-            destination = lastInput + transform.position;
-            currentInput = lastInput;
-            Tweening(lastInput);
+            clampedIndex = directions.Length + clampedIndex;
+        }
+
+        Vector3 newDirection = directions[clampedIndex];
+
+        if (lastDirection != newDirection)
+        {
+            currentDirection = newDirection;
         }
         else
         {
-            if (GridCheck(currentInput))
-            {
-                destination = currentInput + transform.position;
-                Tweening(currentInput);
-            }
+            RandomDirection();
+        }
+    }
+
+    //void RandomInput()
+    //{
+    //    //movement.x = Input.GetAxis("Horizontal");
+    //    //movement.y = Input.GetAxis("Vertical");
+
+    //    //movement = Vector3.ClampMagnitude(movement, 1.0f);
+
+    //    //if (movement.x > 0)
+    //    //    lastDirection = Vector3.right;
+    //    //else if (movement.x < 0)
+    //    //    lastDirection = Vector3.left;
+    //    //else if (movement.y > 0)
+    //    //    lastDirection = Vector3.up;
+    //    //else if (movement.y < 0)
+    //    //    lastDirection = Vector3.down;
+    //}
+
+    void CharacterPosition()
+    {
+        if (GridCheck(currentDirection))
+        {
+            destination = currentDirection + transform.position;
+            lastDirection = -currentDirection;
+            Tweening(currentDirection);
+        }
+        else
+        {
+            RandomDirection();
         }
     }
 
@@ -72,6 +116,9 @@ public class GhostController : MonoBehaviour
         // Top Left
         if (transform.position.x + inputDirection.x <= 0 && transform.position.y + inputDirection.y >= 0)
         {
+            if (transform.position.x + inputDirection.x < -7.5 && transform.position.y + inputDirection.y == 0)
+                return false;
+
             xPosition = (int)((transform.position.x + 13.5f) + inputDirection.x);
             yPosition = (int)(Mathf.Abs(transform.position.y - 14) + -inputDirection.y);
 
@@ -82,6 +129,9 @@ public class GhostController : MonoBehaviour
         // Top Right
         else if (transform.position.x + inputDirection.x >= 0 && transform.position.y + inputDirection.y >= 0)
         {
+            if (transform.position.x + inputDirection.x > 7.5 && transform.position.y + inputDirection.y == 0)
+                return false;
+
             xPosition = (int)((transform.position.x - 0.5f) + inputDirection.x);
             yPosition = (int)(Mathf.Abs(transform.position.y - 14) + -inputDirection.y);
 
