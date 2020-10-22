@@ -15,28 +15,55 @@ public class AudioManager : MonoBehaviour
 
     public void ChangeBackgroundMusic(int clip)
     {
-        backgroundMusic.Stop();
-        switch(clip)
+        if (!CheckMusic(clip))
         {
-            case 0:
-                backgroundMusic.clip = backgroundMusicClips[0];
-                break;
-            case 1:
-                backgroundMusic.clip = backgroundMusicClips[1];
-                break;
-            case 2:
-                backgroundMusic.clip = backgroundMusicClips[2];
-                break;
-            case 3:
-                backgroundMusic.clip = backgroundMusicClips[3];
-                break;
+            backgroundMusic.Stop();
+            switch (clip)
+            {
+                case 0:
+                    backgroundMusic.clip = backgroundMusicClips[0];
+                    break;
+                case 1:
+                    backgroundMusic.clip = backgroundMusicClips[1];
+                    break;
+                case 2:
+                    backgroundMusic.clip = backgroundMusicClips[2];
+                    break;
+                case 3:
+                    backgroundMusic.clip = backgroundMusicClips[3];
+                    break;
+            }
+            backgroundMusic.Play();
         }
-        backgroundMusic.Play();
+    }
+
+    public bool Playing()
+    {
+        if(backgroundMusic.isPlaying)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public void StopPlaying()
     {
         backgroundMusic.Stop();
+    }
+
+    public bool CheckMusic(int clip)
+    {
+        if(backgroundMusic.clip == backgroundMusicClips[clip])
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }
