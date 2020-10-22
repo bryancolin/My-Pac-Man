@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 8006661264844424888}
   - component: {fileID: 781909811882282534}
   - component: {fileID: 6016634708409101060}
+  - component: {fileID: 4337677486187687892}
   m_Layer: 0
   m_Name: Blue Ghost
   m_TagString: BlueGhost
@@ -409,3 +410,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5625
+--- !u!114 &4337677486187687892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5207292283061079524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a26c7bcb2bdd64f298523e765f573e4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

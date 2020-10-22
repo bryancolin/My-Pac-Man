@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 6079676362051335774}
   - component: {fileID: 1420058512859428071}
   - component: {fileID: 6428837983286392355}
+  - component: {fileID: 8842361485681424791}
   m_Layer: 0
   m_Name: Yellow Ghost
   m_TagString: YellowGhost
@@ -408,3 +409,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5625
+--- !u!114 &8842361485681424791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6079676363291154425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a26c7bcb2bdd64f298523e765f573e4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
