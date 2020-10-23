@@ -121,26 +121,30 @@ public class PacStudentController : MonoBehaviour
 
             //Debug.Log("X : " + xPosition + " Y : " + yPosition);
 
-            // Left Portal
-            if (yPosition == 14 & xPosition == 0)
+            // No outside of Maze
+            if (xPosition >= 0)
             {
-                transform.position = new Vector3(14.5f, 0.0f, 0.0f);
-                return true;
-            }
+                // Left Portal
+                if (yPosition == 14 & xPosition == 0)
+                {
+                    transform.position = new Vector3(14.5f, 0.0f, 0.0f);
+                    return true;
+                }
 
-            // Empty Grid
-            if (levelGenerator.levelMap[yPosition, xPosition] == 0)
-            {
-                isEating = false;
-                return true;
-            }
+                // Empty Grid
+                if (levelGenerator.levelMap[yPosition, xPosition] == 0)
+                {
+                    isEating = false;
+                    return true;
+                }
 
-            // Pellet Grid
-            if (levelGenerator.levelMap[yPosition, xPosition] == 5 || levelGenerator.levelMap[yPosition, xPosition] == 6)
-            {
-                isEating = true;
-                levelGenerator.levelMap[yPosition, xPosition] = 0;
-                return true;
+                // Pellet Grid
+                if (levelGenerator.levelMap[yPosition, xPosition] == 5 || levelGenerator.levelMap[yPosition, xPosition] == 6)
+                {
+                    isEating = true;
+                    levelGenerator.levelMap[yPosition, xPosition] = 0;
+                    return true;
+                }
             }
         }
 
@@ -150,26 +154,30 @@ public class PacStudentController : MonoBehaviour
             xPosition = (int)((transform.position.x - 0.5f) + inputDirection.x);
             yPosition = (int)(Mathf.Abs(transform.position.y - 14) + -inputDirection.y);
 
-            // Right Portal
-            if (yPosition == 14 & xPosition == 13)
+            // No outside of Maze
+            if (xPosition <= 13)
             {
-                transform.position = new Vector3(-14.5f, 0.0f, 0.0f);
-                return true;
-            }
+                // Right Portal
+                if (yPosition == 14 & xPosition == 13)
+                {
+                    transform.position = new Vector3(-14.5f, 0.0f, 0.0f);
+                    return true;
+                }
 
-            // Empty Grid
-            if (levelGenerator.levelMapTopRight[yPosition, xPosition] == 0)
-            {
-                isEating = false;
-                return true;
-            }
+                // Empty Grid
+                if (levelGenerator.levelMapTopRight[yPosition, xPosition] == 0)
+                {
+                    isEating = false;
+                    return true;
+                }
 
-            // Pellet Grid
-            if (levelGenerator.levelMapTopRight[yPosition, xPosition] == 5 || levelGenerator.levelMapTopRight[yPosition, xPosition] == 6)
-            {
-                isEating = true;
-                levelGenerator.levelMapTopRight[yPosition, xPosition] = 0;
-                return true;
+                // Pellet Grid
+                if (levelGenerator.levelMapTopRight[yPosition, xPosition] == 5 || levelGenerator.levelMapTopRight[yPosition, xPosition] == 6)
+                {
+                    isEating = true;
+                    levelGenerator.levelMapTopRight[yPosition, xPosition] = 0;
+                    return true;
+                }
             }
         }
 
