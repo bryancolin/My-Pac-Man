@@ -131,7 +131,8 @@ public class UiManager : MonoBehaviour
 
     public void LoadDesignLevel()
     {
-
+        SceneManager.LoadScene(2);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     public void ExitGame()
@@ -176,7 +177,7 @@ public class UiManager : MonoBehaviour
 
         if (scene.buildIndex == 2)
         {
-
+            
         }
     }
 

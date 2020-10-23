@@ -35,8 +35,13 @@ public class GhostMovement : MonoBehaviour
         switch (GameManager.currentGameState)
         {
             case GameManager.GameState.GameScene:
-                MovementBGM();
+
+
+
+
+                //MovementBGM();
                 break;
+
             case GameManager.GameState.GameOverScene:
                 Destroy(this.gameObject.GetComponent<GhostMovement>());
                 break;
@@ -53,16 +58,16 @@ public class GhostMovement : MonoBehaviour
     {
         isNormal = true;
 
-        if (!isDeath)
-        {
-            backgroundMusic.StopPlaying();
-        }
+        //if (isDeath)
+        //{
+        //    backgroundMusic.StopPlaying();
+        //}
 
         transform.GetComponent<Animator>().SetBool("Scared", false);
         transform.GetComponent<Animator>().SetBool("Transition", false);
         transform.GetComponent<Animator>().SetBool("Death", false);
 
-        //backgroundMusic.ChangeBackgroundMusic(1);
+        backgroundMusic.ChangeBackgroundMusic(1);
     }
 
     // Set Ghost to Scared State
@@ -71,7 +76,7 @@ public class GhostMovement : MonoBehaviour
         isNormal = false;
         isScared = true;
         // Start timer now
-        backgroundMusic.StopPlaying();
+        //backgroundMusic.StopPlaying();
 
         if (startScared != null)
         {
@@ -90,7 +95,7 @@ public class GhostMovement : MonoBehaviour
 
         transform.GetComponent<Animator>().SetBool("Scared", true);
 
-        //backgroundMusic.ChangeBackgroundMusic(2);
+        backgroundMusic.ChangeBackgroundMusic(2);
 
         ghostTimer.gameObject.SetActive(true);
 
@@ -120,6 +125,7 @@ public class GhostMovement : MonoBehaviour
         isScared = false;
         isRecovering = false;
 
+
         SetNormal();
 
         startScared = null;
@@ -137,7 +143,7 @@ public class GhostMovement : MonoBehaviour
     public void SetDeath()
     {
         isDeath = true;
-        backgroundMusic.StopPlaying();
+        //backgroundMusic.StopPlaying();
 
         transform.GetComponent<Animator>().SetBool("Death", true);
 
@@ -145,12 +151,6 @@ public class GhostMovement : MonoBehaviour
         {
             isRecovering = false;
             transform.GetComponent<Animator>().SetBool("Transition", false);
-        }
-
-        if (isScared)
-        {
-            isScared = false;
-            transform.GetComponent<Animator>().SetBool("Scared", false);
         }
 
         if (startDeath == null)
@@ -163,7 +163,7 @@ public class GhostMovement : MonoBehaviour
     {
         int timer = 5;
 
-        //backgroundMusic.ChangeBackgroundMusic(3);
+        backgroundMusic.ChangeBackgroundMusic(3);
 
         while (timer > 0)
         {
@@ -172,6 +172,12 @@ public class GhostMovement : MonoBehaviour
         }
 
         isDeath = false;
+
+        if (isScared)
+        {
+            isScared = false;
+            transform.GetComponent<Animator>().SetBool("Scared", false);
+        }
 
         SetNormal();
 

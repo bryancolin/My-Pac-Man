@@ -48,7 +48,7 @@ public class PacStudentController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() 
     {
         if (tweener == null)
         {
@@ -363,8 +363,8 @@ public class PacStudentController : MonoBehaviour
     public IEnumerator DeadTrigger()
     {
         // Play Death Particle
-        deathParticle.Play();
         isDeath = true;
+        deathParticle.Play();
 
         // Last Input & Current Input becomes null
         lastInput = Vector3.zero;

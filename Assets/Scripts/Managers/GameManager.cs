@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameState.GameOverScene:
-                ResetGame();
+                ResetCharacter();
                 break;
         }
     }
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
         NormalGhost();
     }
 
-    private void ResetGame()
+    private void ResetCharacter()
     {
         pacStudent.GetComponent<Animator>().SetFloat("Speed", 0);
         redGhost.GetComponent<Animator>().SetFloat("Speed", 0);

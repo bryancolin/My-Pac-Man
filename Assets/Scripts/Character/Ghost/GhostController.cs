@@ -4,43 +4,26 @@ using UnityEngine;
 
 public class GhostController : MonoBehaviour
 {
-    private Animator animator;
     private LevelGenerator levelGenerator;
+    private Animator animator;
     private Tweener tweener;
 
     private Vector3[] directions = { Vector3.up, Vector3.right, Vector3.down, Vector3.left };
-    private Vector3 movement, lastDirection, currentDirection, destination;
+    private Vector3 currentInput, newInput, lastDirection, destination;
     private int xPosition, yPosition, directionIndex = 1;
     private float movementSqrtMagnitude;
 
-    //[SerializeField]
-    //private Vector2 currentDirection;
-
-    [SerializeField]
-    private float rayDistance;
-
-    [SerializeField]
-    private LayerMask rayLayer;
-
-    // movement speed
-    [SerializeField] float speed;
-
-    private Rigidbody2D rb;
-
-    private void Awake()
-    {
-        //rb = GetComponent<Rigidbody2D>();
-    }
+    public bool isDeath = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        tweener = GetComponent<Tweener>();
         levelGenerator = GameObject.FindWithTag("Maze").GetComponent<LevelGenerator>();
         animator = GetComponent<Animator>();
+        tweener = GetComponent<Tweener>();
 
-        currentDirection = directions[1];
-        Debug.Log(currentDirection);
+        // Start with Random Current Direction
+        currentInput = directions[Random.Range(0, 4)];
     }
 
     // Update is called once per frame
@@ -53,56 +36,38 @@ public class GhostController : MonoBehaviour
         }
     }
 
-    void RandomDirection()
+    void CharacterPosition()
     {
-        // randomly select between -1 and 1;
-        directionIndex += Random.Range(0, 2) * 2 - 1;
-
-        // keeps index from exceeding 3
-        int clampedIndex = directionIndex % directions.Length;
-
-        // keep index positive
-        if (clampedIndex < 0)
+        if (GridCheck(currentInput))
         {
-            clampedIndex = directions.Length + clampedIndex;
-        }
-
-        Vector3 newDirection = directions[clampedIndex];
-
-        if (lastDirection != newDirection)
-        {
-            currentDirection = newDirection;
+            if (GridCheck(newInput) && newInput != lastDirection)
+            {
+                destination = newInput + transform.position;
+                lastDirection = -newInput;
+                Tweening(newInput);
+            }
+            else
+            {
+                destination = currentInput + transform.position;
+                lastDirection = -currentInput;
+                newInput = directions[Random.Range(0, 4)];
+                Tweening(currentInput);
+            }
         }
         else
         {
+            //Debug.Log("Change");
             RandomDirection();
         }
     }
 
-    //void RandomInput()
-    //{
-    //    //movement.x = Input.GetAxis("Horizontal");
-    //    //movement.y = Input.GetAxis("Vertical");
-
-    //    //movement = Vector3.ClampMagnitude(movement, 1.0f);
-
-    //    //if (movement.x > 0)
-    //    //    lastDirection = Vector3.right;
-    //    //else if (movement.x < 0)
-    //    //    lastDirection = Vector3.left;
-    //    //else if (movement.y > 0)
-    //    //    lastDirection = Vector3.up;
-    //    //else if (movement.y < 0)
-    //    //    lastDirection = Vector3.down;
-    //}
-
-    void CharacterPosition()
+    void RandomDirection()
     {
-        if (GridCheck(currentDirection))
+        Vector3 newDirection = directions[Random.Range(0, 4)];
+
+        if (lastDirection != newDirection)
         {
-            destination = currentDirection + transform.position;
-            lastDirection = -currentDirection;
-            Tweening(currentDirection);
+            currentInput = newDirection;
         }
         else
         {
@@ -113,58 +78,59 @@ public class GhostController : MonoBehaviour
     // Using LevelMapGenerator to check if Grid is Walkable
     bool GridCheck(Vector3 inputDirection)
     {
-        // Top Left
-        if (transform.position.x + inputDirection.x <= 0 && transform.position.y + inputDirection.y >= 0)
+        if (transform.position.y + inputDirection.y >= 0) // Top
         {
-            if (transform.position.x + inputDirection.x < -7.5 && transform.position.y + inputDirection.y == 0)
-                return false;
-
-            xPosition = (int)((transform.position.x + 13.5f) + inputDirection.x);
             yPosition = (int)(Mathf.Abs(transform.position.y - 14) + -inputDirection.y);
 
-            if (levelGenerator.levelMap[yPosition, xPosition] == 0 || levelGenerator.levelMap[yPosition, xPosition] == 5 || levelGenerator.levelMap[yPosition, xPosition] == 6)
-                return true;
+            if (transform.position.x + inputDirection.x <= 0) // Top Left
+            {
+                if (transform.position.x + inputDirection.x < -7.5 && transform.position.y + inputDirection.y == 0)
+                    return false;
+
+                xPosition = (int)((transform.position.x + 13.5f) + inputDirection.x);
+
+                if (levelGenerator.levelMap[yPosition, xPosition] == 0 || levelGenerator.levelMap[yPosition, xPosition] == 5 || levelGenerator.levelMap[yPosition, xPosition] == 6)
+                    return true;
+            }
+            else if (transform.position.x + inputDirection.x >= 0) // Top Right
+            {
+                if (transform.position.x + inputDirection.x > 7.5 && transform.position.y + inputDirection.y == 0)
+                    return false;
+
+                xPosition = (int)((transform.position.x - 0.5f) + inputDirection.x);
+
+                if (levelGenerator.levelMapTopRight[yPosition, xPosition] == 0 || levelGenerator.levelMapTopRight[yPosition, xPosition] == 5 || levelGenerator.levelMapTopRight[yPosition, xPosition] == 6)
+                    return true;
+            }
         }
-
-        // Top Right
-        else if (transform.position.x + inputDirection.x >= 0 && transform.position.y + inputDirection.y >= 0)
+        else if (transform.position.y + inputDirection.y < 0) // Bottom
         {
-            if (transform.position.x + inputDirection.x > 7.5 && transform.position.y + inputDirection.y == 0)
-                return false;
-
-            xPosition = (int)((transform.position.x - 0.5f) + inputDirection.x);
-            yPosition = (int)(Mathf.Abs(transform.position.y - 14) + -inputDirection.y);
-
-            if (levelGenerator.levelMapTopRight[yPosition, xPosition] == 0 || levelGenerator.levelMapTopRight[yPosition, xPosition] == 5 || levelGenerator.levelMapTopRight[yPosition, xPosition] == 6)
-                return true;
-        }
-
-        // Bottom Left
-        else if (transform.position.x + inputDirection.x < 0 && transform.position.y + inputDirection.y < 0)
-        {
-            xPosition = (int)((transform.position.x + 13.5f) + inputDirection.x);
             yPosition = (int)Mathf.Abs((transform.position.y + 1) + inputDirection.y);
 
-            if (levelGenerator.levelMapBottomLeft[yPosition, xPosition] == 0 || levelGenerator.levelMapBottomLeft[yPosition, xPosition] == 5 || levelGenerator.levelMapBottomLeft[yPosition, xPosition] == 6)
-                return true;
+            if (transform.position.x + inputDirection.x < 0) // Bottom Left
+            {
+                xPosition = (int)((transform.position.x + 13.5f) + inputDirection.x);
+
+                if (levelGenerator.levelMapBottomLeft[yPosition, xPosition] == 0 || levelGenerator.levelMapBottomLeft[yPosition, xPosition] == 5 || levelGenerator.levelMapBottomLeft[yPosition, xPosition] == 6)
+                    return true;
+            }
+            else if (transform.position.x + inputDirection.x > 0) // Bottom Right
+            {
+                xPosition = (int)((transform.position.x - 0.5f) + inputDirection.x);
+
+                if (levelGenerator.levelMapBottomRight[yPosition, xPosition] == 0 || levelGenerator.levelMapBottomRight[yPosition, xPosition] == 5 || levelGenerator.levelMapBottomRight[yPosition, xPosition] == 6)
+                    return true;
+            }
         }
-
-        // Bottom Right
-        else if (transform.position.x + inputDirection.x > 0 && transform.position.y + inputDirection.y < 0)
-        {
-            xPosition = (int)((transform.position.x - 0.5f) + inputDirection.x);
-            yPosition = (int)Mathf.Abs((transform.position.y + 1) + inputDirection.y);
-
-            if (levelGenerator.levelMapBottomLeft[yPosition, xPosition] == 0 || levelGenerator.levelMapBottomLeft[yPosition, xPosition] == 5 || levelGenerator.levelMapBottomLeft[yPosition, xPosition] == 6)
-                return true;
-        }
-
         return false;
     }
 
     void Tweening(Vector3 inputDirection)
     {
-        tweener.AddTween(transform, transform.position, transform.position + inputDirection, 0.3f);
+        if(!isDeath)
+            tweener.AddTween(transform, transform.position, transform.position + inputDirection, 0.3f);
+        else
+            tweener.AddTween(transform, transform.position, new Vector3(0.5f, 0.0f, 0.0f), 5.0f);
     }
 
     void WalkingAnimation()
