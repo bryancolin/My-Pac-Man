@@ -10,11 +10,7 @@ Pacman Game
 
 ## Help
 
-Any advise for common problems or issues.
-
 ## Authors
-
-Contributors names and contact info
 
 Bryan Colin  
 bryancolin35@gmail.com
