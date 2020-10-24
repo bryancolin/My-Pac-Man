@@ -50,11 +50,6 @@ public class PacStudentController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (tweener == null)
-        {
-            tweener = GetComponent<Tweener>();
-        }
-
         switch (GameManager.currentGameState)
         {
             case GameManager.GameState.GameScene:
