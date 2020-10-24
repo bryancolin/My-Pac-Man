@@ -49,7 +49,6 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameState.GameOverScene:
-                ResetCharacter();
                 break;
         }
     }
@@ -77,15 +76,6 @@ public class GameManager : MonoBehaviour
         pinkGhost.GetComponent<GhostMovement>().enabled = true;
 
         NormalGhost();
-    }
-
-    private void ResetCharacter()
-    {
-        pacStudent.GetComponent<Animator>().SetFloat("Speed", 0);
-        redGhost.GetComponent<Animator>().SetFloat("Speed", 0);
-        blueGhost.GetComponent<Animator>().SetFloat("Speed", 0);
-        yellowGhost.GetComponent<Animator>().SetFloat("Speed", 0);
-        pinkGhost.GetComponent<Animator>().SetFloat("Speed", 0);
     }
 
     public void NormalGhost()
