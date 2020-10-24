@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         Camera.main.orthographicSize = 15.0f;
     }
 
-    // Get GameObject Character and Audio Manager
+    // Get GameObject Character
     private void SetCharacter()
     {
         pacStudent = GameObject.FindWithTag("Player");
@@ -70,27 +70,22 @@ public class GameManager : MonoBehaviour
         pinkGhost = GameObject.FindWithTag("PinkGhost");
 
         pacStudent.GetComponent<PacStudentController>().enabled = true;
-        redGhost.GetComponent<GhostMovement>().enabled = true;
-        blueGhost.GetComponent<GhostMovement>().enabled = true;
-        yellowGhost.GetComponent<GhostMovement>().enabled = true;
-        pinkGhost.GetComponent<GhostMovement>().enabled = true;
+        redGhost.GetComponent<GhostController>().enabled = true;
+        blueGhost.GetComponent<GhostController>().enabled = true;
+        yellowGhost.GetComponent<GhostController>().enabled = true;
+        pinkGhost.GetComponent<GhostController>().enabled = true;
 
         NormalGhost();
     }
 
     public void NormalGhost()
     {
-        redGhost.GetComponent<GhostMovement>().SetGhost();
-        blueGhost.GetComponent<GhostMovement>().SetGhost();
-        yellowGhost.GetComponent<GhostMovement>().SetGhost();
-        pinkGhost.GetComponent<GhostMovement>().SetGhost();
-
         if (isScared)
         {
-            redGhost.GetComponent<GhostMovement>().SetNormal();
-            blueGhost.GetComponent<GhostMovement>().SetNormal();
-            yellowGhost.GetComponent<GhostMovement>().SetNormal();
-            pinkGhost.GetComponent<GhostMovement>().SetNormal();
+            redGhost.GetComponent<GhostController>().SetNormal();
+            blueGhost.GetComponent<GhostController>().SetNormal();
+            yellowGhost.GetComponent<GhostController>().SetNormal();
+            pinkGhost.GetComponent<GhostController>().SetNormal();
         }
 
         backgroundMusic.ChangeBackgroundMusic(1);
@@ -100,12 +95,11 @@ public class GameManager : MonoBehaviour
     {
         isScared = true;
 
-        redGhost.GetComponent<GhostMovement>().SetScared();
-        blueGhost.GetComponent<GhostMovement>().SetScared();
-        yellowGhost.GetComponent<GhostMovement>().SetScared();
-        pinkGhost.GetComponent<GhostMovement>().SetScared();
+        redGhost.GetComponent<GhostController>().SetScared();
+        blueGhost.GetComponent<GhostController>().SetScared();
+        yellowGhost.GetComponent<GhostController>().SetScared();
+        pinkGhost.GetComponent<GhostController>().SetScared();
     }
-
 
     public void LoseLife()
     {

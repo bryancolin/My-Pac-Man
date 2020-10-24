@@ -35,33 +35,19 @@ public class GhostMovement : MonoBehaviour
         switch (GameManager.currentGameState)
         {
             case GameManager.GameState.GameScene:
-
-
-
-
                 //MovementBGM();
                 break;
 
             case GameManager.GameState.GameOverScene:
-                Destroy(this.gameObject.GetComponent<GhostMovement>());
+                //Destroy(this.gameObject.GetComponent<GhostController>());
                 break;
         }
-    }
-
-    public void SetGhost()
-    {
-        transform.GetComponent<Animator>().SetFloat("Speed", 1);
     }
 
     // Set Ghost back to Normal State
     public void SetNormal()
     {
         isNormal = true;
-
-        //if (isDeath)
-        //{
-        //    backgroundMusic.StopPlaying();
-        //}
 
         transform.GetComponent<Animator>().SetBool("Scared", false);
         transform.GetComponent<Animator>().SetBool("Transition", false);
