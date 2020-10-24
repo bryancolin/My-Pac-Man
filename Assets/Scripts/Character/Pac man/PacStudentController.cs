@@ -251,7 +251,8 @@ public class PacStudentController : MonoBehaviour
 
     void Tweening(Vector3 inputDirection)
     {
-        tweener.AddTween(transform, transform.position, transform.position + inputDirection, 0.3f);
+        if(!isDeath)
+            tweener.AddTween(transform, transform.position, transform.position + inputDirection, 0.3f);
     }
 
     void CharacterRotation()
@@ -371,10 +372,7 @@ public class PacStudentController : MonoBehaviour
         currentInput = lastInput;
         yield return new WaitForSeconds(0.5f);
 
-        // Destroy Tweener, Spawn in Top Left, Add Tweener Back
-        Destroy(gameObject.GetComponent<Tweener>());
         transform.position = new Vector3(-12.5f, 13.0f, 0.0f);
-        gameObject.AddComponent<Tweener>();
         isDeath = false;
     }
 }
