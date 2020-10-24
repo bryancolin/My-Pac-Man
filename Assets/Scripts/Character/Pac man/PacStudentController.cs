@@ -18,7 +18,7 @@ public class PacStudentController : MonoBehaviour
     private Tweener tweener;
     private float movementSqrtMagnitude;
 
-    private Vector3 movement, lastInput, currentInput, destination;
+    private Vector3 movement, lastInput, currentInput, destination, initialPosition;
 
     private int xPosition, yPosition;
 
@@ -26,6 +26,7 @@ public class PacStudentController : MonoBehaviour
 
     private void Awake()
     {
+        initialPosition = transform.position;
     }
 
     // Start is called before the first frame update
@@ -362,9 +363,10 @@ public class PacStudentController : MonoBehaviour
         // Last Input & Current Input becomes null
         lastInput = Vector3.zero;
         currentInput = lastInput;
+
         yield return new WaitForSeconds(0.5f);
 
-        transform.position = new Vector3(-12.5f, 13.0f, 0.0f);
+        transform.position = initialPosition;
         isDeath = false;
     }
 }
