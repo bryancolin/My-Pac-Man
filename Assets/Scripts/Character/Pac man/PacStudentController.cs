@@ -48,7 +48,7 @@ public class PacStudentController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() 
+    void Update()
     {
         if (tweener == null)
         {
@@ -251,8 +251,7 @@ public class PacStudentController : MonoBehaviour
 
     void Tweening(Vector3 inputDirection)
     {
-        if(!isDeath)
-            tweener.AddTween(transform, transform.position, transform.position + inputDirection, 0.3f);
+        tweener.AddTween(transform, transform.position, transform.position + inputDirection, 0.3f);
     }
 
     void CharacterRotation()
@@ -283,8 +282,6 @@ public class PacStudentController : MonoBehaviour
         {
             animator.SetFloat("Speed", movementSqrtMagnitude);
         }
-        //animator.SetFloat("Horizontal", direction.x);
-        //animator.SetFloat("Vertical", direction.y);
     }
 
     void ParticlePlay()
@@ -335,7 +332,7 @@ public class PacStudentController : MonoBehaviour
             //Debug.Log("Trigger Enter: " + collision.name + " : " + collision.offset);
         }
 
-        if(collision.CompareTag("Portal"))
+        if (collision.CompareTag("Portal"))
         {
             collideParticle.Play();
         }
@@ -346,7 +343,7 @@ public class PacStudentController : MonoBehaviour
             totalPellets += 1;
             Destroy(collision.gameObject);
         }
-        
+
         if (collision.CompareTag("Cherry"))
         {
             UiManager.Instance.UpdateScore(100);
