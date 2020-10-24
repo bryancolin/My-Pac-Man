@@ -16,8 +16,8 @@ Any advise for common problems or issues.
 
 Contributors names and contact info
 
-ex. Bryan Colin  
-ex. bryancolin35@gmail.com
+Bryan Colin  
+bryancolin35@gmail.com
 
 ## Version History
 
