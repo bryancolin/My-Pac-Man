@@ -17,10 +17,10 @@ bryancolin35@gmail.com
 
 ## Version History
 
-* 0.2
+* 1.0.2
     * Various bug fixes and optimizations
     * See [commit change]() or See [release history]()
-* 0.1
+* 1.0.1
     * Initial Release
 
 ## License
