@@ -70,7 +70,7 @@ public class PacStudentController : MonoBehaviour
                 break;
 
             case GameManager.GameState.GameOverScene:
-                Destroy(gameObject.GetComponent<PacStudentController>());
+                
                 break;
         }
     }
