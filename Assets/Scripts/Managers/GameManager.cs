@@ -109,6 +109,8 @@ public class GameManager : MonoBehaviour
 
     public void LoseLife()
     {
+        StartCoroutine(pacStudent.DeadTrigger());
+
         lives--;
         Destroy(uiManager.lives[lives]);
         uiManager.lives.RemoveAt(lives);

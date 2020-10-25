@@ -225,9 +225,9 @@ public class GhostController : MonoBehaviour
             }
         }
 
-        transform.GetComponent<Animator>().SetBool("Scared", false);
-        transform.GetComponent<Animator>().SetBool("Transition", false);
-        transform.GetComponent<Animator>().SetBool("Death", false);
+        animator.SetBool("Scared", false);
+        animator.SetBool("Transition", false);
+        animator.SetBool("Death", false);
     }
 
     // Set Ghost to Scared State
@@ -253,7 +253,7 @@ public class GhostController : MonoBehaviour
             SetNormal();
         }
 
-        transform.GetComponent<Animator>().SetBool("Scared", true);
+        animator.SetBool("Scared", true);
 
         backgroundMusic.StopPlaying();
 
@@ -296,7 +296,7 @@ public class GhostController : MonoBehaviour
         isRecovering = true;
         currentGhostState = GhostState.Recovering;
 
-        transform.GetComponent<Animator>().SetBool("Transition", isRecovering);
+        animator.SetBool("Transition", isRecovering);
     }
 
     // Set Ghost to Death State
@@ -305,12 +305,12 @@ public class GhostController : MonoBehaviour
         isDeath = true;
         currentGhostState = GhostState.Death;
 
-        transform.GetComponent<Animator>().SetBool("Death", true);
+        animator.SetBool("Death", true);
 
         if (isRecovering)
         {
             isRecovering = false;
-            transform.GetComponent<Animator>().SetBool("Transition", false);
+            animator.SetBool("Transition", false);
         }
 
         if (startDeath == null)
@@ -331,7 +331,7 @@ public class GhostController : MonoBehaviour
         if (isScared)
         {
             isScared = false;
-            transform.GetComponent<Animator>().SetBool("Scared", false);
+            animator.SetBool("Scared", false);
         }
 
         SetNormal();
@@ -341,11 +341,8 @@ public class GhostController : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            PacStudentController pacStudent = collision.GetComponent<PacStudentController>();
-
             if (isNormal)
             {
-                StartCoroutine(pacStudent.DeadTrigger());
                 gameManager.LoseLife();
             }
             else if (isScared || isRecovering)
