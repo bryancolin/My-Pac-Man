@@ -5,6 +5,8 @@ using TMPro;
 
 public class GhostController : MonoBehaviour
 {
+    public GhostState currentGhostState = GhostState.Normal;
+
     private GameManager gameManager;
     private AudioManager backgroundMusic;
     private TextMeshProUGUI ghostTimer;
@@ -20,7 +22,7 @@ public class GhostController : MonoBehaviour
 
     private Coroutine startScared, startDeath;
 
-    private bool isNormal = true, isScared = false, isRecovering = false, isDeath = false;
+    private bool isNormal = true, isScared = false, isRecovering = false, isDeath = false, spawnArea = false;
 
     private void Awake()
     {
@@ -72,7 +74,6 @@ public class GhostController : MonoBehaviour
         }
         else
         {
-            //Debug.Log("Change");
             RandomDirection();
         }
     }
@@ -167,16 +168,66 @@ public class GhostController : MonoBehaviour
         animator.SetFloat("Vertical", direction.y);
     }
 
+    void CheckSpawnArea()
+    {
+        if(transform.position == initialPosition)
+        {
+            if(currentGhostState == GhostState.Death)
+            {
+                SetNormal();
+            }
+        }
+        else
+        {
+        }
+    }
+
+    //void ChangingState()
+    //{
+    //    if(isNormal)
+    //    {
+    //        isNormal = true;
+    //        currentGhostState = GhostState.Normal;
+
+    //        backgroundMusic.StopPlaying();
+
+    //        transform.GetComponent<Animator>().SetBool("Scared", false);
+    //        transform.GetComponent<Animator>().SetBool("Transition", false);
+    //        transform.GetComponent<Animator>().SetBool("Death", false);
+    //        //backgroundMusic.ChangeBackgroundMusic(1);
+    //    }
+    //    else if(isScared)
+    //    {
+
+    //    }
+    //    else if(isRecovering)
+    //    {
+
+    //    }
+    //    else if(isDeath)
+    //    {
+
+    //    }
+    //}
+
     // Set Ghost back to Normal State
     public void SetNormal()
     {
         isNormal = true;
+        currentGhostState = GhostState.Normal;
+
+        if (!isScared || !isRecovering)
+        {
+            if (isDeath)
+            {
+                isDeath = false;
+                backgroundMusic.StopPlaying();
+            }
+        }
 
         transform.GetComponent<Animator>().SetBool("Scared", false);
         transform.GetComponent<Animator>().SetBool("Transition", false);
         transform.GetComponent<Animator>().SetBool("Death", false);
-
-        backgroundMusic.ChangeBackgroundMusic(1);
     }
 
     // Set Ghost to Scared State
@@ -184,7 +235,8 @@ public class GhostController : MonoBehaviour
     {
         isNormal = false;
         isScared = true;
-        //backgroundMusic.StopPlaying();
+
+        currentGhostState = GhostState.Scared;
 
         if (startScared != null)
         {
@@ -203,7 +255,7 @@ public class GhostController : MonoBehaviour
 
         transform.GetComponent<Animator>().SetBool("Scared", true);
 
-        backgroundMusic.ChangeBackgroundMusic(2);
+        backgroundMusic.StopPlaying();
 
         ghostTimer.gameObject.SetActive(true);
 
@@ -233,7 +285,6 @@ public class GhostController : MonoBehaviour
         isScared = false;
         isRecovering = false;
 
-
         SetNormal();
 
         startScared = null;
@@ -243,6 +294,7 @@ public class GhostController : MonoBehaviour
     public void SetTransition()
     {
         isRecovering = true;
+        currentGhostState = GhostState.Recovering;
 
         transform.GetComponent<Animator>().SetBool("Transition", isRecovering);
     }
@@ -251,7 +303,7 @@ public class GhostController : MonoBehaviour
     public void SetDeath()
     {
         isDeath = true;
-        //backgroundMusic.StopPlaying();
+        currentGhostState = GhostState.Death;
 
         transform.GetComponent<Animator>().SetBool("Death", true);
 
@@ -269,17 +321,12 @@ public class GhostController : MonoBehaviour
 
     IEnumerator StartDeath()
     {
-        int timer = 5;
+        backgroundMusic.StopPlaying();
 
-        backgroundMusic.ChangeBackgroundMusic(3);
-
-        while (timer > 0)
+        while(transform.position != initialPosition)
         {
             yield return new WaitForSeconds(1f);
-            timer--;
         }
-
-        isDeath = false;
 
         if (isScared)
         {
@@ -288,29 +335,6 @@ public class GhostController : MonoBehaviour
         }
 
         SetNormal();
-
-    }
-
-    private void MovementBGM()
-    {
-        if (!backgroundMusic.Playing())
-        {
-            if (isNormal && !isScared && !isRecovering && !isDeath)
-            {
-                backgroundMusic.ChangeBackgroundMusic(1);
-            }
-            else
-            {
-                if ((isScared || isRecovering) && !isDeath)
-                {
-                    backgroundMusic.ChangeBackgroundMusic(2);
-                }
-                else if (isDeath)
-                {
-                    backgroundMusic.ChangeBackgroundMusic(3);
-                }
-            }
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -34,11 +34,11 @@ public class GhostMovement : MonoBehaviour
     {
         switch (GameManager.currentGameState)
         {
-            case GameManager.GameState.GameScene:
+            case GameState.GameScene:
                 //MovementBGM();
                 break;
 
-            case GameManager.GameState.GameOverScene:
+            case GameState.GameOverScene:
                 //Destroy(this.gameObject.GetComponent<GhostController>());
                 break;
         }

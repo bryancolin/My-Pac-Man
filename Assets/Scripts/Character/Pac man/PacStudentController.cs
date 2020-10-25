@@ -53,7 +53,7 @@ public class PacStudentController : MonoBehaviour
     {
         switch (GameManager.currentGameState)
         {
-            case GameManager.GameState.GameScene:
+            case GameState.GameScene:
                 if (!tweener.TweenExists(transform) && !isDeath)
                 {
                     GetMovementInput();
@@ -65,7 +65,7 @@ public class PacStudentController : MonoBehaviour
                 }
                 break;
 
-            case GameManager.GameState.GameOverScene:
+            case GameState.GameOverScene:
                 
                 break;
         }
