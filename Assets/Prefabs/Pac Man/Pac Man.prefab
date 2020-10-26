@@ -9463,8 +9463,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 5ac37bcc75a0c4679ae0be4a2a1809e6, type: 2}
+  - {fileID: 2100000, guid: 5ac37bcc75a0c4679ae0be4a2a1809e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14534,3 +14534,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17509eea893e64079aee6880903c44af, type: 3}
   - {fileID: 8300000, guid: a8b9cd424916b40f3947ec503c67c96b, type: 3}
   - {fileID: 8300000, guid: 14dd607577f7e4fda8224fd875a0067f, type: 3}
+  totalPellets: 0

@@ -265,10 +265,10 @@ GameObject:
   - component: {fileID: 6079676363291154420}
   - component: {fileID: 6079676363291154427}
   - component: {fileID: 6079676363291154426}
-  - component: {fileID: 6079676362051335774}
   - component: {fileID: 1420058512859428071}
   - component: {fileID: 6428837983286392355}
   - component: {fileID: 8842361485681424791}
+  - component: {fileID: 6079676362051335775}
   m_Layer: 0
   m_Name: Yellow Ghost
   m_TagString: YellowGhost
@@ -360,18 +360,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6079676362051335774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6079676363291154425}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 766f20ba0de014af2b76a52685f9c9db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &1420058512859428071
 Rigidbody2D:
   serializedVersion: 4
@@ -421,3 +409,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a26c7bcb2bdd64f298523e765f573e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6079676362051335775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6079676363291154425}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7209e923b15e54af1a6741dcb69b0226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentGhostState: 0

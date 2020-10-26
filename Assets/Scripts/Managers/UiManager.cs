@@ -15,14 +15,13 @@ public class UiManager : MonoBehaviour
 
     private Coroutine gameOverCoroutine;
 
-    private TextMeshProUGUI scoreLabel, playerScore, gameDurationTime, ghostScaredTime, gameOver;
+    private TextMeshProUGUI scoreLabel, playerScore, gameDurationTime, gameOver;
 
     public List<Image> lives;
     private Image live1, live2, live3;
 
     private TimeSpan timePlaying;
     private float playTime, score;
-    //private bool isDisplay = false;
 
     // Start is called before the first frame update
     private void Awake()
@@ -40,12 +39,12 @@ public class UiManager : MonoBehaviour
     {
         switch (GameManager.currentGameState)
         {
-            case GameManager.GameState.GameScene:
+            case GameState.GameScene:
                 if (SceneManager.GetSceneByName("GameScene").isLoaded)
                     StartGame();
                 break;
-
-            case GameManager.GameState.GameOverScene:
+                
+            case GameState.GameOverScene:
 
                 Time.timeScale = 0;
 
@@ -90,13 +89,13 @@ public class UiManager : MonoBehaviour
         backgroundMusic.ChangeBackgroundMusic(0);
 
         // Set the Game State to Start
-        GameManager.currentGameState = GameManager.GameState.StartScene;
+        GameManager.currentGameState = GameState.StartScene;
         Destroy(this.gameObject.GetComponent<GameManager>());
     }
 
     IEnumerator ResetGame()
     {
-        if (GameManager.currentGameState == GameManager.GameState.GameOverScene)
+        if (GameManager.currentGameState == GameState.GameOverScene)
         {
             gameOver = GameObject.FindWithTag("GameOver").GetComponent<TextMeshProUGUI>();
             gameOver.enabled = true;
@@ -117,10 +116,10 @@ public class UiManager : MonoBehaviour
 
     public void LoadFirstLevel()
     {
-        if (GameManager.currentGameState == GameManager.GameState.StartScene)
+        if (GameManager.currentGameState == GameState.StartScene)
         {
             backgroundMusic.StopPlaying();
-            GameManager.currentGameState = GameManager.GameState.GameScene;
+            GameManager.currentGameState = GameState.GameScene;
 
             Time.timeScale = 0;
 
@@ -137,7 +136,7 @@ public class UiManager : MonoBehaviour
 
     public void ExitGame()
     {
-        if (GameManager.currentGameState == GameManager.GameState.GameScene && Time.timeScale == 1)
+        if (GameManager.currentGameState == GameState.GameScene && Time.timeScale == 1)
         {
             Reset();
 
@@ -160,7 +159,6 @@ public class UiManager : MonoBehaviour
             // Score, Games Duration and Ghost Scared Timer
             playerScore = GameObject.FindWithTag("PlayerScore").GetComponent<TextMeshProUGUI>();
             gameDurationTime = GameObject.FindWithTag("GameDuration").GetComponent<TextMeshProUGUI>();
-            ghostScaredTime = GameObject.FindWithTag("GhostTimer").GetComponent<TextMeshProUGUI>();
 
             // Lives GameObject
             live1 = GameObject.Find("Lives 1").GetComponent<Image>();

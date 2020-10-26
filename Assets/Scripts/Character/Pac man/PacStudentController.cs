@@ -18,7 +18,7 @@ public class PacStudentController : MonoBehaviour
     private Tweener tweener;
     private float movementSqrtMagnitude;
 
-    private Vector3 movement, lastInput, currentInput, destination;
+    private Vector3 movement, lastInput, currentInput, destination, initialPosition;
 
     private int xPosition, yPosition;
 
@@ -26,6 +26,7 @@ public class PacStudentController : MonoBehaviour
 
     private void Awake()
     {
+        initialPosition = transform.position;
     }
 
     // Start is called before the first frame update
@@ -48,16 +49,11 @@ public class PacStudentController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() 
+    void Update()
     {
-        if (tweener == null)
-        {
-            tweener = GetComponent<Tweener>();
-        }
-
         switch (GameManager.currentGameState)
         {
-            case GameManager.GameState.GameScene:
+            case GameState.GameScene:
                 if (!tweener.TweenExists(transform) && !isDeath)
                 {
                     GetMovementInput();
@@ -69,8 +65,8 @@ public class PacStudentController : MonoBehaviour
                 }
                 break;
 
-            case GameManager.GameState.GameOverScene:
-                Destroy(gameObject.GetComponent<PacStudentController>());
+            case GameState.GameOverScene:
+                
                 break;
         }
     }
@@ -282,8 +278,6 @@ public class PacStudentController : MonoBehaviour
         {
             animator.SetFloat("Speed", movementSqrtMagnitude);
         }
-        //animator.SetFloat("Horizontal", direction.x);
-        //animator.SetFloat("Vertical", direction.y);
     }
 
     void ParticlePlay()
@@ -334,7 +328,7 @@ public class PacStudentController : MonoBehaviour
             //Debug.Log("Trigger Enter: " + collision.name + " : " + collision.offset);
         }
 
-        if(collision.CompareTag("Portal"))
+        if (collision.CompareTag("Portal"))
         {
             collideParticle.Play();
         }
@@ -345,7 +339,7 @@ public class PacStudentController : MonoBehaviour
             totalPellets += 1;
             Destroy(collision.gameObject);
         }
-        
+
         if (collision.CompareTag("Cherry"))
         {
             UiManager.Instance.UpdateScore(100);
@@ -369,12 +363,10 @@ public class PacStudentController : MonoBehaviour
         // Last Input & Current Input becomes null
         lastInput = Vector3.zero;
         currentInput = lastInput;
+
         yield return new WaitForSeconds(0.5f);
 
-        // Destroy Tweener, Spawn in Top Left, Add Tweener Back
-        Destroy(gameObject.GetComponent<Tweener>());
-        transform.position = new Vector3(-12.5f, 13.0f, 0.0f);
-        gameObject.AddComponent<Tweener>();
+        transform.position = initialPosition;
         isDeath = false;
     }
 }
