@@ -241,6 +241,12 @@ public class GhostController : MonoBehaviour
         isDeath = true;
         currentGhostState = GhostState.Death;
 
+        if(isNormal)
+        {
+            isNormal = false;
+            isScared = true;
+        }
+
         if (isRecovering)
         {
             isRecovering = false;
@@ -284,6 +290,19 @@ public class GhostController : MonoBehaviour
                 if (!isDeath)
                 {
                     UiManager.Instance.UpdateScore(300);
+                    SetDeath();
+                }
+            }
+        }
+
+        if (collision.CompareTag("Fire"))
+        {
+            if (isNormal || isScared || isRecovering)
+            {
+                if (!isDeath)
+                {
+                    Destroy(collision.gameObject);
+                    UiManager.Instance.UpdateScore(100);
                     SetDeath();
                 }
             }

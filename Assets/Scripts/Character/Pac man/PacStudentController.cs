@@ -15,12 +15,14 @@ public class PacStudentController : MonoBehaviour
     public AudioClip[] movementClips;
     private bool isEating = true, isDeath = false;
 
+    public GameObject fireBall;
+
     private Tweener tweener;
     private float movementSqrtMagnitude;
 
     private Vector3 movement, lastInput, currentInput, destination, initialPosition;
 
-    private int xPosition, yPosition;
+    private int xPosition, yPosition, specialAttack;
 
     public int totalPellets;
 
@@ -54,6 +56,7 @@ public class PacStudentController : MonoBehaviour
         switch (GameManager.currentGameState)
         {
             case GameState.GameScene:
+                AttackInput();
                 if (!tweener.TweenExists(transform) && !isDeath)
                 {
                     GetMovementInput();
@@ -66,7 +69,7 @@ public class PacStudentController : MonoBehaviour
                 break;
 
             case GameState.GameOverScene:
-                
+
                 break;
         }
     }
@@ -86,6 +89,18 @@ public class PacStudentController : MonoBehaviour
             lastInput = Vector3.up;
         else if (movement.y < 0)
             lastInput = Vector3.down;
+    }
+
+    void AttackInput()
+    {
+        if (specialAttack > 0)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && fireBall != null)
+            {
+                Instantiate(fireBall, transform.position, transform.rotation);
+                specialAttack--;
+            }
+        }
     }
 
     void CharacterPosition()
@@ -350,6 +365,12 @@ public class PacStudentController : MonoBehaviour
         {
             gameManager.ScareGhost();
             totalPellets += 1;
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.CompareTag("SpecialAttack"))
+        {
+            specialAttack = 3;
             Destroy(collision.gameObject);
         }
     }

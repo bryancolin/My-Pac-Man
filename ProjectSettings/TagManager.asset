@@ -37,6 +37,8 @@ TagManager:
   - BGM
   - Maze
   - GameOver
+  - SpecialAttack
+  - Fire
   layers:
   - Default
   - TransparentFX
