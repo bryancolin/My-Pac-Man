@@ -31,6 +31,11 @@ public class GameManager : MonoBehaviour
                 SetCamera();
                 SetCharacter();
             }
+            if (SceneManager.GetSceneByName("InnovativeScene").isLoaded)
+            {
+                lives = 3;
+                SetCharacter();
+            }
         }
     }
 

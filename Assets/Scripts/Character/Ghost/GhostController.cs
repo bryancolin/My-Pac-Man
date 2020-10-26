@@ -147,7 +147,7 @@ public class GhostController : MonoBehaviour
         if (!isDeath)
             tweener.AddTween(transform, transform.position, transform.position + inputDirection, 0.3f);
         else
-            tweener.AddTween(transform, transform.position, initialPosition, (transform.position - initialPosition).sqrMagnitude);
+            tweener.AddTween(transform, transform.position, initialPosition, 5.0f);
     }
 
     void WalkingAnimation()

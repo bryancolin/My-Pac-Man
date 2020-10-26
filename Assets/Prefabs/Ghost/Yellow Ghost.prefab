@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 6428837983286392355}
   - component: {fileID: 8842361485681424791}
   - component: {fileID: 6079676362051335775}
+  - component: {fileID: 796210293}
   m_Layer: 0
   m_Name: Yellow Ghost
   m_TagString: YellowGhost
@@ -309,7 +310,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -422,3 +423,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentGhostState: 0
+--- !u!114 &796210293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6079676363291154425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f6d3c6e4250e84192f5b34ce9e71bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowColor: {r: 1, g: 0, b: 0, a: 1}
+  glowBrightness: 4.76
+  outlineWidth: 1
+  alphaThreshold: 0
+  drawOutside: 0
+  enableInstancing: 0

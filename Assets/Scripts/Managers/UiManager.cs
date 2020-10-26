@@ -40,10 +40,10 @@ public class UiManager : MonoBehaviour
         switch (GameManager.currentGameState)
         {
             case GameState.GameScene:
-                if (SceneManager.GetSceneByName("GameScene").isLoaded)
+                if (SceneManager.GetSceneByName("GameScene").isLoaded || SceneManager.GetSceneByName("InnovativeScene").isLoaded)
                     StartGame();
                 break;
-                
+
             case GameState.GameOverScene:
 
                 Time.timeScale = 0;
@@ -66,7 +66,7 @@ public class UiManager : MonoBehaviour
         scoreLabel.SetText("High Score: " + previousHighScore + " - Time: " + timePlaying.ToString("mm':'ss':'ff"));
     }
 
-    private void StartGame() 
+    private void StartGame()
     {
         // Score
         playerScore.SetText(score.ToString());
@@ -134,6 +134,20 @@ public class UiManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    public void LoadCreativeLevel()
+    {
+        if (GameManager.currentGameState == GameState.StartScene)
+        {
+            backgroundMusic.StopPlaying();
+            GameManager.currentGameState = GameState.GameScene;
+
+            Time.timeScale = 0;
+
+            SceneManager.LoadScene(3);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+    }
+
     public void ExitGame()
     {
         if (GameManager.currentGameState == GameState.GameScene && Time.timeScale == 1)
@@ -154,7 +168,7 @@ public class UiManager : MonoBehaviour
 
         if (scene.buildIndex == 1)
         {
-            GetExitButton();            
+            GetExitButton();
 
             // Score, Games Duration and Ghost Scared Timer
             playerScore = GameObject.FindWithTag("PlayerScore").GetComponent<TextMeshProUGUI>();
@@ -170,12 +184,33 @@ public class UiManager : MonoBehaviour
                 lives.Add(live1);
                 lives.Add(live2);
                 lives.Add(live3);
-            } 
+            }
         }
 
         if (scene.buildIndex == 2)
         {
-            
+
+        }
+
+        if (scene.buildIndex == 3)
+        {
+            GetExitButton();
+
+            // Score, Games Duration and Ghost Scared Timer
+            playerScore = GameObject.FindWithTag("PlayerScore").GetComponent<TextMeshProUGUI>();
+            gameDurationTime = GameObject.FindWithTag("GameDuration").GetComponent<TextMeshProUGUI>();
+
+            // Lives GameObject
+            live1 = GameObject.Find("Lives 1").GetComponent<Image>();
+            live2 = GameObject.Find("Lives 2").GetComponent<Image>();
+            live3 = GameObject.Find("Lives 3").GetComponent<Image>();
+
+            if (lives.Count < 3)
+            {
+                lives.Add(live1);
+                lives.Add(live2);
+                lives.Add(live3);
+            }
         }
     }
 
@@ -185,7 +220,7 @@ public class UiManager : MonoBehaviour
         playButtom.onClick.AddListener(LoadFirstLevel);
 
         Button designButton = GameObject.FindWithTag("DesignButton").GetComponent<Button>();
-        designButton.onClick.AddListener(LoadDesignLevel);
+        designButton.onClick.AddListener(LoadCreativeLevel);
     }
 
     public void GetExitButton()
