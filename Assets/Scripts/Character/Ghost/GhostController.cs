@@ -22,7 +22,7 @@ public class GhostController : MonoBehaviour
 
     private Coroutine startScared, startDeath;
 
-    private bool isNormal = true, isScared = false, isRecovering = false, isDeath = false, spawnArea = false;
+    private bool isNormal = true, isScared = false, isRecovering = false, isDeath = false;
 
     private void Awake()
     {
@@ -144,10 +144,10 @@ public class GhostController : MonoBehaviour
 
     void Tweening(Vector3 inputDirection)
     {
-        if(!isDeath)
+        if (!isDeath)
             tweener.AddTween(transform, transform.position, transform.position + inputDirection, 0.3f);
         else
-            tweener.AddTween(transform, transform.position, initialPosition, 5.0f);
+            tweener.AddTween(transform, transform.position, initialPosition, (transform.position - initialPosition).sqrMagnitude);
     }
 
     void WalkingAnimation()
@@ -155,87 +155,27 @@ public class GhostController : MonoBehaviour
         Vector3 direction = destination - transform.position;
         movementSqrtMagnitude = direction.sqrMagnitude;
 
-        if (movementSqrtMagnitude != 1.0f)
-        {
-            animator.SetFloat("Speed", 0);
-        }
-        else
-        {
-            animator.SetFloat("Speed", movementSqrtMagnitude);
-        }
+        animator.SetFloat("Speed", movementSqrtMagnitude);
 
         animator.SetFloat("Horizontal", direction.x);
         animator.SetFloat("Vertical", direction.y);
+
+        animator.SetBool("Scared", isScared);
+        animator.SetBool("Transition", isRecovering);
+        animator.SetBool("Death", isDeath);
     }
 
-    void CheckSpawnArea()
-    {
-        if(transform.position == initialPosition)
-        {
-            if(currentGhostState == GhostState.Death)
-            {
-                SetNormal();
-            }
-        }
-        else
-        {
-        }
-    }
-
-    //void ChangingState()
-    //{
-    //    if(isNormal)
-    //    {
-    //        isNormal = true;
-    //        currentGhostState = GhostState.Normal;
-
-    //        backgroundMusic.StopPlaying();
-
-    //        transform.GetComponent<Animator>().SetBool("Scared", false);
-    //        transform.GetComponent<Animator>().SetBool("Transition", false);
-    //        transform.GetComponent<Animator>().SetBool("Death", false);
-    //        //backgroundMusic.ChangeBackgroundMusic(1);
-    //    }
-    //    else if(isScared)
-    //    {
-
-    //    }
-    //    else if(isRecovering)
-    //    {
-
-    //    }
-    //    else if(isDeath)
-    //    {
-
-    //    }
-    //}
-
-    // Set Ghost back to Normal State
     public void SetNormal()
     {
         isNormal = true;
         currentGhostState = GhostState.Normal;
-
-        if (!isScared || !isRecovering)
-        {
-            if (isDeath)
-            {
-                isDeath = false;
-                backgroundMusic.StopPlaying();
-            }
-        }
-
-        animator.SetBool("Scared", false);
-        animator.SetBool("Transition", false);
-        animator.SetBool("Death", false);
+        backgroundMusic.StopPlaying();
     }
 
-    // Set Ghost to Scared State
     public void SetScared()
     {
         isNormal = false;
         isScared = true;
-
         currentGhostState = GhostState.Scared;
 
         if (startScared != null)
@@ -248,12 +188,10 @@ public class GhostController : MonoBehaviour
 
     IEnumerator StartScared()
     {
-        if (isRecovering == true)
+        if (isRecovering)
         {
-            SetNormal();
+            isRecovering = false;
         }
-
-        animator.SetBool("Scared", true);
 
         backgroundMusic.StopPlaying();
 
@@ -295,22 +233,17 @@ public class GhostController : MonoBehaviour
     {
         isRecovering = true;
         currentGhostState = GhostState.Recovering;
-
-        animator.SetBool("Transition", isRecovering);
     }
 
-    // Set Ghost to Death State
+
     public void SetDeath()
     {
         isDeath = true;
         currentGhostState = GhostState.Death;
 
-        animator.SetBool("Death", true);
-
         if (isRecovering)
         {
             isRecovering = false;
-            animator.SetBool("Transition", false);
         }
 
         if (startDeath == null)
@@ -323,7 +256,7 @@ public class GhostController : MonoBehaviour
     {
         backgroundMusic.StopPlaying();
 
-        while(transform.position != initialPosition)
+        while (transform.position != initialPosition)
         {
             yield return new WaitForSeconds(1f);
         }
@@ -331,8 +264,9 @@ public class GhostController : MonoBehaviour
         if (isScared)
         {
             isScared = false;
-            animator.SetBool("Scared", false);
         }
+
+        isDeath = false;
 
         SetNormal();
     }

@@ -2277,6 +2277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7209e923b15e54af1a6741dcb69b0226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentGhostState: 0
 --- !u!1001 &6079676362051335772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2369,6 +2370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7209e923b15e54af1a6741dcb69b0226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentGhostState: 0
 --- !u!1001 &6313858789060181326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2541,6 +2543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7209e923b15e54af1a6741dcb69b0226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentGhostState: 0
 --- !u!1001 &8440065018839963997
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2633,3 +2636,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7209e923b15e54af1a6741dcb69b0226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentGhostState: 0
