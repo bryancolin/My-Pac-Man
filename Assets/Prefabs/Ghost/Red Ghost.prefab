@@ -265,10 +265,10 @@ GameObject:
   - component: {fileID: 1043597955518657928}
   - component: {fileID: 1640367469763864615}
   - component: {fileID: 152837642442598392}
-  - component: {fileID: 8440065018839963999}
   - component: {fileID: 5575050800711099534}
   - component: {fileID: 3086562085679104616}
   - component: {fileID: 2743413657202796316}
+  - component: {fileID: 8440065018839964000}
   m_Layer: 0
   m_Name: Red Ghost
   m_TagString: RedGhost
@@ -361,18 +361,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8440065018839963999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7050551974044870517}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 766f20ba0de014af2b76a52685f9c9db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &5575050800711099534
 Rigidbody2D:
   serializedVersion: 4
@@ -422,3 +410,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a26c7bcb2bdd64f298523e765f573e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8440065018839964000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7050551974044870517}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7209e923b15e54af1a6741dcb69b0226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentGhostState: 0
