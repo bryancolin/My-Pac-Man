@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 160768958}
   - component: {fileID: 160768957}
   - component: {fileID: 160768956}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 899613375}
   - component: {fileID: 899613377}
   - component: {fileID: 899613376}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 8842361485681424791}
   - component: {fileID: 6079676362051335775}
   - component: {fileID: 796210293}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Yellow Ghost
   m_TagString: YellowGhost
   m_Icon: {fileID: 0}

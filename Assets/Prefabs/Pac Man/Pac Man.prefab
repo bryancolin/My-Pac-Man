@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 386416245}
   - component: {fileID: 386416247}
   - component: {fileID: 386416246}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Dust Particle Effect
   m_TagString: MovingParticle
   m_Icon: {fileID: 0}
@@ -4765,7 +4765,7 @@ GameObject:
   - component: {fileID: 1219544406}
   - component: {fileID: 1219544408}
   - component: {fileID: 1219544407}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall Particle Effect
   m_TagString: CollisionParticle
   m_Icon: {fileID: 0}
@@ -9519,7 +9519,7 @@ GameObject:
   - component: {fileID: 1306197152}
   - component: {fileID: 1306197154}
   - component: {fileID: 1306197153}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Death Particle Effect
   m_TagString: DeathParticle
   m_Icon: {fileID: 0}
@@ -14279,7 +14279,7 @@ GameObject:
   - component: {fileID: 882554139}
   - component: {fileID: 882554140}
   - component: {fileID: 2045797415}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pac Man
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -14535,6 +14535,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17509eea893e64079aee6880903c44af, type: 3}
   - {fileID: 8300000, guid: a8b9cd424916b40f3947ec503c67c96b, type: 3}
   - {fileID: 8300000, guid: 14dd607577f7e4fda8224fd875a0067f, type: 3}
+  fireBall: {fileID: 2277514160280316586, guid: b94372a6135724f1b98240dd29b5b9f4,
+    type: 3}
   totalPellets: 0
 --- !u!114 &2045797415
 MonoBehaviour:

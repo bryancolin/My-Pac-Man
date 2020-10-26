@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1969725278}
   - component: {fileID: 1969725277}
   - component: {fileID: 1969725276}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 1970977142}
   - component: {fileID: 1970977144}
   - component: {fileID: 1970977143}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 6853997420161697269}
   - component: {fileID: 5039382559103379078}
   - component: {fileID: 2017541812}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pink Ghost
   m_TagString: PinkGhost
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1545483282747653115}
   - component: {fileID: 2322510848618852561}
   - component: {fileID: 8475987711392963567}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 1-Corner Double Line
   m_TagString: Wall
   m_Icon: {fileID: 0}

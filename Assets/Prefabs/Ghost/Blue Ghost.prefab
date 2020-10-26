@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1197787003}
   - component: {fileID: 1197787002}
   - component: {fileID: 1197787001}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 2024702664}
   - component: {fileID: 2024702666}
   - component: {fileID: 2024702665}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 4337677486187687892}
   - component: {fileID: 8006661264844424889}
   - component: {fileID: 877008814}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Blue Ghost
   m_TagString: BlueGhost
   m_Icon: {fileID: 0}

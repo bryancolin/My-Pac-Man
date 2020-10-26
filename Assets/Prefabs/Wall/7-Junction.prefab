@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4393145155890828926}
   - component: {fileID: 7603069918074325245}
   - component: {fileID: 3309479046869049663}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 7-Junction
   m_TagString: Wall
   m_Icon: {fileID: 0}

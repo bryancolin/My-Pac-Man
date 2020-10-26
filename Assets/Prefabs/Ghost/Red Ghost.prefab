@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 95272643}
   - component: {fileID: 95272645}
   - component: {fileID: 95272644}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 1358913044}
   - component: {fileID: 1358913043}
   - component: {fileID: 1358913042}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 2743413657202796316}
   - component: {fileID: 8440065018839964000}
   - component: {fileID: 2080462039}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Red Ghost
   m_TagString: RedGhost
   m_Icon: {fileID: 0}
