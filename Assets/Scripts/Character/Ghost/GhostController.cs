@@ -160,6 +160,7 @@ public class GhostController : MonoBehaviour
         animator.SetFloat("Horizontal", direction.x);
         animator.SetFloat("Vertical", direction.y);
 
+        animator.SetBool("Normal", isNormal);
         animator.SetBool("Scared", isScared);
         animator.SetBool("Transition", isRecovering);
         animator.SetBool("Death", isDeath);
@@ -175,8 +176,13 @@ public class GhostController : MonoBehaviour
     public void SetScared()
     {
         isNormal = false;
-        isScared = true;
         currentGhostState = GhostState.Scared;
+
+        if (isRecovering)
+        {
+            isNormal = true;
+            isRecovering = false;
+        }
 
         if (startScared != null)
         {
@@ -188,11 +194,7 @@ public class GhostController : MonoBehaviour
 
     IEnumerator StartScared()
     {
-        if (isRecovering)
-        {
-            isRecovering = false;
-        }
-
+        isScared = true;
         backgroundMusic.StopPlaying();
 
         ghostTimer.gameObject.SetActive(true);
@@ -204,12 +206,14 @@ public class GhostController : MonoBehaviour
         {
             if (isDeath)
             {
+                isScared = false;
                 yield break;
             }
 
             if (timer == 3)
             {
                 ghostTimer.color = Color.red;
+                isScared = false;
                 SetTransition();
             }
 
@@ -220,7 +224,6 @@ public class GhostController : MonoBehaviour
 
         ghostTimer.gameObject.SetActive(false);
 
-        isScared = false;
         isRecovering = false;
 
         SetNormal();
@@ -235,7 +238,6 @@ public class GhostController : MonoBehaviour
         currentGhostState = GhostState.Recovering;
     }
 
-
     public void SetDeath()
     {
         isDeath = true;
@@ -245,6 +247,11 @@ public class GhostController : MonoBehaviour
         {
             isNormal = false;
             isScared = true;
+        }
+
+        if(isScared)
+        {
+            isScared = false;
         }
 
         if (isRecovering)
@@ -265,11 +272,6 @@ public class GhostController : MonoBehaviour
         while (transform.position != initialPosition)
         {
             yield return new WaitForSeconds(1f);
-        }
-
-        if (isScared)
-        {
-            isScared = false;
         }
 
         isDeath = false;

@@ -92,13 +92,16 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                if ((redGhost.currentGhostState == GhostState.Scared && blueGhost.currentGhostState == GhostState.Scared && yellowGhost.currentGhostState == GhostState.Scared && pinkGhost.currentGhostState == GhostState.Scared) || (redGhost.currentGhostState == GhostState.Recovering && blueGhost.currentGhostState == GhostState.Recovering && yellowGhost.currentGhostState == GhostState.Recovering && pinkGhost.currentGhostState == GhostState.Recovering))
+                if ((redGhost.currentGhostState == GhostState.Scared || blueGhost.currentGhostState == GhostState.Scared || yellowGhost.currentGhostState == GhostState.Scared || pinkGhost.currentGhostState == GhostState.Scared) || (redGhost.currentGhostState == GhostState.Recovering || blueGhost.currentGhostState == GhostState.Recovering || yellowGhost.currentGhostState == GhostState.Recovering || pinkGhost.currentGhostState == GhostState.Recovering))
                 {
-                    backgroundMusic.ChangeBackgroundMusic(2);
-                }
-                else if (redGhost.currentGhostState == GhostState.Death || blueGhost.currentGhostState == GhostState.Death || yellowGhost.currentGhostState == GhostState.Death || pinkGhost.currentGhostState == GhostState.Death)
-                {
-                    backgroundMusic.ChangeBackgroundMusic(3);
+                    if (redGhost.currentGhostState == GhostState.Death || blueGhost.currentGhostState == GhostState.Death || yellowGhost.currentGhostState == GhostState.Death || pinkGhost.currentGhostState == GhostState.Death)
+                    {
+                        backgroundMusic.ChangeBackgroundMusic(3);
+                    }
+                    else
+                    {
+                        backgroundMusic.ChangeBackgroundMusic(2);
+                    }
                 }
             }
         }

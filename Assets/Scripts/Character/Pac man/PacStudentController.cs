@@ -370,6 +370,7 @@ public class PacStudentController : MonoBehaviour
 
         if (collision.CompareTag("SpecialAttack"))
         {
+            movementSource.PlayOneShot(movementClips[3]);
             specialAttack = 3;
             Destroy(collision.gameObject);
         }
