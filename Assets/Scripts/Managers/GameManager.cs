@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     private PacStudentController pacStudent;
     private GhostController redGhost, blueGhost, yellowGhost, pinkGhost;
 
-    private int lives; 
+    private int lives;
 
     private void Awake()
     {
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
             case GameState.GameScene:
                 MovementBGM();
 
-                if(lives == 0 || pacStudent.GetComponent<PacStudentController>().totalPellets == 222)
+                if (lives == 0 || pacStudent.GetComponent<PacStudentController>().totalPellets == 222)
                 {
                     currentGameState = GameState.GameOverScene;
                 }
@@ -84,9 +84,9 @@ public class GameManager : MonoBehaviour
 
     private void MovementBGM()
     {
-        if(!backgroundMusic.Playing())
+        if (!backgroundMusic.Playing())
         {
-            if(redGhost.currentGhostState == GhostState.Normal && blueGhost.currentGhostState == GhostState.Normal && yellowGhost.currentGhostState == GhostState.Normal && pinkGhost.currentGhostState == GhostState.Normal)
+            if (redGhost.currentGhostState == GhostState.Normal && blueGhost.currentGhostState == GhostState.Normal && yellowGhost.currentGhostState == GhostState.Normal && pinkGhost.currentGhostState == GhostState.Normal)
             {
                 backgroundMusic.ChangeBackgroundMusic(1);
             }
@@ -102,6 +102,10 @@ public class GameManager : MonoBehaviour
                     {
                         backgroundMusic.ChangeBackgroundMusic(2);
                     }
+                }
+                else if (redGhost.currentGhostState == GhostState.Death || blueGhost.currentGhostState == GhostState.Death || yellowGhost.currentGhostState == GhostState.Death || pinkGhost.currentGhostState == GhostState.Death)
+                {
+                    backgroundMusic.ChangeBackgroundMusic(3);
                 }
             }
         }

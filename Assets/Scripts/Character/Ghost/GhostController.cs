@@ -170,20 +170,12 @@ public class GhostController : MonoBehaviour
     {
         isNormal = true;
         currentGhostState = GhostState.Normal;
+        Debug.Log("Normal " + isNormal);
         backgroundMusic.StopPlaying();
     }
 
     public void SetScared()
-    {
-        isNormal = false;
-        currentGhostState = GhostState.Scared;
-
-        if (isRecovering)
-        {
-            isNormal = true;
-            isRecovering = false;
-        }
-
+    { 
         if (startScared != null)
         {
             StopCoroutine(startScared);
@@ -194,7 +186,20 @@ public class GhostController : MonoBehaviour
 
     IEnumerator StartScared()
     {
-        isScared = true;
+        if (isRecovering)
+        {
+            isRecovering = false;
+            isNormal = true;
+            yield return new WaitForSeconds(0.3f);
+        }
+
+        if (isNormal)
+        {
+            isNormal = false;
+            isScared = true;
+        }
+
+        currentGhostState = GhostState.Scared;
         backgroundMusic.StopPlaying();
 
         ghostTimer.gameObject.SetActive(true);
@@ -226,9 +231,9 @@ public class GhostController : MonoBehaviour
 
         isRecovering = false;
 
-        SetNormal();
-
         startScared = null;
+
+        SetNormal();
     }
 
     // Set Ghost to Recovering State
@@ -242,21 +247,23 @@ public class GhostController : MonoBehaviour
     {
         isDeath = true;
         currentGhostState = GhostState.Death;
+        backgroundMusic.StopPlaying();
 
-        if(isNormal)
+        if (isNormal)
         {
             isNormal = false;
-            isScared = true;
         }
 
-        if(isScared)
+        if (isScared)
         {
             isScared = false;
+            Debug.Log("Scared " + isScared + gameObject.name);
         }
 
         if (isRecovering)
         {
             isRecovering = false;
+            Debug.Log("Recovering" + isRecovering + gameObject.name);
         }
 
         if (startDeath == null)
@@ -267,14 +274,16 @@ public class GhostController : MonoBehaviour
 
     IEnumerator StartDeath()
     {
-        backgroundMusic.StopPlaying();
-
         while (transform.position != initialPosition)
         {
+            Debug.Log("stuck" + gameObject.name);
             yield return new WaitForSeconds(1f);
         }
 
         isDeath = false;
+        Debug.Log("Death " + isDeath + gameObject.name);
+
+        startDeath = null;
 
         SetNormal();
     }
