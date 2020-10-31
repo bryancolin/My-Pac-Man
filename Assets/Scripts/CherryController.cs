@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class CherryController : MonoBehaviour
@@ -69,9 +68,9 @@ public class CherryController : MonoBehaviour
     // Destroying Cherry
     private void DestroyCherry()
     {
-        if(cherryRef!= null)
+        if (cherryRef != null)
         {
-            if(cherryRef.transform.position == finalPosition)
+            if (cherryRef.transform.position == finalPosition)
             {
                 Destroy(cherryRef);
             }
